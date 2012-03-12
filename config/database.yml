@@ -1,0 +1,23 @@
+test:
+  adapter: mysql2
+  database: bubu_test
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
+
+development:
+  adapter: mysql2
+  database: bubu
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
+
+production:
+  adapter: mysql2
+  database: bubu
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
