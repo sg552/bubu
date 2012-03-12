@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Price:</b>
+  <%= @specific_item.price %>
+</p>
+
+<p>
+  <b>Word of mouth:</b>
+  <%= @specific_item.word_of_mouth %>
+</p>
+
+<p>
+  <b>Delivery method:</b>
+  <%= @specific_item.delivery_method %>
+</p>
+
+<p>
+  <b>Generic item:</b>
+  <%= @specific_item.generic_item_id %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @specific_item.vendor %>
+</p>
+
+<p>
+  <b>Source website name:</b>
+  <%= @specific_item.source_website_name %>
+</p>
+
+<p>
+  <b>Source url:</b>
+  <%= @specific_item.source_url %>
+</p>
+
+
+<%= link_to 'Edit', edit_specific_item_path(@specific_item) %> |
+<%= link_to 'Back', specific_items_path %>

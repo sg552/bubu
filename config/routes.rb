@@ -1,4 +1,8 @@
 Bubu::Application.routes.draw do
+  resources :specific_items
+
+  resources :generic_items
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users

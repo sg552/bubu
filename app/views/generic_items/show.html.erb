@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @generic_item.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @generic_item.description %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @generic_item.category_id %>
+</p>
+
+<p>
+  <b>Uuid:</b>
+  <%= @generic_item.uuid %>
+</p>
+
+<p>
+  <b>Child age scope:</b>
+  <%= @generic_item.child_age_scope %>
+</p>
+
+<p>
+  <b>Scores:</b>
+  <%= @generic_item.scores %>
+</p>
+
+<p>
+  <b>Tips:</b>
+  <%= @generic_item.tips %>
+</p>
+
+
+<%= link_to 'Edit', edit_generic_item_path(@generic_item) %> |
+<%= link_to 'Back', generic_items_path %>

@@ -1,0 +1,45 @@
+<%= form_for(@generic_item) do |f| %>
+  <% if @generic_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@generic_item.errors.count, "error") %> prohibited this generic_item from being saved:</h2>
+
+      <ul>
+      <% @generic_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.number_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :uuid %><br />
+    <%= f.text_field :uuid %>
+  </div>
+  <div class="field">
+    <%= f.label :child_age_scope %><br />
+    <%= f.text_field :child_age_scope %>
+  </div>
+  <div class="field">
+    <%= f.label :scores %><br />
+    <%= f.text_field :scores %>
+  </div>
+  <div class="field">
+    <%= f.label :tips %><br />
+    <%= f.text_area :tips %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

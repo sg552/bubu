@@ -1,0 +1,35 @@
+<h1>Listing specific_items</h1>
+
+<table>
+  <tr>
+    <th>Price</th>
+    <th>Word of mouth</th>
+    <th>Delivery method</th>
+    <th>Generic item</th>
+    <th>Vendor</th>
+    <th>Source website name</th>
+    <th>Source url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @specific_items.each do |specific_item| %>
+  <tr>
+    <td><%= specific_item.price %></td>
+    <td><%= specific_item.word_of_mouth %></td>
+    <td><%= specific_item.delivery_method %></td>
+    <td><%= specific_item.generic_item_id %></td>
+    <td><%= specific_item.vendor %></td>
+    <td><%= specific_item.source_website_name %></td>
+    <td><%= specific_item.source_url %></td>
+    <td><%= link_to 'Show', specific_item %></td>
+    <td><%= link_to 'Edit', edit_specific_item_path(specific_item) %></td>
+    <td><%= link_to 'Destroy', specific_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Specific item', new_specific_item_path %>

@@ -1,0 +1,2 @@
+module GenericItemsHelper
+end

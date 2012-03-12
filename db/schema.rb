@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312005038) do
+ActiveRecord::Schema.define(:version => 20120312160102) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -18,6 +18,18 @@ ActiveRecord::Schema.define(:version => 20120312005038) do
     t.text     "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "generic_items", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "category_id"
+    t.string   "uuid"
+    t.string   "child_age_scope"
+    t.string   "scores"
+    t.text     "tips"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -32,6 +44,18 @@ ActiveRecord::Schema.define(:version => 20120312005038) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "specific_items", :force => true do |t|
+    t.string   "price"
+    t.string   "word_of_mouth"
+    t.string   "delivery_method"
+    t.integer  "generic_item_id"
+    t.string   "vendor"
+    t.string   "source_website_name"
+    t.text     "source_url"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
