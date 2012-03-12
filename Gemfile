@@ -28,7 +28,7 @@ group :assets do
 end
 group :development, :test do
   gem 'factory_girl_rails', '1.3.0'
-  gem 'rspec', '2.8.0'
+  #gem 'rspec', '2.8.0'
   gem 'rspec-rails', '2.8.1'
 end
 
