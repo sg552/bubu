@@ -1,4 +1,5 @@
 Bubu::Application.configure do
+  Paperclip.options[:command_path] = "/usr/bin/"
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -34,4 +35,5 @@ Bubu::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
 end

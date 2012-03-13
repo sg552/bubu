@@ -1,4 +1,4 @@
-<%= form_for(@generic_item) do |f| %>
+<%= form_for(@generic_item, :html => { :multipart => true }) do |f| %>
   <% if @generic_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@generic_item.errors.count, "error") %> prohibited this generic_item from being saved:</h2>
@@ -12,33 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    名称: <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    一段描述文字： <br/>
+    <%= f.text_area :description, :size => "40 x 4" %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
+    分类： <%= f.number_field :category_id %>
   </div>
   <div class="field">
-    <%= f.label :uuid %><br />
-    <%= f.text_field :uuid %>
+    UUID(唯一性的标识) <%= f.text_field :uuid %>
   </div>
   <div class="field">
-    <%= f.label :child_age_scope %><br />
-    <%= f.text_field :child_age_scope %>
+    适宜年龄： <%= f.text_field :child_age_scope %>岁 (例如： 10~14岁）
   </div>
   <div class="field">
     <%= f.label :scores %><br />
     <%= f.text_field :scores %>
   </div>
   <div class="field">
-    <%= f.label :tips %><br />
-    <%= f.text_area :tips %>
+    小贴士：<br/>
+    <%= f.text_area :tips, :size => "40x4" %>
   </div>
+  <%= link_to_function "添加图片？ ", "" unless @generic_item.new_record? %>
+  <br/>
+  <br/>
   <div class="actions">
     <%= f.submit %>
   </div>

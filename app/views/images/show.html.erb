@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Generic item:</b>
+  <%= @image.generic_item_id %>
+  <%= image_tag @image.itself.url %>
+  <%= image_tag @image.itself.url(:thumb) %>
+</p>
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

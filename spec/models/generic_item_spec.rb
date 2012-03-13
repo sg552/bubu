@@ -1,5 +1,15 @@
 require 'spec_helper'
 
 describe GenericItem do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @generic_item = create(:generic_item)
+    @id = @generic_item.id
+  end
+
+  it "should have many images" do
+    create(:image, :generic_item_id => @id)
+    create(:image, :generic_item_id => @id)
+    @generic_item.images.size.should == 2
+  end
+
 end

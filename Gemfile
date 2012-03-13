@@ -12,6 +12,7 @@ gem 'rails_admin', :path => "vendor/gems/rails_admin"
 gem 'log4r', '1.1.9'
 
 gem 'json'
+gem "paperclip", "~> 2.7"
 
 # Gems used only for assets and not required
 # in production environments by default.
