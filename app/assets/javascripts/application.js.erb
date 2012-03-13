@@ -1,0 +1,94 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+// GO AFTER THE REQUIRES BELOW.
+//
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui-1.8.18.custom.min.js
+
+
+
+/**
+ * Usage:  given :  http://some.site.com?para1=hi
+ * para1 = params("para1")     => para1 = "hi"
+ * @param {Object} name
+ */
+function params(name)
+{
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
+}
+
+DIALOG_DIV_ID = "jquery_dialog"
+
+$(document).ready(function(){
+  //create a div for jquery's dialog use.
+  if($("#"+DIALOG_DIV_ID).size() == 0){
+    $("body").append("<div id='"+ DIALOG_DIV_ID + "' style='display:none; ' ></div>")
+  }
+})
+/**
+ */
+function open_dialog(url, options ){
+  default_options ={ width: 580, modal: true,
+    customized_ajax_start: false,
+    autoOpen: false, minHeight: 150}
+  target = $("#"+ DIALOG_DIV_ID)
+  target.html('')
+  target.dialog($.extend(default_options, options) ).dialog("open")
+  my_options = default_options
+  if(!my_options.customized_ajax_start){
+    target.ajaxStart(function(){
+      target.html('<%= image_tag asset_path("tiny_loading.gif"), :style=>"height: 24px; width:24px"%>');
+    })
+  }
+  target.load(url, function(){
+    target.dialog("option", "position", "center")
+    //move the rsvError from the parent page to dialog
+    target.prepend('<div id=\"rsvErrors\"></div>')
+    if($("#body .content #rsvErrors").size() > 0){
+      $("#body .content #rsvErrors").remove()
+    }
+  })
+}
+
+/**
+  usage:
+  1. generic and simple:
+   close_dialog()
+  2. more specific :
+   close_dialog("jquery_dialog")
+*/
+function close_dialog( div_id ){
+  div_id = set_default_value(div_id, DIALOG_DIV_ID)
+  target = $("#"+ div_id)
+  target.dialog("close")
+  // restore the rsvError div to parent page.
+  if($("#body .content #rsvErrors").size()==0){
+    $('#body .content').append('<div id=\"rsvErrors\"></div>')
+  }
+  target.html('')
+}
+
+
+
+// private method
+function set_default_value(var_name, default_value){
+  result = typeof(var_name)=="undefined" ? default_value : var_name
+  return result
+}
+
