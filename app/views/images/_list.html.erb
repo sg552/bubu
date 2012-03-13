@@ -1,10 +1,6 @@
-<% if generic_item.new_record? %>
-  需要先保存这个记录，然后才能通过“编辑”它来增加图片。
-<% else %>
 <%= link_to_function "添加图片", "open_dialog('#{new_image_path(:generic_item_id => generic_item.id)}')" %> <br/>
 <% generic_item.images.each do |image| %>
   <%= image_tag image.itself.url(:thumb) %> ,
   <%= link_to_function "更改", "open_dialog('#{edit_image_path(image)}')" %> ,
-  <%= link_to "删除", image, :method => :delete, :confirm => "确定删除吗？" %>
-<% end %>
+  <%= link_to "删除", image, :method => :delete, :confirm => "确定删除吗？" %> <br/>
 <% end %>

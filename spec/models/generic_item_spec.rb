@@ -12,4 +12,10 @@ describe GenericItem do
     @generic_item.images.size.should == 2
   end
 
+  it "should have many comments " do
+    create(:comment, :generic_item_id => @id)
+    create(:comment, :generic_item_id => @id)
+    @generic_item.comments.size.should == 2
+  end
+
 end

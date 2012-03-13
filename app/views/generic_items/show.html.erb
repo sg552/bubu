@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to_function "编辑", "open_dialog('#{edit_generic_item_path(@generic_item)}')" %>
 <p>
   <b>Name:</b>
   <%= @generic_item.name %>
@@ -11,33 +12,47 @@
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>产品分类:</b>
   <%= @generic_item.category_id %>
 </p>
 
 <p>
-  <b>Uuid:</b>
+  <b>唯一标识：Uuid:</b>
   <%= @generic_item.uuid %>
 </p>
 
 <p>
-  <b>Child age scope:</b>
-  <%= @generic_item.child_age_scope %>
+  <b>适宜年龄:</b>
+  <%= @generic_item.child_age_scope %> 岁.
 </p>
 
 <p>
   <b>Scores:</b>
-  <%= @generic_item.scores %>
+  <span id ="scores"><%= @generic_item.scores %></span>
+  <%= button_to_function "喜欢", "award_score()", :method => :put %>
+  <span id ="tip_for_scores"></span>
 </p>
 
 <p>
-  <b>Tips:</b>
+  <b>布布小贴士:</b>
   <%= @generic_item.tips %>
 </p>
-<% @generic_item.images.each do |image| %>
-  <%= image_tag image.itself.url(:large) %>
-  <%= image_tag image.itself.url(:thumb) %>
-<% end %>
+<h2>照片==== </h2>
+<%= render :partial => "images/list", :locals => { :generic_item => @generic_item } %>
+<h2>评论==== </h2>
+<%= render :partial => "comments/list", :locals => { :generic_item => @generic_item } %>
 
-<%= link_to 'Edit', edit_generic_item_path(@generic_item) %> |
-<%= link_to 'Back', generic_items_path %>
+
+<script type="text/javascript">
+function award_score(){
+  $.ajax( {
+    url : "<%= award_score_generic_item_path( @generic_item)  %>",
+    type: "PUT",
+    success: function(){
+      $("#tip_for_scores").text("评价成功！")
+      old_value = parseInt($("#scores").text())
+      $("#scores").text(old_value + 1)
+    }
+  })
+}
+</script>

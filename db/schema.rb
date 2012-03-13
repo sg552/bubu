@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313094052) do
+ActiveRecord::Schema.define(:version => 20120313142120) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -20,16 +20,25 @@ ActiveRecord::Schema.define(:version => 20120313094052) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "comments", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "generic_item_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "generic_items", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "category_id"
     t.string   "uuid"
     t.string   "child_age_scope"
-    t.string   "scores"
+    t.string   "scores",          :default => "0"
     t.text     "tips"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   create_table "images", :force => true do |t|

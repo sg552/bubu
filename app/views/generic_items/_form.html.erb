@@ -1,16 +1,4 @@
 <%= form_for(@generic_item, :html => { :multipart => true }) do |f| %>
-  <% if @generic_item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@generic_item.errors.count, "error") %> prohibited this generic_item from being saved:</h2>
-
-      <ul>
-      <% @generic_item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     名称: <%= f.text_field :name %>
   </div>
@@ -35,10 +23,7 @@
     小贴士：<br/>
     <%= f.text_area :tips, :size => "40x4" %>
   </div>
-  <%= render :partial => 'images/list', :locals => { :generic_item => @generic_item } %>
   <br/>
   <br/>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>

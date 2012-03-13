@@ -1,0 +1,8 @@
+<%= link_to_function "添加评论", "open_dialog('#{new_comment_path(:generic_item_id => generic_item.id)}')" %> <br/>
+<% generic_item.comments.each do |comment| %>
+  <h5>===</h5>
+  <%= link_to_function "编辑", "open_dialog('#{edit_comment_path(comment)}')" %> ,
+  <%= link_to "删除", comment, :method => :delete, :confirm => "确定删除吗？" %>
+  标题： <%= comment.title %> <br/>
+  内容： <%= comment.content %>
+<% end %>

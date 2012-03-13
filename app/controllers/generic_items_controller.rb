@@ -1,4 +1,6 @@
 class GenericItemsController < ApplicationController
+  before_filter :get_by_id, :only => [:show, :edit, :update, :destroy,
+    :award_score]
   # GET /generic_items
   # GET /generic_items.json
   def index
@@ -13,7 +15,6 @@ class GenericItemsController < ApplicationController
   # GET /generic_items/1
   # GET /generic_items/1.json
   def show
-    @generic_item = GenericItem.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +35,7 @@ class GenericItemsController < ApplicationController
 
   # GET /generic_items/1/edit
   def edit
-    @generic_item = GenericItem.find(params[:id])
+    render :layout => false
   end
 
   # POST /generic_items
@@ -56,7 +57,6 @@ class GenericItemsController < ApplicationController
   # PUT /generic_items/1
   # PUT /generic_items/1.json
   def update
-    @generic_item = GenericItem.find(params[:id])
 
     respond_to do |format|
       if @generic_item.update_attributes(params[:generic_item])
@@ -72,12 +72,20 @@ class GenericItemsController < ApplicationController
   # DELETE /generic_items/1
   # DELETE /generic_items/1.json
   def destroy
-    @generic_item = GenericItem.find(params[:id])
     @generic_item.destroy
 
     respond_to do |format|
       format.html { redirect_to generic_items_url }
       format.json { head :no_content }
     end
+  end
+  def award_score
+    @generic_item.scores = @generic_item.scores.to_i + 1
+    @generic_item.save!
+    render :text => "success"
+  end
+  private
+  def get_by_id
+    @generic_item = GenericItem.find(params[:id])
   end
 end
