@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.2'
 
 gem 'mysql2', "0.3.11"
 gem 'cancan', '1.6.7'
-gem 'devise', '1.4.9'
+#gem 'devise', '1.4.9'
+gem 'devise', '2.0.4'
+
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 
 #gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
