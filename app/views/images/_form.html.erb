@@ -1,22 +1,5 @@
 <%= form_for(@image) do |f| %>
-  <% if @image.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
-
-      <ul>
-      <% @image.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :generic_item_id %><br />
-    <%= f.number_field :generic_item_id %>
-  </div>
+  <%= f.hidden_field :generic_item_id %>
   <%= f.file_field :itself %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>

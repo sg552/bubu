@@ -35,8 +35,8 @@
   <%= @generic_item.tips %>
 </p>
 <% @generic_item.images.each do |image| %>
-  <%= image_tag image.its.url(:large) %>
-  <%= image_tag image.its.url(:thumb) %>
+  <%= image_tag image.itself.url(:large) %>
+  <%= image_tag image.itself.url(:thumb) %>
 <% end %>
 
 <%= link_to 'Edit', edit_generic_item_path(@generic_item) %> |

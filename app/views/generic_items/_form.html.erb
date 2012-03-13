@@ -35,7 +35,7 @@
     小贴士：<br/>
     <%= f.text_area :tips, :size => "40x4" %>
   </div>
-  <%= link_to_function "添加图片？ ", "" unless @generic_item.new_record? %>
+  <%= render :partial => 'images/list', :locals => { :generic_item => @generic_item } %>
   <br/>
   <br/>
   <div class="actions">
