@@ -2,6 +2,7 @@
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
+  config.authorize_with :cancan
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
   # require 'i18n'
@@ -82,11 +83,11 @@ RailsAdmin.config do |config|
   # config.model Category do
   #   # Found associations:
   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :category_id, :integer 
-  #     configure :description, :text 
-  #     configure :created_at, :datetime 
+  #     configure :id, :integer
+  #     configure :name, :string
+  #     configure :category_id, :integer
+  #     configure :description, :text
+  #     configure :created_at, :datetime
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
