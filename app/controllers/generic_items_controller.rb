@@ -5,11 +5,6 @@ class GenericItemsController < ApplicationController
   # GET /generic_items.json
   def index
     @generic_items = GenericItem.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @generic_items }
-    end
   end
 
   # GET /generic_items/1
@@ -17,7 +12,7 @@ class GenericItemsController < ApplicationController
   def show
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => false }
       format.json { render :json => @generic_item }
     end
   end

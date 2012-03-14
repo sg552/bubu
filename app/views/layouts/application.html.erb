@@ -1,14 +1,33 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>Bubu</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>欢迎光临布布德智用品导购信息网</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+<link href="styles/Main.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/menu.js"></script>
+<script  type="text/javascript" src="js/new.js"></script>
+<script  type="text/javascript" src="js/photoshow.js"></script>
+<script  type="text/javascript" src="js/tab_mod.js"></script>
 <body>
-<%= link_to "sign_out", "/users/sign_out", :method => :delete %>
-<%= yield %>
+  <div style="height:3px; width:100%; margin:0; background:#093;">&nbsp;</div>
+  <!-- main_box开始 -->
+  <div id="main_box">
+    <%= link_to "sign_out", "/users/sign_out", :method => :delete %>
+    <%= render :partial => "layouts/logo" %>
+    <%= render :partial => "layouts/search_box" %>
 
+    <!-- 中间内容开始 -->
+    <div id="mid_box">
+      <%= yield %>
+    </div>
+    <!-- 中间内容结束 -->
+    <div class="clean">&nbsp;</div>
+  </div>
+  <!-- main_box结束 -->
+  <%= render :partial => "layouts/footer" %>
 </body>
 </html>
