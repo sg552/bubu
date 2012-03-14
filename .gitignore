@@ -6,6 +6,7 @@
 spec/requests
 spec/routing
 spec/views
+public/assets
 
 # Ignore bundler config
 /.bundle

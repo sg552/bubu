@@ -1,4 +1,5 @@
 require "bundler/capistrano"
+load 'deploy/assets'
 
 set :application, "bubu"
 set :repository, "git://github.com/sg552/bubu.git"
