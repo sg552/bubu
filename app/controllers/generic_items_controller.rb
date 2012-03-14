@@ -10,11 +10,6 @@ class GenericItemsController < ApplicationController
   # GET /generic_items/1
   # GET /generic_items/1.json
   def show
-
-    respond_to do |format|
-      format.html { render :layout => false }
-      format.json { render :json => @generic_item }
-    end
   end
 
   # GET /generic_items/new
