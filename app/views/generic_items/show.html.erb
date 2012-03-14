@@ -37,6 +37,8 @@
   <b>布布小贴士:</b>
   <%= @generic_item.tips %>
 </p>
+<h2>布布购物街=== </h2>
+<%= render :partial => "specific_items/list", :locals => { :generic_item => @generic_item } %>
 <h2>照片==== </h2>
 <%= render :partial => "images/list", :locals => { :generic_item => @generic_item } %>
 <h2>评论==== </h2>

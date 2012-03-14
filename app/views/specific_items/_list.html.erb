@@ -1,0 +1,11 @@
+<%= link_to_function "添加商品", "open_dialog('#{new_specific_item_path(:generic_item_id => generic_item.id)}')" %> <br/>
+<% generic_item.specific_items.each do |specific_item| %>
+  <%= specific_item.source_website_name %>,
+  <%= specific_item.price %>,
+  <%= specific_item.vendor %>,
+  <%= specific_item.delivery_method %>,
+  <%= specific_item.word_of_mouth %>,
+  <%= link_to "查看", specific_item.source_url, :target => "_blank"%>,
+  <%= link_to_function "更改", "open_dialog('#{edit_specific_item_path(specific_item)}')" %> ,
+  <%= link_to "删除", specific_item, :method => :delete, :confirm => "确定删除吗？" %> <br/>
+<% end %>
