@@ -1,27 +1,22 @@
-<h1>Listing categories</h1>
+<h1>分类管理</h1>
 
-<table>
+<table style="width:80%; border: 1px solid black">
   <tr>
-    <th>Name</th>
-    <th>Category</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th style="width: 10%">名字</th>
+    <th style="width: 50%">描述</th>
   </tr>
 
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
-    <td><%= category.category_id %></td>
     <td><%= category.description %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <%= link_to_function '编辑', "open_dialog('#{edit_category_path(category)}')" %>
+      <%= link_to '删除', category, :confirm => '确定删除吗?', :method => :delete %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to_function '增加新分类', "open_dialog('#{new_category_path}')" %>

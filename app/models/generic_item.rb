@@ -1,4 +1,5 @@
 class GenericItem < ActiveRecord::Base
+  belongs_to :category
   has_many :specific_items
   has_many :images
   has_many :comments

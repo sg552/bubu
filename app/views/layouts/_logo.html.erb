@@ -19,7 +19,8 @@
       <li class="welcom_login">
         布布欢迎你，
         <%= link_to_function current_user.email, "open_dialog('#{edit_user_registration_path(current_user.id)
-          }')"%>,
+          }')"%> &nbsp;
+        <%= link_to "管理产品分类", categories_path %> &nbsp;
         <%= link_to "退出", destroy_user_session_path, :method => :delete, :confirm => "确定退出吗？" %>
       </li>
       <% end %>

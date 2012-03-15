@@ -40,4 +40,10 @@ describe GenericItem do
 
   end
 
+  it "should belong to category " do
+    category = create(:category)
+    generic_item = create(:generic_item, :category_id => category.id)
+    generic_item.category.should == category
+  end
+
 end
