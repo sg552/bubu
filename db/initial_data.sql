@@ -39,7 +39,8 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'2323',2323,'23','2012-03-12 00:32:57','2012-03-12 00:32:57'),(2,'top!!!',2,'asdfasdf','2012-03-12 00:53:20','2012-03-12 00:53:42');
+INSERT INTO `categories` VALUES (1,'2323',2323,'23','2012-03-12 00:32:57','2012-03-12 00:32:57');
+INSERT INTO `categories` VALUES (2,'top!!!',2,'asdfasdf','2012-03-12 00:53:20','2012-03-12 00:53:42');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +60,7 @@ CREATE TABLE `comments` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +70,7 @@ CREATE TABLE `comments` (
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
 INSERT INTO `comments` VALUES (3,'323233','4234',NULL,4,'2012-03-13 15:46:38','2012-03-13 15:46:44');
+INSERT INTO `comments` VALUES (5,'嗯哪。','挺好的',NULL,4,'2012-03-15 10:38:02','2012-03-15 10:38:02');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,8 +92,9 @@ CREATE TABLE `generic_items` (
   `tips` text COLLATE utf8_unicode_ci,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `customer_gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -100,7 +103,11 @@ CREATE TABLE `generic_items` (
 
 LOCK TABLES `generic_items` WRITE;
 /*!40000 ALTER TABLE `generic_items` DISABLE KEYS */;
-INSERT INTO `generic_items` VALUES (1,'23','2323',32,'34','234','0','sadf','2012-03-12 15:58:11','2012-03-12 15:58:11'),(2,'test 0313 with image ','',NULL,'','','0','','2012-03-13 08:38:49','2012-03-13 08:38:49'),(3,'test 0313 with image2','',NULL,'','','0','','2012-03-13 08:42:04','2012-03-13 08:42:04'),(4,'test 0313 with image -- very small origin','adfasdf33\r\n',2323,'','33','19','333','2012-03-13 09:25:40','2012-03-14 15:05:42');
+INSERT INTO `generic_items` VALUES (1,'23','2323',32,'34','234','0','sadf','2012-03-12 15:58:11','2012-03-12 15:58:11',NULL);
+INSERT INTO `generic_items` VALUES (2,'test 0313 with image ','',NULL,'','','0','','2012-03-13 08:38:49','2012-03-13 08:38:49',NULL);
+INSERT INTO `generic_items` VALUES (3,'test 0313 with image2','',NULL,'','','0','','2012-03-13 08:42:04','2012-03-13 08:42:04',NULL);
+INSERT INTO `generic_items` VALUES (4,'test 0313 with image -- very small origin','adfasdf33\r\n',2323,'','22~2','36','333','2012-03-13 09:25:40','2012-03-15 13:26:01','汉字');
+INSERT INTO `generic_items` VALUES (5,'test 0315','asd',3,'23','23','0','33','2012-03-15 09:29:45','2012-03-15 09:29:45',NULL);
 /*!40000 ALTER TABLE `generic_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +128,7 @@ CREATE TABLE `images` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +137,12 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
-INSERT INTO `images` VALUES (1,2,'image/jpeg','2012-03-13 10:13:01',113364,'brithday_cake_uml.jpg','2012-03-13 10:12:40','2012-03-13 10:13:02'),(4,4,'image/png','2012-03-13 13:12:47',354632,'acupuncture_points.PNG','2012-03-13 13:12:48','2012-03-13 13:12:48'),(5,4,'image/jpeg','2012-03-13 13:14:01',4511,'black_ball_kit.jpg','2012-03-13 13:14:02','2012-03-13 13:14:02');
+INSERT INTO `images` VALUES (1,2,'image/jpeg','2012-03-13 10:13:01',113364,'brithday_cake_uml.jpg','2012-03-13 10:12:40','2012-03-13 10:13:02');
+INSERT INTO `images` VALUES (4,4,'image/png','2012-03-13 13:12:47',354632,'acupuncture_points.PNG','2012-03-13 13:12:48','2012-03-13 13:12:48');
+INSERT INTO `images` VALUES (5,4,'image/jpeg','2012-03-13 13:14:01',4511,'black_ball_kit.jpg','2012-03-13 13:14:02','2012-03-13 13:14:02');
+INSERT INTO `images` VALUES (6,4,'image/png','2012-03-15 11:31:53',389080,'cat_cat.PNG','2012-03-15 11:31:56','2012-03-15 11:31:56');
+INSERT INTO `images` VALUES (7,4,'image/png','2012-03-15 11:32:06',189407,'map2.PNG','2012-03-15 11:32:07','2012-03-15 11:32:07');
+INSERT INTO `images` VALUES (8,4,'image/jpeg','2012-03-15 11:32:40',4688526,'IMG_4831.JPG','2012-03-15 11:32:54','2012-03-15 11:32:54');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -184,7 +196,16 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20120312002959'),('20120312005037'),('20120312005038'),('20120312154956'),('20120312160102'),('20120313094052'),('20120313141221'),('20120313142120'),('20120314090950');
+INSERT INTO `schema_migrations` VALUES ('20120312002959');
+INSERT INTO `schema_migrations` VALUES ('20120312005037');
+INSERT INTO `schema_migrations` VALUES ('20120312005038');
+INSERT INTO `schema_migrations` VALUES ('20120312154956');
+INSERT INTO `schema_migrations` VALUES ('20120312160102');
+INSERT INTO `schema_migrations` VALUES ('20120313094052');
+INSERT INTO `schema_migrations` VALUES ('20120313141221');
+INSERT INTO `schema_migrations` VALUES ('20120313142120');
+INSERT INTO `schema_migrations` VALUES ('20120314090950');
+INSERT INTO `schema_migrations` VALUES ('20120315094008');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +237,9 @@ CREATE TABLE `specific_items` (
 
 LOCK TABLES `specific_items` WRITE;
 /*!40000 ALTER TABLE `specific_items` DISABLE KEYS */;
-INSERT INTO `specific_items` VALUES (1,'1212','1212','',21,'21','11','1212','2012-03-12 16:05:06','2012-03-12 16:05:06'),(2,'33','22','中通',4,'乐高','淘宝','http://detail.tmall.com/item.htm?id=2224219795&cm_cat=50016771&_u=epc58k6880&source=dou','2012-03-14 08:44:29','2012-03-14 08:44:29');
+INSERT INTO `specific_items` VALUES (1,'1212','1212','',21,'21','11','1212','2012-03-12 16:05:06','2012-03-12 16:05:06');
+INSERT INTO `specific_items` VALUES (2,'33','22aa','中通',4,'乐高','淘宝','http://detail.tmall.com/item.htm?id=2224219795&cm_cat=50016771&_u=epc58k6880&source=dou','2012-03-14 08:44:29','2012-03-15 09:55:39');
+INSERT INTO `specific_items` VALUES (3,'22','32','22',5,'2','a','as','2012-03-15 09:31:59','2012-03-15 09:31:59');
 /*!40000 ALTER TABLE `specific_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +277,11 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'sg552sg552@gmail.com','$2a$10$nrxvYkgQPFvCSt5zxtaiWOWrpgpzEBbm403w8XgwWN92PhF2OLJge',NULL,NULL,NULL,5,'2012-03-14 11:19:37','2012-03-14 11:18:37','192.168.56.1','192.168.56.1','2012-03-12 00:51:41','2012-03-14 11:19:37','admin'),(2,'haha@haha.com','$2a$10$KVCTMxPnSurngaN8.8mdtul6pX90UF6scEnWhljePeKVo4Njs4che',NULL,NULL,NULL,1,'2012-03-13 13:29:30','2012-03-13 13:29:30','192.168.56.1','192.168.56.1','2012-03-13 13:29:30','2012-03-13 13:29:30','user'),(3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1nuqNvBrCFUJwHLj4wjKT2Ywpo/aZPvMma',NULL,NULL,NULL,1,'2012-03-14 10:08:55','2012-03-14 10:08:55','192.168.56.1','192.168.56.1','2012-03-14 10:08:55','2012-03-14 10:08:55','user'),(4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user'),(5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user');
+INSERT INTO `users` VALUES (1,'sg552sg552@gmail.com','$2a$10$nrxvYkgQPFvCSt5zxtaiWOWrpgpzEBbm403w8XgwWN92PhF2OLJge',NULL,NULL,NULL,6,'2012-03-15 09:45:17','2012-03-14 11:19:37','192.168.56.1','192.168.56.1','2012-03-12 00:51:41','2012-03-15 09:45:17','admin');
+INSERT INTO `users` VALUES (2,'haha@haha.com','$2a$10$KVCTMxPnSurngaN8.8mdtul6pX90UF6scEnWhljePeKVo4Njs4che',NULL,NULL,NULL,1,'2012-03-13 13:29:30','2012-03-13 13:29:30','192.168.56.1','192.168.56.1','2012-03-13 13:29:30','2012-03-13 13:29:30','user');
+INSERT INTO `users` VALUES (3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1nuqNvBrCFUJwHLj4wjKT2Ywpo/aZPvMma',NULL,NULL,NULL,1,'2012-03-14 10:08:55','2012-03-14 10:08:55','192.168.56.1','192.168.56.1','2012-03-14 10:08:55','2012-03-14 10:08:55','user');
+INSERT INTO `users` VALUES (4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user');
+INSERT INTO `users` VALUES (5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -267,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-15  1:22:46
+-- Dump completed on 2012-03-15 21:32:16
