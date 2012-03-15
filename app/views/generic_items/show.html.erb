@@ -13,9 +13,6 @@
 
 <h2>照片==== </h2>
 <%= render :partial => "images/list", :locals => { :generic_item => @generic_item } %>
-<h2>评论==== </h2>
-<%= render :partial => "comments/list", :locals => { :generic_item => @generic_item } %>
-
 
 <script type="text/javascript">
 function award_score(){
@@ -118,105 +115,13 @@ function award_score(){
 
 </div>
 <div class="clean">&nbsp;</div> <!-- 清除样式 -->
-    <!----------------------------------------------商品信息区结束------------------------------------------->
-
-
-    <!---------------------------------------------商品信息PK开始----------------------------------------->
-    <div id="pk_info">
-        <div id="bbgwj_title"><span class="pk_box_title">布布购物街
-          <% if can? :manage, @generic_item %>
-            <%= link_to_function "添加商品", "open_dialog('#{new_specific_item_path(:generic_item_id => @generic_item.id)}')" %> <br/>
-          <% end %>
-        </span></div>
-        <ul>
-            <ol class="project">
-                <li><a href="#">商家</a></li>
-                <li><a href="#">价格（￥）</a></li>
-                <li>品牌</li>
-                <li>物流</li>
-                <li><a href="#">推荐度</a></li>
-                <li>&nbsp;</li>
-            </ol>
-            <% @generic_item.specific_items.each do |specific_item| %>
-            <ol>
-                <li class="shangjia"><%= specific_item.source_website_name %></li>
-                <li class="jiage"><%= specific_item.price %></li>
-                <li class="pinpai"><%= specific_item.vendor %></li>
-                <li class="pinpai"><%= specific_item.delivery_method %></li>
-                <li class="tjd"><%= specific_item.word_of_mouth %> </li>
-                <li>
-                  <%= link_to "去看看", specific_item.source_url, :target => "_blank" %>
-                  <% if can? :manage, specific_item %>
-                    <%= link_to_function "修改", "open_dialog('#{edit_specific_item_path(specific_item)}')" %>
-                    <%= link_to "删除", specific_item, :method => :delete, :confirm => "确定删除吗？" %>
-                  <% end %>
-                </li>
-            </ol>
-            <% end %>
-        </ul>
-        <div class="clean">&nbsp;</div>
-        <!--
-        <div class="fenye">第 1/1 页 <a href="#">上一页</a> <a href="#">1</a> <a href="#">下一页</a></div>
-        -->
-    </div>
-
-
-
-<div class="clean">&nbsp;</div> <!-- 清除样式 -->
-    <!---------------------------------------------商品信息PK结束-----------------------------------------
-
-
-
-     <!---------------------------------------------情感分类选项卡开始----------------------------------------->
-  <div class="product_box">
-  <div id="tab1">
-            <ul>
-            <li onmouseover="setTab(1,0)" class="now">网友评论</li>
-        </ul>
-  </div>
-  <div id="tablist1">
-    <div class="tablist block">
-
-            <dl id="dis_box">
-            <dd>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="10%"><img src="<%= asset_path "icon/blogsina.gif" %>" width="50" height="50" /></td>
-                        <td width="90%"><h4>题目</h4><p>内容内容</p></td>
-                    </tr>
-                </table>
-            </dd>
-            <dd>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="10%"><img src="<%= asset_path "icon/blogsina.gif" %>" width="50" height="50" /></td>
-                        <td width="90%"><h4>题目</h4><p>内容内容</p></td>
-                    </tr>
-                </table>
-            </dd>
-
-<span class="fenye">第 1/1 页 <a href="#">上一页</a> <a href="#">1</a> <a href="#">下一页</a></span>
-            </dl>
-
-
-   </div>
-
-
-  </div>
- </div>
-    <!---------------------------------------------情感分类选项卡结束----------------------------------------->
-
-
-
-
-
-
-    <!---------------------------------------------情感分类选项卡开始----------------------------------------->
+    <%= render :partial => "specific_items/list", :locals => { :generic_item => @generic_item } %>
+    <%= render :partial => 'comments/list', :locals => { :generic_item => @generic_item } %>
   <div class="product_box">
   <div id="tab2">
-            <ul>
-            <li onmouseover="setTab(2,0)" class="now">同类产品推荐</li>
-        </ul>
+    <ul>
+      <li onmouseover="setTab(2,0)" class="now">同类产品推荐</li>
+    </ul>
   </div>
   <div id="tablist2">
     <div class="tablist block">

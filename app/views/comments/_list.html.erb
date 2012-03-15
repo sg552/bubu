@@ -1,8 +1,36 @@
-<%= link_to_function "添加评论", "open_dialog('#{new_comment_path(:generic_item_id => generic_item.id)}')" %> <br/>
-<% generic_item.comments.each do |comment| %>
-  <h5>===</h5>
-  <%= link_to_function "编辑", "open_dialog('#{edit_comment_path(comment)}')" %> ,
-  <%= link_to "删除", comment, :method => :delete, :confirm => "确定删除吗？" %>
-  标题： <%= comment.title %> <br/>
-  内容： <%= comment.content %>
-<% end %>
+<!---------------------------------------------评论 开始 ----------------------------------------->
+<div class="product_box">
+  <div id="tab1">
+    <ul>
+      <li onmouseover="setTab(1,0)" class="now">网友评论</li>
+    </ul>
+  </div>
+  <div id="tablist1">
+    <div class="tablist block" style="min-height: 40px">
+      <dl id="dis_box">
+        <%= link_to_function " + 添加评论", "open_dialog('#{new_comment_path(:generic_item_id => generic_item.id)}')" %> <br/>
+        <% generic_item.comments.each do  |comment| %>
+        <dd>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="10%"><img src="<%= asset_path "icon/blogsina.gif" %>" width="50" height="50" /></td>
+              <td width="90%"><h4>标题：<%= comment.title %>, 时间：<%= comment.created_at.to_date%></h4>
+                <p><%= comment.content %></p>
+                <% if can? :manage, comment %>
+                <%= link_to_function "编辑", "open_dialog('#{edit_comment_path(comment)}')" %> ,
+                <%= link_to "删除", comment, :method => :delete, :confirm => "确定删除吗？" %>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </dd>
+        <% end %>
+        <!--
+        <span class="fenye">第 1/1 页 <a href="#">上一页</a> <a href="#">1</a> <a href="#">下一页</a></span>
+        -->
+      </dl>
+    </div>
+  </div>
+
+</div>
+<!---------------------------------------------评论 结束 ----------------------------------------->
