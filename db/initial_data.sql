@@ -30,7 +30,7 @@ CREATE TABLE `categories` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,8 +39,10 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'2323',2323,'23','2012-03-12 00:32:57','2012-03-12 00:32:57');
-INSERT INTO `categories` VALUES (2,'top!!!',2,'asdfasdf','2012-03-12 00:53:20','2012-03-12 00:53:42');
+INSERT INTO `categories` VALUES (3,'兴趣培养',NULL,'\r\n','2012-03-15 15:10:58','2012-03-15 15:36:19');
+INSERT INTO `categories` VALUES (4,'智力开发',NULL,'','2012-03-15 15:14:48','2012-03-15 15:14:48');
+INSERT INTO `categories` VALUES (5,'情感培养',NULL,'','2012-03-15 15:15:01','2012-03-15 15:15:01');
+INSERT INTO `categories` VALUES (6,'动手能力',NULL,'','2012-03-15 15:15:10','2012-03-15 15:15:10');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +96,7 @@ CREATE TABLE `generic_items` (
   `updated_at` datetime NOT NULL,
   `customer_gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,7 +109,15 @@ INSERT INTO `generic_items` VALUES (1,'23','2323',32,'34','234','0','sadf','2012
 INSERT INTO `generic_items` VALUES (2,'test 0313 with image ','',NULL,'','','0','','2012-03-13 08:38:49','2012-03-13 08:38:49',NULL);
 INSERT INTO `generic_items` VALUES (3,'test 0313 with image2','',NULL,'','','0','','2012-03-13 08:42:04','2012-03-13 08:42:04',NULL);
 INSERT INTO `generic_items` VALUES (4,'test 0313 with image -- very small origin','adfasdf33\r\n',2323,'','22~2','36','333','2012-03-13 09:25:40','2012-03-15 13:26:01','汉字');
-INSERT INTO `generic_items` VALUES (5,'test 0315','asd',3,'23','23','0','33','2012-03-15 09:29:45','2012-03-15 09:29:45',NULL);
+INSERT INTO `generic_items` VALUES (5,'小飞机','asd',3,'bb','2','1','小飞机的小贴士','2012-03-15 09:29:45','2012-03-15 15:48:24','');
+INSERT INTO `generic_items` VALUES (6,'小汽车','小汽车',3,'aabb','1','0','小盆友最喜欢的小汽车~','2012-03-15 15:38:48','2012-03-15 15:38:48','男孩');
+INSERT INTO `generic_items` VALUES (7,'1岁男孩的小货车','1岁男孩的小货车',3,'ccc','1','0','1岁男孩的小货车 的TIPS','2012-03-15 15:49:16','2012-03-15 15:49:16','男');
+INSERT INTO `generic_items` VALUES (8,'2岁男孩的气球','',3,'ddd','2','0','tips....','2012-03-15 15:49:48','2012-03-15 15:49:48','男孩');
+INSERT INTO `generic_items` VALUES (11,'1岁的魔方','',4,'a2','1','0','tips...','2012-03-15 15:54:27','2012-03-15 15:54:27','男孩');
+INSERT INTO `generic_items` VALUES (12,'4岁的魔方','',4,'','4','0','4岁的魔方','2012-03-15 15:54:54','2012-03-15 15:55:07','');
+INSERT INTO `generic_items` VALUES (13,'7岁的九连环','',4,'','7','0','7岁的九连环','2012-03-15 15:55:25','2012-03-15 15:55:25','男孩');
+INSERT INTO `generic_items` VALUES (14,'10岁的电脑','10岁的电脑',4,'','10','0','10岁的电脑','2012-03-15 15:55:54','2012-03-15 15:55:54','');
+INSERT INTO `generic_items` VALUES (15,'13岁的变形金刚（不会在首页上显示）','13岁的变形金刚（不会在首页上显示）',4,'','13','0','13岁的变形金刚（不会在首页上显示）','2012-03-15 15:56:35','2012-03-15 15:56:35','男孩');
 /*!40000 ALTER TABLE `generic_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +278,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_users_on_email` (`email`),
   UNIQUE KEY `index_users_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -277,11 +287,12 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'sg552sg552@gmail.com','$2a$10$nrxvYkgQPFvCSt5zxtaiWOWrpgpzEBbm403w8XgwWN92PhF2OLJge',NULL,NULL,NULL,6,'2012-03-15 09:45:17','2012-03-14 11:19:37','192.168.56.1','192.168.56.1','2012-03-12 00:51:41','2012-03-15 09:45:17','admin');
+INSERT INTO `users` VALUES (1,'sg552sg552@gmail.com','$2a$10$nrxvYkgQPFvCSt5zxtaiWOWrpgpzEBbm403w8XgwWN92PhF2OLJge',NULL,NULL,NULL,8,'2012-03-15 15:40:04','2012-03-15 14:11:01','192.168.56.1','192.168.56.1','2012-03-12 00:51:41','2012-03-15 15:40:04','admin');
 INSERT INTO `users` VALUES (2,'haha@haha.com','$2a$10$KVCTMxPnSurngaN8.8mdtul6pX90UF6scEnWhljePeKVo4Njs4che',NULL,NULL,NULL,1,'2012-03-13 13:29:30','2012-03-13 13:29:30','192.168.56.1','192.168.56.1','2012-03-13 13:29:30','2012-03-13 13:29:30','user');
 INSERT INTO `users` VALUES (3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1nuqNvBrCFUJwHLj4wjKT2Ywpo/aZPvMma',NULL,NULL,NULL,1,'2012-03-14 10:08:55','2012-03-14 10:08:55','192.168.56.1','192.168.56.1','2012-03-14 10:08:55','2012-03-14 10:08:55','user');
 INSERT INTO `users` VALUES (4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user');
 INSERT INTO `users` VALUES (5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user');
+INSERT INTO `users` VALUES (6,'test0315@gmail.com','$2a$10$2xCNe3Teb9MiPPyopEqLy./4ktVYXvITu6aopfuUvqJ.ceOCFEF3i',NULL,NULL,NULL,1,'2012-03-15 14:15:31','2012-03-15 14:15:31','192.168.56.1','192.168.56.1','2012-03-15 14:15:31','2012-03-15 14:15:31','user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -294,4 +305,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-15 21:32:16
+-- Dump completed on 2012-03-15 23:58:22
