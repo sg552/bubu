@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to_function "编辑", "open_dialog('#{edit_generic_item_path(@generic_item)}')" %>
-<p>
-  <b>Name:</b>
-  <%= @generic_item.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @generic_item.description %>
-</p>
 
 <p>
   <b>产品分类:</b>
@@ -21,24 +11,6 @@
   <%= @generic_item.uuid %>
 </p>
 
-<p>
-  <b>适宜年龄:</b>
-  <%= @generic_item.child_age_scope %> 岁.
-</p>
-
-<p>
-  <b>Scores:</b>
-  <span id ="scores"><%= @generic_item.scores %></span>
-  <%= button_to_function "喜欢", "award_score()", :method => :put %>
-  <span id ="tip_for_scores"></span>
-</p>
-
-<p>
-  <b>布布小贴士:</b>
-  <%= @generic_item.tips %>
-</p>
-<h2>布布购物街=== </h2>
-<%= render :partial => "specific_items/list", :locals => { :generic_item => @generic_item } %>
 <h2>照片==== </h2>
 <%= render :partial => "images/list", :locals => { :generic_item => @generic_item } %>
 <h2>评论==== </h2>
@@ -95,7 +67,7 @@ function award_score(){
 
  <div class="pp_show">
 <a href="zoom/zbig01.jpg" class="MagicZoom" title="汽车模型" id="zoom1"><img src="<%= asset_path "zoom/big01.jpg" %>"/></a>
-<div class="zoom_box_border"><img class="MagicZoomLoading" src="<%= asset_path "zoom/ajax-loader.gif" %>" alt="加载中..."/>
+<div class="zoom_box_border"><img class="MagicZoomLoading" src="<%= asset_path "ajax-loader.gif" %>" alt="加载中..."/>
  <span class="slve_bar_left"><a href="#"><img src="<%= asset_path "temp5.jpg" %>" width="10" height="60" /></a></span>
 
  <ul>
@@ -109,16 +81,29 @@ function award_score(){
 </div>
 
 <div id="info_show">
-<div class="xihuan"><span><a href="#">喜欢</a></span> <span style="margin-left:7px; font-size:14px;"> 1234</span></div>
+<div class="xihuan">
+  <span><%= link_to_function "喜欢", "award_score()", :method => :put %></span>
+  <span style="margin-left:7px; font-size:14px;"> <span id ="scores"><%= @generic_item.scores %></span></span>
+</div>
     <ul>
-    <p class="product_name">汽车模型</p>
+    <p class="product_name">
+    <% if can?(:manage, @generic_item) %>
+    <%= link_to_function "[编辑]", "open_dialog('#{edit_generic_item_path(@generic_item)}')" %>
+    <% end %>
+    <%= @generic_item.name %>
+    </p>
     <li>品牌： 迪斯尼</li>
-    <li>价格区间： <span style="font-size:16px; font-weight:bold; color:#F30; font-family:Arial, Helvetica, sans-serif;">100-800</span> 元</li>
-    <li>适宜年龄：<span style="font-size:12px; font-weight:bold; color:#090;"> 10-14岁</span></li>
-    <li>适宜性别：<span style="font-size:12px; font-weight:bold; color:#090;"> 男孩</span></li>
+    <li>价格区间： <span style="font-size:16px; font-weight:bold; color:#F30; font-family:Arial, Helvetica, sans-serif;">
+      <%= @generic_item.price_scope %></span> 元</li>
+    <li>适宜年龄：<span style="font-size:12px; font-weight:bold; color:#090;">
+      <%= @generic_item.child_age_scope %> 岁</span></li>
+    <li>适宜性别：<span style="font-size:12px; font-weight:bold; color:#090;">
+      <%= @generic_item.customer_gender %></span></li>
 
-    <p class="bubu_note"><span style="font-weight:bold;"><img src="<%= asset_path "ts.png" %>" width="30" height="31" />布布小贴士：</span>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且
-缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+    <p class="bubu_note"><span style="font-weight:bold;">
+      <img src="<%= asset_path "ts.png" %>" width="30" height="31" />布布小贴士：</span>
+      <%= @generic_item.tips %>
+    </p>
 
     </ul>
     <div class="share_box">
@@ -138,8 +123,11 @@ function award_score(){
 
     <!---------------------------------------------商品信息PK开始----------------------------------------->
     <div id="pk_info">
-        <div id="bbgwj_title"><span class="pk_box_title">布布购物街</span></div>
-
+        <div id="bbgwj_title"><span class="pk_box_title">布布购物街
+          <% if can? :manage, @generic_item %>
+            <%= link_to_function "添加商品", "open_dialog('#{new_specific_item_path(:generic_item_id => @generic_item.id)}')" %> <br/>
+          <% end %>
+        </span></div>
         <ul>
             <ol class="project">
                 <li><a href="#">商家</a></li>
@@ -149,58 +137,27 @@ function award_score(){
                 <li><a href="#">推荐度</a></li>
                 <li>&nbsp;</li>
             </ol>
-                <ol>
-                <li class="shangjia">京东商城</li>
-                <li class="jiage">230</li>
-                <li class="pinpai">木玩世家</li>
-                <li class="pinpai">有，免费</li>
-                <li class="tjd">★★★★</li>
-                <li><a href="#">购买</a></li>
-            </ol>
-                        <ol>
-                <li class="shangjia">亚马逊</li>
-                <li class="jiage">220</li>
-                <li class="pinpai">乐高</li>
-                <li class="pinpai">有，免费</li>
-                <li class="tjd">★★★</li>
-                <li><a href="#">购买</a></li>
-            </ol>
-                <ol>
-                <li class="shangjia">易迅网</li>
-                <li class="jiage">350</li>
-                <li class="pinpai">迪斯尼</li>
-                <li class="pinpai">有，免费</li>
-                <li class="tjd">★★★</li>
-                <li><a href="#">购买</a></li>
-            </ol>
+            <% @generic_item.specific_items.each do |specific_item| %>
             <ol>
-                <li class="shangjia">当当网</li>
-                <li class="jiage">249</li>
-                <li class="pinpai">乐高</li>
-                <li class="pinpai">有，10元</li>
-                <li class="tjd">★★</li>
-                <li><a href="#">购买</a></li>
+                <li class="shangjia"><%= specific_item.source_website_name %></li>
+                <li class="jiage"><%= specific_item.price %></li>
+                <li class="pinpai"><%= specific_item.vendor %></li>
+                <li class="pinpai"><%= specific_item.delivery_method %></li>
+                <li class="tjd"><%= specific_item.word_of_mouth %> </li>
+                <li>
+                  <%= link_to "去看看", specific_item.source_url, :target => "_blank" %>
+                  <% if can? :manage, specific_item %>
+                    <%= link_to_function "修改", "open_dialog('#{edit_specific_item_path(specific_item)}')" %>
+                    <%= link_to "删除", specific_item, :method => :delete, :confirm => "确定删除吗？" %>
+                  <% end %>
+                </li>
             </ol>
-            <ol>
-                <li class="shangjia">红孩子</li>
-                <li class="jiage">420</li>
-                <li class="pinpai">迪士尼</li>
-                <li class="pinpai">无</li>
-                <li class="tjd">★★★★</li>
-                <li><a href="#">购买</a></li>
-            </ol>
-            <ol>
-                <li class="shangjia">淘宝商城</li>
-                <li class="jiage">120</li>
-                <li class="pinpai">不详</li>
-                <li class="pinpai">无</li>
-                <li class="tjd">★★</li>
-                <li><a href="#">购买</a></li>
-            </ol>
+            <% end %>
         </ul>
-
-        <div class="clean">&nbsp;</div> <!-- 清除样式 -->
+        <div class="clean">&nbsp;</div>
+        <!--
         <div class="fenye">第 1/1 页 <a href="#">上一页</a> <a href="#">1</a> <a href="#">下一页</a></div>
+        -->
     </div>
 
 
@@ -224,31 +181,7 @@ function award_score(){
             <dd>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td width="10%"><img src="icon/blogsina.gif" width="50" height="50" /></td>
-                        <td width="90%"><h4>题目</h4><p>内容内容</p></td>
-                    </tr>
-                </table>
-            </dd>
-                        <dd>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="10%"><img src="icon/blogsina.gif" width="50" height="50" /></td>
-                        <td width="90%"><h4>题目</h4><p>内容内容</p></td>
-                    </tr>
-                </table>
-            </dd>
-                        <dd>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="10%"><img src="icon/blogsina.gif" width="50" height="50" /></td>
-                        <td width="90%"><h4>题目</h4><p>内容内容</p></td>
-                    </tr>
-                </table>
-            </dd>
-                        <dd>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="10%"><img src="icon/blogsina.gif" width="50" height="50" /></td>
+                        <td width="10%"><img src="<%= asset_path "icon/blogsina.gif" %>" width="50" height="50" /></td>
                         <td width="90%"><h4>题目</h4><p>内容内容</p></td>
                     </tr>
                 </table>
@@ -256,15 +189,7 @@ function award_score(){
             <dd>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
-                        <td width="10%"><img src="icon/blogsina.gif" width="50" height="50" /></td>
-                        <td width="90%"><h4>题目</h4><p>内容内容</p></td>
-                    </tr>
-                </table>
-            </dd>
-            <dd>
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td width="10%"><img src="icon/blogsina.gif" width="50" height="50" /></td>
+                        <td width="10%"><img src="<%= asset_path "icon/blogsina.gif" %>" width="50" height="50" /></td>
                         <td width="90%"><h4>题目</h4><p>内容内容</p></td>
                     </tr>
                 </table>

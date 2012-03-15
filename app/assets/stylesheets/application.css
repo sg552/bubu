@@ -13,3 +13,7 @@
  *= require zoom
  *= require_self
 */
+
+
+/*  this is my customized css */
+#pk_info { height: auto }

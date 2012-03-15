@@ -16,8 +16,12 @@
     适宜年龄： <%= f.text_field :child_age_scope %>岁 (例如： 10~14岁）
   </div>
   <div class="field">
-    <%= f.label :scores %><br />
+    初始化的分数（默认是0）:
     <%= f.text_field :scores %>
+  </div>
+  <div class="field">
+    面相对象(男孩/女孩/均可)：
+    <%= f.text_field :customer_gender %>
   </div>
   <div class="field">
     小贴士：<br/>
