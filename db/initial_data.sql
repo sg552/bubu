@@ -96,7 +96,7 @@ CREATE TABLE `generic_items` (
   `updated_at` datetime NOT NULL,
   `customer_gender` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,7 +117,12 @@ INSERT INTO `generic_items` VALUES (11,'1岁的魔方','',4,'a2','1','0','tips..
 INSERT INTO `generic_items` VALUES (12,'4岁的魔方','',4,'','4','0','4岁的魔方','2012-03-15 15:54:54','2012-03-15 15:55:07','');
 INSERT INTO `generic_items` VALUES (13,'7岁的九连环','',4,'','7','0','7岁的九连环','2012-03-15 15:55:25','2012-03-15 15:55:25','男孩');
 INSERT INTO `generic_items` VALUES (14,'10岁的电脑','10岁的电脑',4,'','10','0','10岁的电脑','2012-03-15 15:55:54','2012-03-15 15:55:54','');
-INSERT INTO `generic_items` VALUES (15,'13岁的变形金刚（不会在首页上显示）','13岁的变形金刚（不会在首页上显示）',4,'','13','0','13岁的变形金刚（不会在首页上显示）','2012-03-15 15:56:35','2012-03-15 15:56:35','男孩');
+INSERT INTO `generic_items` VALUES (15,'13岁的变形金刚','13岁的变形金刚（不会在首页上显示）',4,'','13','0','13岁的变形金刚（不会在首页上显示）','2012-03-15 15:56:35','2012-03-15 17:45:36','男孩');
+INSERT INTO `generic_items` VALUES (16,'5岁的魔方','',4,'','5','0','asdf','2012-03-15 17:43:24','2012-03-15 17:43:24','');
+INSERT INTO `generic_items` VALUES (17,'8岁的皮球','',4,'','','0','','2012-03-15 17:43:42','2012-03-15 17:43:42','');
+INSERT INTO `generic_items` VALUES (18,'11岁的玩具','',3,'','11','0','11岁的玩具','2012-03-15 17:44:00','2012-03-15 17:44:00','');
+INSERT INTO `generic_items` VALUES (19,'6岁的太空飞船','',4,'','6','0','6岁的太空飞船','2012-03-15 17:44:38','2012-03-15 17:44:38','');
+INSERT INTO `generic_items` VALUES (20,'12岁的文具盒(不会在首页上显示)','',4,'','12','0','12岁的文具盒12岁的文具盒12岁的文具盒','2012-03-15 17:45:03','2012-03-15 17:45:23','');
 /*!40000 ALTER TABLE `generic_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -305,4 +310,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-15 23:58:22
+-- Dump completed on 2012-03-16  2:14:50
