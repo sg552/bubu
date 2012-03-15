@@ -1,19 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-<p>
-  <b>产品分类:</b>
-  <%= @generic_item.category_id %>
-</p>
-
-<p>
-  <b>唯一标识：Uuid:</b>
-  <%= @generic_item.uuid %>
-</p>
-
-<h2>照片==== </h2>
-<%= render :partial => "images/list", :locals => { :generic_item => @generic_item } %>
-
 <script type="text/javascript">
 function award_score(){
   $.ajax( {
@@ -60,22 +46,8 @@ function award_score(){
 
 
 <!----------------------------------------------商品信息区开始------------------------------------------->
- <div id="detail_info">
-
- <div class="pp_show">
-<a href="zoom/zbig01.jpg" class="MagicZoom" title="汽车模型" id="zoom1"><img src="<%= asset_path "zoom/big01.jpg" %>"/></a>
-<div class="zoom_box_border"><img class="MagicZoomLoading" src="<%= asset_path "ajax-loader.gif" %>" alt="加载中..."/>
- <span class="slve_bar_left"><a href="#"><img src="<%= asset_path "temp5.jpg" %>" width="10" height="60" /></a></span>
-
- <ul>
-    <li><a href="zoom/zbig01.jpg" rel="zoom1" rev="zoom/big01.jpg" title="汽车模型"><img src="<%= asset_path "zoom/small01.jpg" %>"/></a></li>
-    <li><a href="zoom/zbig02.jpg" rel="zoom1" rev="zoom/big02.jpg" title="汽车模型"><img src="<%= asset_path "zoom/small02.jpg" %>"/></a></li>
-    <li><a href="zoom/zbig03.jpg" rel="zoom1" rev="zoom/big03.jpg" title="汽车模型"><img src="<%= asset_path "zoom/small03.jpg" %>"/></a></li>
-    <li><a href="zoom/zbig04.jpg" rel="zoom1" rev="zoom/big04.jpg" title="汽车模型"><img src="<%= asset_path "zoom/small04.jpg" %>"/></a></li>
-</ul>
-
-<span class="slve_bar_right"><a href="#"><img src="<%= asset_path "temp4.jpg" %>" width="10" height="60" /></a></span> </div>
-</div>
+<div id="detail_info">
+  <%= render :partial => 'gallery', :locals => {:generic_item => @generic_item } %>
 
 <div id="info_show">
 <div class="xihuan">
@@ -192,3 +164,8 @@ function award_score(){
     </div>
   <!--//////////////////////////////右边栏结束/////////////////////////////-->
 
+<% if can? :manage, @generic_item %>
+<div style="clear:both" ></div>
+<h2>照片管理==== </h2>
+<%= render :partial => "images/list", :locals => { :generic_item => @generic_item } %>
+<% end %>

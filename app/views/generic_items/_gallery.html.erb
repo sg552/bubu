@@ -1,0 +1,33 @@
+<!---------------------------------- 汽车模型大照片开始 -->
+<div class="pp_show">
+  <% if generic_item.images.size > 0 %>
+  <a href="zoom/zbig01.jpg" class="MagicZoom" title="汽车模型" id="zoom1">
+    <%= image_tag generic_item.images.first.itself.url(:large) %>
+  </a>
+  <% else %>
+    暂无图片。
+  <% end %>
+  <div class="zoom_box_border">
+    <!--
+    <img class="MagicZoomLoading" src="<%= asset_path "ajax-loader.gif" %>" alt="加载中..."/>
+    -->
+    <span class="slve_bar_left">
+      <%= link_to_function image_tag(asset_path( "gallery_left_arrow.jpg"), :width=>10, :height => 60), "" %>
+    </span>
+    <ul>
+      <% temp_max = 0 %>
+      <% generic_item.images.each do |image| %>
+        <% break if temp_max == 4
+          temp_max += 1
+        %>
+      <li>
+        <%= link_to_function image_tag( image.itself.url(:thumb)), image.itself.url(:large)%>
+      </li>
+      <% end %>
+    </ul>
+    <span class="slve_bar_right">
+      <%= link_to_function image_tag(asset_path( "gallery_right_arrow.jpg"), :width=>10, :height => 60), "" %>
+    </span>
+  </div>
+</div>
+<!---------------------------------- 汽车模型大照片结束-->
