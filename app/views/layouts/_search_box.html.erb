@@ -1,18 +1,20 @@
-  <!--//////////////////////////////搜索框部分开始////////////////////////////////-->
-  <div id="search_box">
-  	<ul>
-    	<li style="margin-left:22px; margin-top:5px;"><a href="#"><img src="<%= asset_path "icon.png" %>" width="22" height="27" alt="Home" /></a></li>
-        <li>
-        <form id="form1" name="form1" method="post" action="">
-            <INPUT style="height:27px; width:290px; margin-left:546px; font-size:14px;color:#999;"
-		onblur="if(this.value==''){this.value='请输入玩具名称或类别';this.style.color='#aaa'}"
-		onfocus="if(this.value=='请输入玩具名称或类别'){this.value='';this.style.color='#666'}"
-		value=请输入玩具名称或类别 name=keyword>
-        </form>
-        </li>
-        <li style="margin-top:1px;"><a href="#"><img src="<%= asset_path "ad06.png" %>" /></a></li>
+<!--//////////////////////////////搜索框部分开始////////////////////////////////-->
+<div id="search_box">
+  <ul>
+    <li style="margin-left:22px; margin-top:5px;">
+      <%= link_to image_tag(asset_path("icon.png"), :size => "22x27", :alt => "主页"), root_path %>
+    </li>
+    <li>
+    <form id="form1" name="form1" method="post" action="">
+        <INPUT style="height:27px; width:290px; margin-left:546px; font-size:14px;color:#999;"
+    onblur="if(this.value==''){this.value='请输入玩具名称或类别';this.style.color='#aaa'}"
+    onfocus="if(this.value=='请输入玩具名称或类别'){this.value='';this.style.color='#666'}"
+    value=请输入玩具名称或类别 name=keyword>
+    </form>
+    </li>
+    <li style="margin-top:1px;"><a href="#"><img src="<%= asset_path "ad06.png" %>" /></a></li>
 
-    </ul>
-  </div>
-  <!--//////////////////////////////搜索框部分结束////////////////////////////////-->
+  </ul>
+</div>
+<!--//////////////////////////////搜索框部分结束////////////////////////////////-->
 
