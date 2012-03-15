@@ -7,5 +7,6 @@ FactoryGirl.define do
     child_age_scope "MyString"
     scores "MyString"
     tips "MyText"
+    customer_gender "boys"
   end
 end
