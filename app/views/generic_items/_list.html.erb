@@ -1,0 +1,9 @@
+<ul>
+<% category.generic_items.each do |generic_item| %>
+  <li>
+  <%= link_to generic_item.name, generic_item %>, .....
+  <%= link_to_function "编辑", "open_dialog('#{edit_generic_item_path(generic_item)}')" %>
+  <%= link_to "删除", generic_item, :method => :delete, :confirm => "删除产品吗？" %>
+  </li>
+<% end %>
+</ul>

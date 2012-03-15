@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe GenericItemsController do
   before do
+    request.env["HTTP_REFERER"] = root_path
     @generic_item = create(:generic_item)
   end
 
@@ -128,12 +129,6 @@ describe GenericItemsController do
       expect {
         delete :destroy, {:id => generic_item.to_param}, valid_session
       }.to change(GenericItem, :count).by(-1)
-    end
-
-    it "redirects to the generic_items list" do
-      generic_item = GenericItem.create! valid_attributes
-      delete :destroy, {:id => generic_item.to_param}, valid_session
-      response.should redirect_to(generic_items_url)
     end
   end
   it "should put award_score" do

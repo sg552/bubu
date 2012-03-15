@@ -2,14 +2,20 @@
 
 <table style="width:80%; border: 1px solid black">
   <tr>
-    <th style="width: 10%">名字</th>
-    <th style="width: 50%">描述</th>
+    <th style="width: 200px">名字</th>
+    <th style="width: 300px">产品</th>
+    <th></th>
   </tr>
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%= category.name %></td>
-    <td><%= category.description %></td>
+    <td><%= category.name %>
+      &nbsp; | &nbsp;
+      <%= link_to_function "增加产品", "open_dialog('#{new_generic_item_path(:category_id => category.id)}')" %>
+    </td>
+    <td style="border: 1px solid blue">
+      <%= render :partial => "generic_items/list", :locals => {:category => category } %>
+    </td>
     <td>
       <%= link_to_function '编辑', "open_dialog('#{edit_category_path(category)}')" %>
       <%= link_to '删除', category, :confirm => '确定删除吗?', :method => :delete %>

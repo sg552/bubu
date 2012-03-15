@@ -7,7 +7,7 @@
     <%= f.text_area :description, :size => "40 x 4" %>
   </div>
   <div class="field">
-    分类： <%= f.number_field :category_id %>
+    所属分类：  <%= collection_select :generic_item, :category_id, Category.all, :id, :name %>
   </div>
   <div class="field">
     UUID(唯一性的标识) <%= f.text_field :uuid %>

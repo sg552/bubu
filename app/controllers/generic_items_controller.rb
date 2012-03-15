@@ -15,12 +15,8 @@ class GenericItemsController < ApplicationController
   # GET /generic_items/new
   # GET /generic_items/new.json
   def new
-    @generic_item = GenericItem.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @generic_item }
-    end
+    @generic_item = GenericItem.new(:category_id => params[:category_id])
+    render :layout => false
   end
 
   # GET /generic_items/1/edit
@@ -65,7 +61,7 @@ class GenericItemsController < ApplicationController
     @generic_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to generic_items_url }
+      format.html { redirect_to :back, :notice => "删除成功"}
       format.json { head :no_content }
     end
   end
