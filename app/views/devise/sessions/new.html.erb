@@ -1,0 +1,14 @@
+<h2>登陆</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div>邮箱地址：<br/> <%= f.email_field :email %></div>
+
+  <div>密码：<br/> <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> 下次自动登陆</div>
+  <% end -%>
+
+  <%= render :partial => "layouts/submit_and_cancel" %>
+<% end %>
+

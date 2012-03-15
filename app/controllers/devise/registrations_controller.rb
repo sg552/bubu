@@ -32,7 +32,7 @@ class Devise::RegistrationsController < DeviseController
 
   # GET /resource/edit
   def edit
-    render :edit
+    render :layout => false
   end
 
   # PUT /resource

@@ -18,3 +18,8 @@
 /*  this is my customized css */
 #pk_info { height: auto }
 #dis_box { height: auto }
+
+/* used by dialog */
+.center { margin-left: auto; margin-right: auto; }
+.dialog_button { margin: 10px 10px 10px 30px; }
+
