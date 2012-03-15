@@ -11,4 +11,9 @@ class GenericItem < ActiveRecord::Base
     return "#{prices.first}" if prices.size == 1
     return "#{prices.first}-#{prices.last}"
   end
+
+  def logo_url
+    return nil if images.blank?
+    return images.first.itself.url(:medium)
+  end
 end

@@ -1,247 +1,33 @@
 <div class="product_box">
   <div id="tab2">
-      	<ul>
-    	<li onmouseover="setTab(2,0)" class="now">情感培养</li>
-    	<li onmouseover="setTab(2,1)">兴趣培养</li>
-    	<li onmouseover="setTab(2,2)">智力开发</li>
-    	<li onmouseover="setTab(2,3)">动手能力</li>
+    <ul>
+      <% categories = Category.last(4) %>
+      <% categories.each_index do |i| %>
+      <li onmouseover="setTab(2,<%= i %>)" <% if i ==0 %>class="now"  <% end %>><%= categories[i].name %></li>
+      <% end %>
     </ul>
 
   </div>
   <div id="tablist2">
-<div class="tablist block"><span class="more"><a href="#">更多>> </a></span>
-		<ul>
-   	<p>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
-        <!-- 单个商品信息 -->
-        <ol><span class="bbtj">&nbsp;</span>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol><span class="bbtj">&nbsp;</span>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-	</ul>
-    <span class="clean">&nbsp;</span><!-- 清除样式 -->
-   </div>
-
-
-<div class="tablist"><span class="more"><a href="#">更多>> </a></span>
-		<ul>
-   	<p>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+    <% categories.each_index do |i| %>
+    <% category = categories[i] %>
+    <div class="tablist <% if i == 0 %> block <% end %>"><span class="more"><a href="#">更多>> </a></span>
+      <ul>
+        <p style="min-height:30px"><%= category.description %> &nbsp; </p>
+        <% GenericItem.where("category_id = #{category.id}").limit(8).each do |generic_item| %>
         <!-- 单个商品信息 -->
         <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
+            <%= link_to image_tag( generic_item.logo_url || asset_path("demo4.jpg"), :size => "130x130"),
+              generic_item, :target => "_blank"%>
+            <li><h4><a href="#"><%= generic_item.name %></a></h4></li>
+            <li>价格区间：<span class="jiage">￥<%= generic_item.price_scope %></span></li>
+            <li>人气指数：<%= generic_item.scores %></li>
         </ol>
         <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 -->
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo2.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-	</ul>
-    <span class="clean">&nbsp;</span><!-- 清除样式 -->
-   </div>
-
-<div class="tablist"><span class="more"><a href="#">更多>> </a></span>
-		<ul>
-   	<p>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
-        <!-- 单个商品信息 -->
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo3.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-	</ul>
-   <span class="clean">&nbsp;</span><!-- 清除样式 -->
-   </div>
-
-<div class="tablist"><span class="more"><a href="#">更多>> </a></span>
-		<ul>
-   	<p>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
-        <!-- 单个商品信息 -->
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 -->
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <!-- 单个商品信息 end -->
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-        <ol>
-          	<a href="#"><img src="/assets/demo4.jpg" width="130" height="130" /></a>
-          	<li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-         	<li>价格区间：<span class="jiage">￥80-320</span></li>
-          	<li>人气指数：18972</li>
-        </ol>
-	</ul>
-   <span class="clean">&nbsp;</span><!-- 清除样式 -->
-   </div>
+        <% end %>
+      </ul>
+      <span class="clean">&nbsp;</span><!-- 清除样式 -->
+    </div>
+    <% end %>
   </div>
  </div>

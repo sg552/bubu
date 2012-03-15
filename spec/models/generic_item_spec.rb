@@ -46,4 +46,21 @@ describe GenericItem do
     generic_item.category.should == category
   end
 
+  it "should get logo url" do
+    @generic_item.logo_url.should == nil
+
+    url = "hihihi"
+    generic_item = create(:generic_item)
+    image = create(:image, :generic_item_id => generic_item.id)
+    generic_item.logo_url.should == image.itself.url(:medium)
+  end
+
+  it "should query last 8" do
+    category = create(:category)
+    20.times do
+      generic_item = create(:generic_item, :category_id => category.id)
+    end
+    GenericItem.all.size.should >= 20
+    GenericItem.where("category_id = #{category.id}").limit(8).size.should == 8
+  end
 end
