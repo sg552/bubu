@@ -283,7 +283,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_users_on_email` (`email`),
   UNIQUE KEY `index_users_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -298,6 +298,7 @@ INSERT INTO `users` VALUES (3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1n
 INSERT INTO `users` VALUES (4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user');
 INSERT INTO `users` VALUES (5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user');
 INSERT INTO `users` VALUES (6,'test0315@gmail.com','$2a$10$2xCNe3Teb9MiPPyopEqLy./4ktVYXvITu6aopfuUvqJ.ceOCFEF3i',NULL,NULL,NULL,1,'2012-03-15 14:15:31','2012-03-15 14:15:31','192.168.56.1','192.168.56.1','2012-03-15 14:15:31','2012-03-15 14:15:31','user');
+INSERT INTO `users` VALUES (7,'admin@bubu.com','$2a$10$mQZiOm8Wx3/TFc5c6olGteCzm9u4UvPRUYLjUVEraNn9bhnvJSD4O',NULL,NULL,NULL,1,'2012-03-15 18:21:00','2012-03-15 18:21:00','192.168.56.1','192.168.56.1','2012-03-15 18:21:00','2012-03-15 18:21:00','admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -310,4 +311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-16  2:14:50
+-- Dump completed on 2012-03-16  2:22:04
