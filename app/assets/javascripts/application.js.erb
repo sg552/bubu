@@ -18,40 +18,6 @@
 //= require tab_mod
 //= require my_utilities
 
-/*
-DIALOG_DIV_ID = "jquery_dialog"
-
-$(document).ready(function(){
-  //create a div for jquery's dialog use.
-  if($("#"+DIALOG_DIV_ID).size() == 0){
-    $("body").append("<div id='"+ DIALOG_DIV_ID + "' style='display:none; ' ></div>")
-  }
-})
-*/
-/**
- */
-function open_dialog(url, options ){
-  default_options ={ width: 580, modal: true,
-    customized_ajax_start: false,
-    autoOpen: false, minHeight: 150}
-  target = $("#"+ DIALOG_DIV_ID)
-  target.html('')
-  target.dialog($.extend(default_options, options) ).dialog("open")
-  my_options = default_options
-  if(!my_options.customized_ajax_start){
-    target.ajaxStart(function(){
-      target.html('<%= image_tag asset_path("tiny_loading.gif"), :style=>"height: 24px; width:24px"%>');
-    })
-  }
-  target.load(url, function(){
-    target.dialog("option", "position", "center")
-    //move the rsvError from the parent page to dialog
-    target.prepend('<div id=\"rsvErrors\"></div>')
-    if($("#body .content #rsvErrors").size() > 0){
-      $("#body .content #rsvErrors").remove()
-    }
-  })
-}
 
 /**
   usage:
