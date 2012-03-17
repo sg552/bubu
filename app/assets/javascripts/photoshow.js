@@ -10,7 +10,6 @@ function movec()
 	var rqbd=$a("bd1lfsj","ul")[0];
 	var extime;
 
-	<!--for(var i=1;i<oli.length;i++){rqbd.innerHTML+="<li>"+i+"</li>";}-->
 	var rq=$a("bd1lfsj","li");
 	for(var i=0;i<rq.length;i++){reg(i);};
 	oli[dnow].className=rq[dnow].className="show";
