@@ -15,6 +15,7 @@ and the latest gems/technologies.
 * an interface to change the categories
 * when editing the items, should validate input
 * when editing the items, use dropdown for some fields instead of text_fields.
+
 # use HAML
 # use coffee-script
 
