@@ -9,8 +9,6 @@ this.params = (name) ->
 
 DIALOG_DIV_ID = "jquery_dialog"
 
-jQuery ->
-  $("body").append "<div id='#{DIALOG_DIV_ID}' style='display:none; ' ></div>"
 
 ###
   usage: open_dialog("http://", { width: 600}  )
@@ -51,3 +49,12 @@ this.close_dialog = ( div_id = DIALOG_DIV_ID ) ->
     $('#body .content').append('<div id=\"rsvErrors\"></div>')
   target.html ''
 
+jQuery ->
+  $("body").append "<div id='#{DIALOG_DIV_ID}' style='display:none; ' ></div>"
+  # moved from new.js
+  $('.sidelist').mousemove ->
+    $(this).find('.i-list').show()
+    $(this).find('h3').addClass('hover')
+  $('.sidelist').mouseleave ->
+    $(this).find('.i-list').hide()
+    $(this).find('h3').removeClass('hover')
