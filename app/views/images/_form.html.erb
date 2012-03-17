@@ -1,5 +1,12 @@
 <%= form_for(@image) do |f| %>
   <%= f.hidden_field :generic_item_id %>
-  <%= f.file_field :itself %>
+  <p> 有两种方式编辑图片, （显示优先级：外部链接 &gt; 上传的图片） </p>
+  <ul>
+  <li>
+  1. 外部链接： <%= f.text_field :external_url %> <br/>
+  </li>
+  <li>
+  2. 上传图片：<%= f.file_field :itself %>
+  </li>
   <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>
