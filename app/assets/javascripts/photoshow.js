@@ -1,13 +1,10 @@
-function $a(id,tag){var re=(id&&typeof id!="string")?id:document.getElementById(id);if(!tag){return re;}else{return re.getElementsByTagName(tag);}}
-
-//焦点滚动图 点击移动
 function movec()
 {
 	var o=$a("bd1lfimg","");
 	var oli=$a("bd1lfimg","dl");
-    var oliw=oli[0].offsetWidth; //每次移动的宽度	 
+    var oliw=oli[0].offsetWidth; //每???贫??目???
 	var ow=o.offsetWidth-2;
-	var dnow=0; //当前位置	
+	var dnow=0; //??前位??
 	var olf=oliw-(ow-oliw+10)/2;
 		o["scrollLeft"]=olf+(dnow*oliw);
 	var rqbd=$a("bd1lfsj","ul")[0];

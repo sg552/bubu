@@ -58,3 +58,8 @@ jQuery ->
   $('.sidelist').mouseleave ->
     $(this).find('.i-list').hide()
     $(this).find('h3').removeClass('hover')
+
+this.$a =   (id,tag) ->
+  re = if( id && typeof(id) != "string" ) then id else document.getElementById(id)
+  return if !tag then re else re.getElementsByTagName(tag)
+
