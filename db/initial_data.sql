@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.54, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: bubu
 -- ------------------------------------------------------
--- Server version	5.1.54-1ubuntu4
+-- Server version	5.1.49-1ubuntu8.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -143,7 +143,7 @@ CREATE TABLE `images` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +158,11 @@ INSERT INTO `images` VALUES (5,4,'image/jpeg','2012-03-13 13:14:01',4511,'black_
 INSERT INTO `images` VALUES (6,4,'image/png','2012-03-15 11:31:53',389080,'cat_cat.PNG','2012-03-15 11:31:56','2012-03-15 11:31:56');
 INSERT INTO `images` VALUES (7,4,'image/png','2012-03-15 11:32:06',189407,'map2.PNG','2012-03-15 11:32:07','2012-03-15 11:32:07');
 INSERT INTO `images` VALUES (8,4,'image/jpeg','2012-03-15 11:32:40',4688526,'IMG_4831.JPG','2012-03-15 11:32:54','2012-03-15 11:32:54');
+INSERT INTO `images` VALUES (9,NULL,'image/png','2012-03-17 23:04:09',126195,'r39.png','2012-03-17 23:04:10','2012-03-17 23:04:10');
+INSERT INTO `images` VALUES (10,NULL,'image/png','2012-03-17 23:08:32',120776,'q3.png','2012-03-17 23:08:33','2012-03-17 23:08:33');
+INSERT INTO `images` VALUES (11,NULL,NULL,NULL,NULL,NULL,'2012-03-17 23:09:13','2012-03-17 23:09:13');
+INSERT INTO `images` VALUES (12,NULL,'image/png','2012-03-17 23:09:27',128844,'q2.png','2012-03-17 23:09:28','2012-03-17 23:09:28');
+INSERT INTO `images` VALUES (13,NULL,'image/png','2012-03-17 23:09:42',220652,'download_122.740_14.653_before.png','2012-03-17 23:09:43','2012-03-17 23:09:43');
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,7 +226,41 @@ INSERT INTO `schema_migrations` VALUES ('20120313141221');
 INSERT INTO `schema_migrations` VALUES ('20120313142120');
 INSERT INTO `schema_migrations` VALUES ('20120314090950');
 INSERT INTO `schema_migrations` VALUES ('20120315094008');
+INSERT INTO `schema_migrations` VALUES ('20120317061304');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sliders`
+--
+
+DROP TABLE IF EXISTS `sliders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sliders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` text COLLATE utf8_unicode_ci,
+  `target_url` text COLLATE utf8_unicode_ci,
+  `image_id` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sliders`
+--
+
+LOCK TABLES `sliders` WRITE;
+/*!40000 ALTER TABLE `sliders` DISABLE KEYS */;
+INSERT INTO `sliders` VALUES (1,'潜入幽静之地','文字文字文字。。。','asdf',9,'2012-03-17 23:04:10','2012-03-17 23:08:03');
+INSERT INTO `sliders` VALUES (2,'盘点中国最美雪山','文字文字文字文字文字文字文字文字文字文字','',10,'2012-03-17 23:08:33','2012-03-17 23:08:33');
+INSERT INTO `sliders` VALUES (3,'第三章幻灯片','','',11,'2012-03-17 23:09:14','2012-03-17 23:09:14');
+INSERT INTO `sliders` VALUES (4,'第4444章幻灯片','','adf',12,'2012-03-17 23:09:28','2012-03-17 23:09:28');
+INSERT INTO `sliders` VALUES (5,'第五章幻灯片','','',13,'2012-03-17 23:09:43','2012-03-17 23:09:43');
+/*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -298,7 +337,7 @@ INSERT INTO `users` VALUES (3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1n
 INSERT INTO `users` VALUES (4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user');
 INSERT INTO `users` VALUES (5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user');
 INSERT INTO `users` VALUES (6,'test0315@gmail.com','$2a$10$2xCNe3Teb9MiPPyopEqLy./4ktVYXvITu6aopfuUvqJ.ceOCFEF3i',NULL,NULL,NULL,1,'2012-03-15 14:15:31','2012-03-15 14:15:31','192.168.56.1','192.168.56.1','2012-03-15 14:15:31','2012-03-15 14:15:31','user');
-INSERT INTO `users` VALUES (7,'admin@bubu.com','$2a$10$mQZiOm8Wx3/TFc5c6olGteCzm9u4UvPRUYLjUVEraNn9bhnvJSD4O',NULL,NULL,NULL,1,'2012-03-15 18:21:00','2012-03-15 18:21:00','192.168.56.1','192.168.56.1','2012-03-15 18:21:00','2012-03-15 18:21:00','admin');
+INSERT INTO `users` VALUES (7,'admin@bubu.com','$2a$10$mQZiOm8Wx3/TFc5c6olGteCzm9u4UvPRUYLjUVEraNn9bhnvJSD4O',NULL,NULL,NULL,2,'2012-03-17 23:02:53','2012-03-15 18:21:00','127.0.0.1','192.168.56.1','2012-03-15 18:21:00','2012-03-17 23:02:53','admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -311,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-16  2:22:04
+-- Dump completed on 2012-03-18  7:11:21
