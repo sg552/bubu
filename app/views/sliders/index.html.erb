@@ -1,0 +1,26 @@
+<h1>幻灯片列表</h1>
+
+<table>
+  <tr>
+    <th>标题</th>
+    <th>内容（长文字）</th>
+    <th>目标链接</th>
+    <th>图片</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sliders.each do |slider| %>
+  <tr>
+    <td><%= slider.title %></td>
+    <td><%= slider.content %></td>
+    <td><%= slider.target_url %></td>
+    <td><%= image_tag(slider.image.itself.url)unless slider.image.blank? %></td>
+    <td><%= link_to_function '编辑', "open_dialog('#{edit_slider_path(slider)}')" %></td>
+    <td><%= link_to '删除', slider, :confirm => '确定删除吗?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to_function '增加新的幻灯片', "open_dialog('#{new_slider_path }')"%>

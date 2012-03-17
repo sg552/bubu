@@ -1,4 +1,6 @@
 Bubu::Application.routes.draw do
+  resources :sliders
+
   resources :comments
 
   resources :images

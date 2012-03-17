@@ -1,55 +1,37 @@
-	<div id="photo_show">
-      <div id="photo_box">
-        <div class="sub_box">
-          <div id="p-select" class="sub_nav">
-            <div class="sub_no" id="bd1lfsj">
-              <ul>
-                <li class="show">1</li>
-                <li class="">2</li>
-                <li class="">3</li>
-                <li class="">4</li>
-                <li class="">5</li>
-              </ul>
-            </div>
-          </div>
-          <div id="bd1lfimg">
-            <div>
-              <dl class="show">
-              </dl>
-              <dl class="">
-                <dt><a href="#" title="" target="_blank"><img src="/assets/w1.jpg" alt="2011城市主题公园亲子游"></a></dt>
-                <dd>
-                  <h2><a href="#" target="_blank">2011城市主题公园亲子游</a></h2>
-                  <tt><a href="#" target="_blank">又是春游踏青的季节，各大主题乐园都为大朋友、小朋友们准备了丰…</a></tt> </dd>
-              </dl>
-              <dl class="">
-                <dt><a href="#" title="" target="_blank"><img src="/assets/w2.jpg" alt="潜入城市周边清幽之地"></a></dt>
-                <dd>
-                  <h2><a href="#" target="_blank">潜入城市周边清幽之地</a></h2>
-                  <tt><a href="#" target="_blank">北京、上海、广州、成都周边，总有些人少清幽的地方，等着你去探…</a></tt> </dd>
-              </dl>
-              <dl class="">
-                <dt><a href="#" title="" target="_blank"><img src="/assets/w3.jpg" alt="盘点中国最美雪山"></a></dt>
-                <dd>
-                  <h2><a href="#" target="_blank">盘点中国最美雪山</a></h2>
-                  <tt><a href="#" target="_blank">盘点中国最美雪山，从云南的梅里到西藏的珠穆朗玛，带你领略中国…</a></tt> </dd>
-              </dl>
-              <dl class="">
-                <dt><a href="#" title="" target="_blank"><img src="/assets/w4.jpg" alt="2011西安世园会攻略"></a></dt>
-                <dd>
-                  <h2><a href="#/" target="_blank">2011西安世园会攻略</a></h2>
-                  <tt><a href="#" target="_blank">提供最全面西安世园会资讯、西安世园会参观指南、西安世园会旅游…</a></tt> </dd>
-              </dl>
-              <dl class="">
-                <dt><a href="#/" title="" target="_blank"><img src="/assets/w5.jpg" alt="五月乐享懒人天堂塞班岛"></a></dt>
-                <dd>
-                  <h2><a href="#/jscss/" target="_blank">五月乐享懒人天堂塞班岛</a></h2>
-                  <tt><a href="#" target="_blank">塞班岛是北马里亚纳群岛的首府，由于近邻赤道，塞班岛一年四季如…</a></tt> </dd>
-              </dl>
-            </div>
-          </div>
+<div id="photo_show">
+  <div id="photo_box">
+    <div class="sub_box">
+      <div id="p-select" class="sub_nav">
+        <div class="sub_no" id="bd1lfsj">
+          <ul>
+            <% (1..5).each do |i| %>
+            <li class=""><%= i%></li>
+            <% end %>
+          </ul>
         </div>
-        <script type="text/javascript">movec();</script>
+      </div>
+      <div id="bd1lfimg">
+        <div>
+          <dl class="show"> </dl>
+          <% Slider.last(5).each do |slider| %>
+          <a href="<%= slider.target_url %>">
+          <dl class="slider">
+            <dt> <%= image_tag(slider.image_url) %> </dt>
+            <dd>
+              <h2><%= slider.title %></h2>
+              <tt><%= slider.content %></tt>
+            </dd>
+          </dl>
+          </a>
+          <% end %>
+        </div>
       </div>
     </div>
-
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){
+  $("#bd1lfsj li").first().attr("class","show")
+  movec();
+})
+</script>
