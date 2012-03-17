@@ -15,7 +15,7 @@
     <td><%= slider.title %></td>
     <td><%= slider.content %></td>
     <td><%= slider.target_url %></td>
-    <td><%= image_tag(slider.image.itself.url)unless slider.image.blank? %></td>
+    <td><%= image_tag(slider.image.itself.url, :size => "600x200")unless slider.image.blank? %></td>
     <td><%= link_to_function '编辑', "open_dialog('#{edit_slider_path(slider)}')" %></td>
     <td><%= link_to '删除', slider, :confirm => '确定删除吗?', :method => :delete %></td>
   </tr>

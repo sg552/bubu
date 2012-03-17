@@ -22,6 +22,7 @@
           }')"%> &nbsp;
         <% if can? :manage, Category %>
         <%= link_to "管理产品分类", categories_path %> &nbsp;
+        <%= link_to "管理幻灯片", sliders_path %> &nbsp;
         <% end %>
         <%= link_to "退出", destroy_user_session_path, :method => :delete, :confirm => "确定退出吗？" %>
       </li>
