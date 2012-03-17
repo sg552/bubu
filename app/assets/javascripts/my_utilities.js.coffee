@@ -7,21 +7,22 @@ this.params = (name) ->
   regex = new RegExp "[\\?&]#{ name }=([^&#]*)"
   regex.exec( window.location.href ) == null ? "" : results[1]
 
-this.DIALOG_DIV_ID = "jquery_dialog"
+DIALOG_DIV_ID = "jquery_dialog"
 
 jQuery ->
-  if $("##{this.DIALOG_DIV_ID}").size == 0
-    $("body").append "<div id='#{this.DIALOG_DIV_ID}' style='display:none; ' ></div>"
+  $("body").append "<div id='#{DIALOG_DIV_ID}' style='display:none; ' ></div>"
 
-
+###
+  usage: open_dialog("http://", { width: 600}  )
+###
 this.open_dialog = (url, options) ->
-  default_options:
+  default_options=
     width: 580
     modal: true
     customized_ajax_start: false
     autoOpen: false
     minHeight: 150
-  target = $ "##{this.DIALOG_DIV_ID}"
+  target = $ "##{DIALOG_DIV_ID}"
   target.html ''
   target.dialog($.extend(default_options, options) ).dialog "open"
   my_options = default_options
@@ -32,6 +33,21 @@ this.open_dialog = (url, options) ->
     target.dialog "option", "position", "center"
     # move the rsvError from the parent page to dialog
     target.prepend '<div id=\"rsvErrors\"></div>'
-    if $("#body .content #rsvErrors").size > 0
-      $("#body .content #rsvErrors").remove
+    if $("#body .content #rsvErrors").size() > 0
+      $("#body .content #rsvErrors").remove()
   )
+###
+  usage:
+  1. generic and simple:
+   close_dialog()
+  2. more specific :
+   close_dialog("jquery_dialog")
+###
+this.close_dialog = ( div_id = DIALOG_DIV_ID ) ->
+  target = $("#"+ div_id)
+  target.dialog("close")
+  ## restore the rsvError div to parent page.
+  if($("#body .content #rsvErrors").size()==0)
+    $('#body .content').append('<div id=\"rsvErrors\"></div>')
+  target.html ''
+
