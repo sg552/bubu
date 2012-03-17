@@ -8,6 +8,7 @@ spec/routing
 spec/views
 public/assets
 mockups
+config/database.yml
 
 # Ignore bundler config
 /.bundle
