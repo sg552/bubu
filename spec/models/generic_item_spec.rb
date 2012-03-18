@@ -42,8 +42,8 @@ describe GenericItem do
 
   it "should belong to category " do
     category = create(:category)
-    generic_item = create(:generic_item, :category_id => category.id)
-    generic_item.category.should == category
+    generic_item = create(:generic_item, "category_id_#{category.principle}" => category.id)
+    generic_item.category_by_usage.should == category
   end
 
   it "should get logo url" do
@@ -58,9 +58,10 @@ describe GenericItem do
   it "should query last 8" do
     category = create(:category)
     20.times do
-      generic_item = create(:generic_item, :category_id => category.id)
+      generic_item = create(:generic_item, "category_id_#{category.principle}" => category.id)
     end
     GenericItem.all.size.should >= 20
-    GenericItem.where("category_id = #{category.id}").limit(8).size.should == 8
+    GenericItem.where("category_id_#{category.principle}= #{category.id}").
+      limit(8).size.should == 8
   end
 end

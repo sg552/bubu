@@ -1,28 +1,11 @@
 <h1>分类管理</h1>
 
-<table style="width:80%; border: 1px solid black">
-  <tr>
-    <th style="width: 200px">名字</th>
-    <th style="width: 300px">产品</th>
-    <th></th>
-  </tr>
-
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %>
-      &nbsp; | &nbsp;
-      <%= link_to_function "增加产品", "open_dialog('#{new_generic_item_path(:category_id => category.id)}')" %>
-    </td>
-    <td style="border: 1px solid blue">
-      <%= render :partial => "generic_items/list", :locals => {:category => category } %>
-    </td>
-    <td>
-      <%= link_to_function '编辑', "open_dialog('#{edit_category_path(category)}')" %>
-      <%= link_to '删除', category, :confirm => '确定删除吗?', :method => :delete %>
-  </tr>
-<% end %>
-</table>
-
+<h2> 按用途分类 </h2>
+<%= render :partial => 'list', :locals => {:categories => @categories_by_usage } %>
+<h2> 按形状分类 </h2>
+<%= render :partial => 'list', :locals => {:categories => @categories_by_shape } %>
+<h2> 按年龄分类</h2>
+<%= render :partial => 'list', :locals => {:categories => @categories_by_age} %>
 <br />
 
 <%= link_to_function '增加新分类', "open_dialog('#{new_category_path}')" %>

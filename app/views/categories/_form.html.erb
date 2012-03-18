@@ -1,5 +1,11 @@
 <%= form_for(@category) do |f| %>
   <div class="field">
+    分类依据: <br/>
+    <%= f.select :principle, [["按用途(智力开发，情感培养等)", Category::PRINCIPLE_BY_USAGE],
+      ["按形状(例如毛绒)", Category::PRINCIPLE_BY_SHAPE],
+      ["按年龄(例如1-3岁，3-4岁)", Category::PRINCIPLE_BY_AGE ]] %>
+  </div>
+  <div class="field">
     名字：<br/>
     <%= f.text_field :name %>
   </div>

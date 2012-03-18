@@ -1,5 +1,8 @@
 class GenericItem < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :category_by_usage, :class_name => "Category", :foreign_key => "category_id_by_usage"
+  belongs_to :category_by_shape, :class_name => "Category", :foreign_key => "category_id_by_shape"
+  belongs_to :category_by_age, :class_name => "Category", :foreign_key => "category_id_by_age"
+
   has_many :specific_items
   has_many :images
   has_many :comments

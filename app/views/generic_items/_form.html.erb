@@ -7,13 +7,24 @@
     <%= f.text_area :description, :size => "40 x 4" %>
   </div>
   <div class="field">
-    所属分类：  <%= collection_select :generic_item, :category_id, Category.all, :id, :name %>
+    所属分类：
+    <ul>
+      <li> 按用途：
+        <%= collection_select :generic_item, :category_id_by_usage,
+          Category.where(:principle => Category::PRINCIPLE_BY_USAGE) , :id, :name %>
+      </li>
+      <li> 按形状：
+        <%= collection_select :generic_item, :category_id_by_shape,
+          Category.where(:principle => Category::PRINCIPLE_BY_SHAPE) , :id, :name %>
+      </li>
+      <li> 按年龄：
+        <%= collection_select :generic_item, :category_id_by_age,
+          Category.where(:principle => Category::PRINCIPLE_BY_AGE) , :id, :name %>
+      </li>
+    <ul>
   </div>
   <div class="field">
     UUID(唯一性的标识) <%= f.text_field :uuid %>
-  </div>
-  <div class="field">
-    适宜年龄： <%= f.text_field :child_age_scope %>岁 (例如： 10~14岁）
   </div>
   <div class="field">
     初始化的分数（默认是0）:
@@ -21,7 +32,7 @@
   </div>
   <div class="field">
     面相对象(男孩/女孩/均可)：
-    <%= f.text_field :customer_gender %>
+    <%= f.select :customer_gender, ["均可", "男孩", "女孩" ] %>
   </div>
   <div class="field">
     小贴士：<br/>

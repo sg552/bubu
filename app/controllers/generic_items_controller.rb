@@ -15,7 +15,7 @@ class GenericItemsController < ApplicationController
   # GET /generic_items/new
   # GET /generic_items/new.json
   def new
-    @generic_item = GenericItem.new(:category_id => params[:category_id])
+    @generic_item = GenericItem.new( params[:generic_item] )
     render :layout => false
   end
 

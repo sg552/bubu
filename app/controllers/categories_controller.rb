@@ -3,7 +3,9 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    @categories_by_usage = Category.where(:principle => Category::PRINCIPLE_BY_USAGE)
+    @categories_by_shape = Category.where(:principle => Category::PRINCIPLE_BY_SHAPE)
+    @categories_by_age= Category.where(:principle => Category::PRINCIPLE_BY_AGE)
 
     respond_to do |format|
       format.html # index.html.erb
