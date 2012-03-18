@@ -8,11 +8,24 @@ class ImportItems
     start_at =  Time.now
     GenericItem.transaction do
     doc.root.elements.each do |generic_item_node|
+      category_by_usage = Category.find_or_create_by_principle_and_name(
+        Category::PRINCIPLE_BY_USAGE, generic_item_node["CommendedCategory"])
+
+      category_by_shape= Category.find_or_create_by_principle_and_name(
+        Category::PRINCIPLE_BY_SHAPE, generic_item_node["ProductCategory"])
+
+      category_by_age = Category.find_or_create_by_principle_and_name(
+        Category::PRINCIPLE_BY_AGE, generic_item_node["AdaptAge"])
+
       generic_item = GenericItem.new(
         :name => generic_item_node["DisplayName"],
         :description => generic_item_node["FullName"],
         :customer_gender => generic_item_node["AdaptSex"],
-        :scores => generic_item_node["RecommendCounts"]
+        :category_id_by_usage => category_by_usage.id,
+        :category_id_by_shape => category_by_shape.id,
+        :category_id_by_age => category_by_age.id,
+        :scores => generic_item_node["RecommendCounts"],
+        :uuid => generic_item_node["ID"]
       )
       generic_item.save!
       generic_item_node.css("Pictures Picture").each do |image_node|
@@ -23,8 +36,8 @@ class ImportItems
           :source_website_name => specific_item_node["ShopName"],
           :price => specific_item_node["SalePrice"],
           :source_url => specific_item_node["SaleLink"],
-          :delivery_method => specific_item_node["SaleWuliu"],
-          :word_of_mouth => specific_item_node["SaleRedu"]
+          :delivery_method => specific_item_node["SaleWuLiu"],
+          :word_of_mouth => specific_item_node["SaleReDu"]
           )
       end
       puts "importing: #{generic_item.name}, time: #{Time.now}"

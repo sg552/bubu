@@ -10,6 +10,8 @@ describe GenericItem do
     create(:image, :generic_item_id => @id)
     create(:image, :generic_item_id => @id)
     @generic_item.images.size.should == 2
+    @generic_item.destroy
+    Image.where(:generic_item_id => @id).size.should == 0
   end
 
   it "should have many comments " do

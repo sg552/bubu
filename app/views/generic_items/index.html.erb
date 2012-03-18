@@ -17,7 +17,8 @@
     <div class="clean">&nbsp;</div><!-- 清除样式 -->
 
     <!---------------------------------------------情感分类选项卡开始----------------------------------------->
-    <%= render :partial => 'product_box_grouped_by_tabs' %>
+    <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
+      :categories => Category.where(:principle => Category::PRINCIPLE_BY_USAGE).last(4)} %>
     <!---------------------------------------------情感分类选项卡开始----------------------------------------->
    	<!---------------------------------------------年龄划分选项卡开始----------------------------------------->
     <%# render :partial => 'product_box_grouped_by_tabs' %>

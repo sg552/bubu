@@ -1,7 +1,6 @@
 <div class="product_box">
   <div id="tab2">
     <ul>
-      <% categories = Category.last(4) %>
       <% categories.each_index do |i| %>
       <li onmouseover="setTab(2,<%= i %>)" <% if i ==0 %>class="now"  <% end %>><%= categories[i].name %></li>
       <% end %>
@@ -14,7 +13,7 @@
     <div class="tablist <% if i == 0 %> block <% end %>"><span class="more"><a href="#">更多>> </a></span>
       <ul>
         <p style="min-height:30px"><%= category.description %> &nbsp; </p>
-        <% GenericItem.where("category_id = #{category.id}").limit(8).each do |generic_item| %>
+        <% category.generic_items(8).each do |generic_item| %>
         <!-- 单个商品信息 -->
         <ol>
             <%= link_to image_tag( generic_item.logo_url || asset_path("demo4.jpg"), :size => "130x130"),
