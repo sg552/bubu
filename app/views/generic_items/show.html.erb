@@ -65,7 +65,7 @@ function award_score(){
     <li>价格区间： <span style="font-size:16px; font-weight:bold; color:#F30; font-family:Arial, Helvetica, sans-serif;">
       <%= @generic_item.price_scope %></span> 元</li>
     <li>适宜年龄：<span style="font-size:12px; font-weight:bold; color:#090;">
-      <%= @generic_item.child_age_scope %> 岁</span></li>
+      <%= @generic_item.category_by_age.name %> 岁</span></li>
     <li>适宜性别：<span style="font-size:12px; font-weight:bold; color:#090;">
       <%= @generic_item.customer_gender %></span></li>
 

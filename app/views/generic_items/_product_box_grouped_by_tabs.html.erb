@@ -15,13 +15,14 @@
         <p style="min-height:30px"><%= category.description %> &nbsp; </p>
         <% category.generic_items(8).each do |generic_item| %>
         <!-- 单个商品信息 -->
+        <a href="<%= generic_item_path(generic_item.id) %>" target="_blank" tip="">
         <ol>
-            <%= link_to image_tag( generic_item.logo_url || asset_path("demo4.jpg"), :size => "130x130"),
-              generic_item, :target => "_blank"%>
-            <li><h4><a href="#"><%= generic_item.name %></a></h4></li>
+            <%= image_tag( generic_item.logo_url || asset_path("demo4.jpg"), :size => "130x130") %>
+            <li><h4><%= truncate (generic_item.name, :length => 15)%></h4></li>
             <li>价格区间：<span class="jiage">￥<%= generic_item.price_scope %></span></li>
             <li>人气指数：<%= generic_item.scores %></li>
         </ol>
+        </a>
         <!-- 单个商品信息 end -->
         <% end %>
       </ul>
