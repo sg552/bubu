@@ -1,0 +1,36 @@
+<%# level_1_category %>
+<%# level_2_category %>
+
+<div class="title_name"><a href="#">宝宝年龄分类</a></div>
+
+  <% level_1_category.each do |category| %>
+  <div class="sidelist">
+    <span>
+    <h3><a href="#"><img src="/assets/icon/icon_03.png" width="14" height="14" />
+      <%= category.name %></a></h3>
+    </span>
+    <div class="i-list">
+      <div class="i-list-icon">
+        <img src="/assets/03age.png" width="120" height="125" />
+      </div>
+      <div class="i-list-info">
+      <div class="menu_title"><a href="#"> <%= category.name %> ：</a>
+        <span class="more_menu_nav"><a href="#">更多 >></a></span></div>
+        <ul>
+          <% level_2_category.each do |category| %>
+          <li><a href="#">
+            <%= image_tag asset_path("icon/icon_star.png"), :size => "14x14" %>
+            <%= category.name %>
+          </a></li>
+          <% end %>
+          <div class="clean">&nbsp;</div>
+        </ul>
+        <div class="clean">&nbsp;</div>
+      <div class="menu_info">
+        <%= image_tag asset_path("ts.jpg"), :size => "30x31" %>
+        布布小贴示: 幼儿年龄小，安全意识很差，了新鲜事物敢于冒险，所以我们一定要提高警惕心。必须做到三勤，即：口勤、眼勤、手勤。 </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  <div style="height:30px;">&nbsp;</div>

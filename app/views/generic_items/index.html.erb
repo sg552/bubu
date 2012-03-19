@@ -18,7 +18,7 @@
 
     <!---------------------------------------------情感分类选项卡开始----------------------------------------->
     <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
-      :categories => Category.where(:principle => Category::PRINCIPLE_BY_USAGE).last(4)} %>
+      :categories => Category.by_usage.last(5)} %>
     <!---------------------------------------------情感分类选项卡开始----------------------------------------->
    	<!---------------------------------------------年龄划分选项卡开始----------------------------------------->
     <%# render :partial => 'product_box_grouped_by_tabs' %>
