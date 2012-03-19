@@ -17,6 +17,8 @@ class GenericItem < ActiveRecord::Base
 
   def logo_url
     return nil if images.blank?
-    return images.first.itself.url(:medium)
+    images.first.external_url.blank? ?
+      images.first.itself.url(:medium) :
+      images.first.external_url
   end
 end
