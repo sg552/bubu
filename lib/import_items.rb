@@ -28,6 +28,7 @@ class ImportItems
         :uuid => generic_item_node["ID"]
       )
       generic_item.save!
+      puts "after save,generic_item.ID: #{generic_item_node["ID"]}, item: #{generic_item.uuid}"
       generic_item_node.css("Pictures Picture").each do |image_node|
         Image.create(:generic_item => generic_item, :external_url => image_node["Path"])
       end

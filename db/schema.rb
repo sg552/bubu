@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120318024423) do
+ActiveRecord::Schema.define(:version => 20120319161315) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(:version => 20120318024423) do
     t.string   "name"
     t.text     "description"
     t.string   "uuid"
-    t.string   "child_age_scope"
     t.string   "scores",               :default => "0"
     t.text     "tips"
     t.datetime "created_at",                            :null => false
