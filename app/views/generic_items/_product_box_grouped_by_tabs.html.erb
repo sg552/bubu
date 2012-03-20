@@ -1,13 +1,14 @@
+<%# tab_index %>
 <div class="product_box">
-  <div id="tab2">
+  <div id="tab<%= tab_index %>">
     <ul>
       <% categories.each_index do |i| %>
-      <li onmouseover="setTab(2,<%= i %>)" <% if i ==0 %>class="now"  <% end %>><%= categories[i].name %></li>
+      <li onmouseover="setTab(<%= tab_index %>,<%= i %>)" <% if i ==0 %>class="now"  <% end %>><%= categories[i].name %></li>
       <% end %>
     </ul>
 
   </div>
-  <div id="tablist2">
+  <div id="tablist<%= tab_index %>">
     <% categories.each_index do |i| %>
     <% category = categories[i] %>
     <div class="tablist <% if i == 0 %> block <% end %>"><span class="more"><a href="#">更多>> </a></span>
