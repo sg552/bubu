@@ -1,4 +1,12 @@
-<!---------------------------------- 汽车模型大照片开始 -->
+<!---------------------------------- 汽车模型照片开始 -->
+<script>
+$(function(){
+  $(".zoom_box_border ul li a").mouseover(function(){
+    image_url = $(this).attr("href")
+    $("#zoom1 img").attr("src", image_url)
+  })
+})
+</script>
 <div class="pp_show">
   <% if generic_item.images.size > 0 %>
   <a href="zoom/zbig01.jpg" class="MagicZoom" title="汽车模型" id="zoom1">
@@ -31,4 +39,4 @@
     </span>
   </div>
 </div>
-<!---------------------------------- 汽车模型大照片结束-->
+<!---------------------------------- 汽车模型照片结束-->
