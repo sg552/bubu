@@ -15,7 +15,7 @@ describe CategoriesController do
 
   it "should GET index" do
     get :index
-    assigns(:categories).size.should > 0
+    assigns(:categories_by_usage).size.should > 0
     response.should be_success
   end
 
