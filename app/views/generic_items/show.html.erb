@@ -86,82 +86,14 @@ function award_score(){
 </div>
 
 </div>
-<div class="clean">&nbsp;</div> <!-- 清除样式 -->
+  <div class="clean">&nbsp;</div> <!-- 清除样式 -->
     <%= render :partial => "specific_items/list", :locals => { :generic_item => @generic_item } %>
     <%= render :partial => 'comments/list', :locals => { :generic_item => @generic_item } %>
-  <div class="product_box">
-  <div id="tab2">
-    <ul>
-      <li onmouseover="setTab(2,0)" class="now">同类产品推荐</li>
-    </ul>
-  </div>
-  <div id="tablist2">
-    <div class="tablist block">
-        <ul>
-            <!-- 单个商品信息 -->
-            <ol><span class="bbtj">&nbsp;</span>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <!-- 单个商品信息 end -->
-            <ol><span class="bbtj">&nbsp;</span>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <ol>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <ol>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <ol>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <!-- 单个商品信息 end -->
-            <ol>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <ol>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-            <ol>
-                <a href="#"><img src="<%= asset_path "demo.jpg" %>" width="130" height="130" /></a>
-                <li><h4><a href="#">小猴子[毛绒类]</a></h4></li>
-                <li>价格区间：￥80-320</li>
-                <li>人气指数：18972</li>
-            </ol>
-        </ul>
+    <h3> 同类产品推荐 </h3>
+    <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
+      :categories => Category.by_shape.last(2), :tab_index => 3} %>
 
-   </div>
-
-
-
-  </div>
- </div>
-    <!---------------------------------------------情感分类选项卡结束----------------------------------------->
-
-
-
-    </div>
+</div>
   <!--//////////////////////////////右边栏结束/////////////////////////////-->
 
 <% if can? :manage, @generic_item %>
