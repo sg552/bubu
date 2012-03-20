@@ -10,8 +10,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    描述：<br/>
-    <%= f.text_area :description, :size => "60x4" %>
+    小贴士（显示在首页上）：<br/>
+    <%= f.text_area :tip , :size => "60x4" %>
   </div>
   <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>

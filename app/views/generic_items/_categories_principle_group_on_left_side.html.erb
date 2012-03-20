@@ -19,9 +19,9 @@
           <span class="more_menu_nav"><%= link_to_function "更多 >> ", "#" %></span>
         </div>
           <ul>
-            <% level_2_category.each do |category| %>
+            <% level_2_category.each do |category_level2| %>
             <li><%= link_to_function image_tag(asset_path("icon/icon_star.png"), :size => "14x14") + " " +
-              category.name , "#" %>
+              category_level2.name , "#" %>
             </li>
             <% end %>
             <div class="clean">&nbsp;</div>
@@ -29,7 +29,7 @@
           <div class="clean">&nbsp;</div>
         <div class="menu_info">
           <%= image_tag asset_path("ts.jpg"), :size => "30x31" %>
-          布布小贴示: 幼儿年龄小，安全意识很差，了新鲜事物敢于冒险，所以我们一定要提高警惕心。必须做到三勤，即：口勤、眼勤、手勤。
+          布布小贴示: <%= category.tip %>
         </div>
       </div>
     </div>
