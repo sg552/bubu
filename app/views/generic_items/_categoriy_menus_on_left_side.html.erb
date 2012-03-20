@@ -5,10 +5,12 @@
   </div>
   <div id="sidebar">
     <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
-      :level_1_category => Category.by_age, :level_2_category => Category.by_usage
+      :level_1_category => Category.by_age, :level_2_category => Category.by_usage,
+      :level_1_title => "宝宝年龄分类"
     }%>
     <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
-      :level_1_category => Category.by_usage, :level_2_category => Category.by_age
+      :level_1_category => Category.by_usage, :level_2_category => Category.by_age,
+      :level_1_title => "玩具主题分类"
     }%>
   </div>
 </div>

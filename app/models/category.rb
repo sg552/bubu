@@ -12,4 +12,5 @@ class Category < ActiveRecord::Base
     generic_items = GenericItem.where("category_id_#{principle} = #{id}")
     limit.blank? ?  generic_items.all : generic_items.limit(limit)
   end
+
 end
