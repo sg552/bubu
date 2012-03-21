@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.1.54, for debian-linux-gnu (i686)
+-- MySQL dump 10.13  Distrib 5.1.49, for debian-linux-gnu (i686)
 --
 -- Host: localhost    Database: bubu
 -- ------------------------------------------------------
--- Server version	5.1.54-1ubuntu4
+-- Server version	5.1.49-1ubuntu8.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,7 +26,7 @@ CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
-  `description` text COLLATE utf8_unicode_ci,
+  `tip` text COLLATE utf8_unicode_ci,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   `principle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -139,37 +139,6 @@ INSERT INTO `images` VALUES (5824,1624,NULL,NULL,NULL,NULL,'2012-03-19 16:11:39'
 UNLOCK TABLES;
 
 --
--- Table structure for table `rails_admin_histories`
---
-
-DROP TABLE IF EXISTS `rails_admin_histories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rails_admin_histories` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `message` text COLLATE utf8_unicode_ci,
-  `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `item` int(11) DEFAULT NULL,
-  `table` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `month` smallint(6) DEFAULT NULL,
-  `year` bigint(20) DEFAULT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `index_rails_admin_histories` (`item`,`table`,`month`,`year`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rails_admin_histories`
---
-
-LOCK TABLES `rails_admin_histories` WRITE;
-/*!40000 ALTER TABLE `rails_admin_histories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rails_admin_histories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `schema_migrations`
 --
 
@@ -188,7 +157,7 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20120312002959'),('20120312005037'),('20120312005038'),('20120312154956'),('20120312160102'),('20120313094052'),('20120313141221'),('20120313142120'),('20120314090950'),('20120315094008'),('20120317061304'),('20120317231332'),('20120318015123'),('20120318024423'),('20120319161315');
+INSERT INTO `schema_migrations` VALUES ('20120312002959'),('20120312005037'),('20120312005038'),('20120312154956'),('20120312160102'),('20120313094052'),('20120313141221'),('20120313142120'),('20120314090950'),('20120315094008'),('20120317061304'),('20120317231332'),('20120318015123'),('20120318024423'),('20120319161315'),('20120320102354'),('20120321001413');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,4 +269,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-20  0:23:10
+-- Dump completed on 2012-03-21  8:17:08
