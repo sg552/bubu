@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :category do
     name "MyString"
     category_id 1
-    description "MyText"
+    tip "MyText"
     principle Category::PRINCIPLE_BY_USAGE
   end
 end
