@@ -18,6 +18,7 @@ gem "paperclip", "~> 2.7"
 
 gem "haml", "3.1.4"
 gem "nokogiri" , "1.5.0"
+gem "simple_form", "1.5.2"
 
 # Gems used only for assets and not required
 # in production environments by default.

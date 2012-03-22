@@ -14,11 +14,14 @@
         }')" %>
     </td>
     <td style="border: 1px solid blue">
-      <%= render :partial => "generic_items/list", :locals => {:category => category } %>
+      <%= category.generic_items.size %> 种产品。
+      <%# render :partial => "generic_items/list", :locals => {:category => category } %>
     </td>
     <td>
       <%= link_to_function '编辑', "open_dialog('#{edit_category_path(category)}')" %>
       <%= link_to '删除', category, :confirm => '确定删除吗?', :method => :delete %>
+      <%= link_to '编辑(simple form)', edit_category_path(category, :layout=>true) %>
+    </td>
   </tr>
 <% end %>
 </table>

@@ -1,17 +1,14 @@
-<%= form_for(@category) do |f| %>
-  <div class="field">
-    分类依据: <br/>
-    <%= f.select :principle, [["按用途(智力开发，情感培养等)", Category::PRINCIPLE_BY_USAGE],
+<%= simple_form_for(@category) do |f| %>
+  <%= f.input :principle,
+    :label => "分类依据",
+    :collection => [["按用途(智力开发，情感培养等)", Category::PRINCIPLE_BY_USAGE],
       ["按形状(例如毛绒)", Category::PRINCIPLE_BY_SHAPE],
-      ["按年龄(例如1-3岁，3-4岁)", Category::PRINCIPLE_BY_AGE ]] %>
-  </div>
-  <div class="field">
-    名字：<br/>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    小贴士（显示在首页上）：<br/>
-    <%= f.text_area :tip , :size => "60x4" %>
-  </div>
+      ["按年龄(例如1-3岁，3-4岁)", Category::PRINCIPLE_BY_AGE ]],
+    :prompt => false,
+    :hint => "大的分类"
+    %>
+  <%= f.input :name, :label => "名字", :hint => "毛绒类, 益智玩具..." %>
+  <%= f.input :tip, :label => "小贴士", :input_html => {:size => "30x4"},
+    :hint => "显示在首页上, 或者产品细节页"%>
   <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>

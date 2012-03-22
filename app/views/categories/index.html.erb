@@ -1,11 +1,25 @@
 <h1>分类管理</h1>
 
-<h2> 按用途分类 </h2>
-<%= render :partial => 'list', :locals => {:categories => @categories_by_usage } %>
-<h2> 按形状分类 </h2>
-<%= render :partial => 'list', :locals => {:categories => @categories_by_shape } %>
-<h2> 按年龄分类</h2>
-<%= render :partial => 'list', :locals => {:categories => @categories_by_age} %>
-<br />
-
 <%= link_to_function '增加新分类', "open_dialog('#{new_category_path}')" %>
+<div id="tabs">
+  <ul>
+    <li><a href="#by_usage">按用途分类</a></li>
+    <li><a href="#by_shape">按形状分类</a></li>
+    <li><a href="#by_age">按年龄分类</a></li>
+  </ul>
+  <div id="by_usage">
+    <%= render :partial => 'list', :locals => {:categories => @categories_by_usage } %>
+  </div>
+  <div id="by_shape">
+    <%= render :partial => 'list', :locals => {:categories => @categories_by_shape } %>
+  </div>
+  <div id="by_age">
+    <%= render :partial => 'list', :locals => {:categories => @categories_by_age} %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+  $("#tabs").tabs()
+})
+</script>

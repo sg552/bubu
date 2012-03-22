@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    render :layout => false
+    render :layout => params[:layout] == "true"
   end
 
   # POST /categories
