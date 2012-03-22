@@ -14,8 +14,6 @@
     <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
       :categories => Category.by_usage.last(5), :tab_index => 1} %>
     <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
-      :categories => Category.by_age.last(7), :tab_index => 2} %>
-    <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
       :categories => Category.by_shape.last(7), :tab_index => 3} %>
     </div>
 <script>
