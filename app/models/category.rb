@@ -3,9 +3,12 @@ class Category < ActiveRecord::Base
   PRINCIPLE_BY_SHAPE= "by_shape"
   PRINCIPLE_BY_AGE = "by_age"
 
-  # define scope :by_usage, :by_shape, :by_age
+  # define scope
+  # :by_usage
+  # :by_shape
+  # :by_age
   [PRINCIPLE_BY_AGE, PRINCIPLE_BY_USAGE, PRINCIPLE_BY_SHAPE].each do |by|
-    scope by.to_sym, where(:principle => by)
+    scope by.to_sym, where(:principle => by).where("name != '不限'")
   end
 
   def generic_items(limit=nil)
