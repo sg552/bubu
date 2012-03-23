@@ -10,7 +10,8 @@ gem 'devise', '2.0.4'
 gem 'fastercsv' # Only required on Ruby 1.8 and below
 
 #gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
-gem 'rails_admin', :path => "vendor/gems/rails_admin"
+#gem 'rails_admin', :path => "vendor/gems/rails_admin"
+gem "activeadmin"
 gem 'log4r', '1.1.9'
 
 gem 'json'
