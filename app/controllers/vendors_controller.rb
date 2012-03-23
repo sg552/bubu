@@ -1,11 +1,12 @@
 class VendorsController < ApplicationController
+  layout ADMIN_LAYOUT
   # GET /vendors
   # GET /vendors.json
   def index
     @vendors = Vendor.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => ADMIN_LAYOUT }
       format.json { render :json => @vendors }
     end
   end

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>你好~布布的后台管理界面</title>
+  <title>布布的后台管理界面</title>
   <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
   <!--[if lt IE 9]>
   <%= javascript_include_tag "google_html5.js" %>
@@ -24,9 +24,11 @@
           <a class="brand" href="#">布布 BUBU</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li class="active">
+                <%= link_to "分类管理", categories_path %>
+              </li>
+              <li><%= link_to "品牌管理（厂商）", vendors_path %></li>
+              <li><%= link_to "幻灯片管理", sliders_path %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -54,7 +56,7 @@
       </div><!--/content-->
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; bubu 521 , 2012</p>
       </footer>
 
     </div> <!-- /container -->

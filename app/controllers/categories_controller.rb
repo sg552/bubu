@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  layout ADMIN_LAYOUT
   before_filter :get_by_id, :only => [:show, :edit, :update, :destroy]
   # GET /categories
   # GET /categories.json
@@ -8,7 +9,7 @@ class CategoriesController < ApplicationController
     @categories_by_age= Category.by_age
 
     respond_to do |format|
-      format.html { render :layout => "admin_layout"}
+      format.html { render :layout => ADMIN_LAYOUT }
       format.json { render :json => @categories }
     end
   end

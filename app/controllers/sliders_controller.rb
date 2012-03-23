@@ -6,7 +6,7 @@ class SlidersController < ApplicationController
     @sliders = Slider.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => ADMIN_LAYOUT }
       format.json { render :json => @sliders }
     end
   end
