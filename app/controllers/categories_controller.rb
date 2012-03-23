@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
     @categories_by_age= Category.by_age
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => "admin_layout"}
       format.json { render :json => @categories }
     end
   end
