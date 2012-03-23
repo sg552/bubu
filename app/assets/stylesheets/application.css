@@ -11,6 +11,7 @@
  *= require jquery-ui-1.8.18.custom.css
  *= require main
  *= require zoom
+ *= require dialog_style
  *= require_self
 */
 
@@ -19,7 +20,4 @@
 #pk_info { height: auto }
 #dis_box { height: auto }
 
-/* used by dialog */
-.center { margin-left: auto; margin-right: auto; }
-.dialog_button { margin: 10px 10px 10px 30px; }
 
