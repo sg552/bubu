@@ -16,6 +16,76 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `active_admin_comments`
+--
+
+DROP TABLE IF EXISTS `active_admin_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `active_admin_comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `resource_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `resource_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `author_id` int(11) DEFAULT NULL,
+  `author_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `body` text COLLATE utf8_unicode_ci,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `namespace` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_admin_notes_on_resource_type_and_resource_id` (`resource_type`,`resource_id`),
+  KEY `index_active_admin_comments_on_namespace` (`namespace`),
+  KEY `index_active_admin_comments_on_author_type_and_author_id` (`author_type`,`author_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `active_admin_comments`
+--
+
+LOCK TABLES `active_admin_comments` WRITE;
+/*!40000 ALTER TABLE `active_admin_comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `active_admin_comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `admin_users`
+--
+
+DROP TABLE IF EXISTS `admin_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin_users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `encrypted_password` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `reset_password_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reset_password_sent_at` datetime DEFAULT NULL,
+  `remember_created_at` datetime DEFAULT NULL,
+  `sign_in_count` int(11) DEFAULT '0',
+  `current_sign_in_at` datetime DEFAULT NULL,
+  `last_sign_in_at` datetime DEFAULT NULL,
+  `current_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_sign_in_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_admin_users_on_email` (`email`),
+  UNIQUE KEY `index_admin_users_on_reset_password_token` (`reset_password_token`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_users`
+--
+
+LOCK TABLES `admin_users` WRITE;
+/*!40000 ALTER TABLE `admin_users` DISABLE KEYS */;
+INSERT INTO `admin_users` VALUES (1,'admin@example.com','$2a$10$oZU2p0Uu20az4a2TH5LIV.rUuu/gRf0sEid5Na9VGDPvf9C5VfFza',NULL,NULL,NULL,1,'2012-03-23 23:50:46','2012-03-23 23:50:46','::1','::1','2012-03-23 23:49:35','2012-03-23 23:50:46');
+/*!40000 ALTER TABLE `admin_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categories`
 --
 
@@ -157,7 +227,7 @@ CREATE TABLE `schema_migrations` (
 
 LOCK TABLES `schema_migrations` WRITE;
 /*!40000 ALTER TABLE `schema_migrations` DISABLE KEYS */;
-INSERT INTO `schema_migrations` VALUES ('20120312002959'),('20120312005037'),('20120312005038'),('20120312154956'),('20120312160102'),('20120313094052'),('20120313141221'),('20120313142120'),('20120314090950'),('20120315094008'),('20120317061304'),('20120317231332'),('20120318015123'),('20120318024423'),('20120319161315'),('20120320102354'),('20120321001413');
+INSERT INTO `schema_migrations` VALUES ('20120312002959'),('20120312005037'),('20120312005038'),('20120312154956'),('20120312160102'),('20120313094052'),('20120313141221'),('20120313142120'),('20120314090950'),('20120315094008'),('20120317061304'),('20120317231332'),('20120318015123'),('20120318024423'),('20120319161315'),('20120320102354'),('20120321001413'),('20120323151640'),('20120323234913'),('20120324074917'),('20120324074918');
 /*!40000 ALTER TABLE `schema_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,8 +326,35 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'sg552sg552@gmail.com','$2a$10$nrxvYkgQPFvCSt5zxtaiWOWrpgpzEBbm403w8XgwWN92PhF2OLJge',NULL,NULL,NULL,8,'2012-03-15 15:40:04','2012-03-15 14:11:01','192.168.56.1','192.168.56.1','2012-03-12 00:51:41','2012-03-15 15:40:04','admin'),(2,'haha@haha.com','$2a$10$KVCTMxPnSurngaN8.8mdtul6pX90UF6scEnWhljePeKVo4Njs4che',NULL,NULL,NULL,1,'2012-03-13 13:29:30','2012-03-13 13:29:30','192.168.56.1','192.168.56.1','2012-03-13 13:29:30','2012-03-13 13:29:30','user'),(3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1nuqNvBrCFUJwHLj4wjKT2Ywpo/aZPvMma',NULL,NULL,NULL,1,'2012-03-14 10:08:55','2012-03-14 10:08:55','192.168.56.1','192.168.56.1','2012-03-14 10:08:55','2012-03-14 10:08:55','user'),(4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user'),(5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user'),(6,'test0315@gmail.com','$2a$10$2xCNe3Teb9MiPPyopEqLy./4ktVYXvITu6aopfuUvqJ.ceOCFEF3i',NULL,NULL,NULL,1,'2012-03-15 14:15:31','2012-03-15 14:15:31','192.168.56.1','192.168.56.1','2012-03-15 14:15:31','2012-03-15 14:15:31','user'),(7,'admin@bubu.com','$2a$10$mQZiOm8Wx3/TFc5c6olGteCzm9u4UvPRUYLjUVEraNn9bhnvJSD4O',NULL,NULL,NULL,2,'2012-03-17 23:02:53','2012-03-15 18:21:00','127.0.0.1','192.168.56.1','2012-03-15 18:21:00','2012-03-17 23:02:53','admin');
+INSERT INTO `users` VALUES (1,'sg552sg552@gmail.com','$2a$10$nrxvYkgQPFvCSt5zxtaiWOWrpgpzEBbm403w8XgwWN92PhF2OLJge',NULL,NULL,NULL,8,'2012-03-15 15:40:04','2012-03-15 14:11:01','192.168.56.1','192.168.56.1','2012-03-12 00:51:41','2012-03-15 15:40:04','admin'),(2,'haha@haha.com','$2a$10$KVCTMxPnSurngaN8.8mdtul6pX90UF6scEnWhljePeKVo4Njs4che',NULL,NULL,NULL,1,'2012-03-13 13:29:30','2012-03-13 13:29:30','192.168.56.1','192.168.56.1','2012-03-13 13:29:30','2012-03-13 13:29:30','user'),(3,'test0314@gmail.com','$2a$10$dTyaihUNOZdHT4YIXHt1nuqNvBrCFUJwHLj4wjKT2Ywpo/aZPvMma',NULL,NULL,NULL,1,'2012-03-14 10:08:55','2012-03-14 10:08:55','192.168.56.1','192.168.56.1','2012-03-14 10:08:55','2012-03-14 10:08:55','user'),(4,'test0314b@gmail.com','$2a$10$rP6DK3SDGNot.j0z/9p5Fuhmq2yiSOFwDXbhaqozpzco7kgUN2AeS',NULL,NULL,NULL,2,'2012-03-14 11:20:36','2012-03-14 10:40:17','192.168.56.1','192.168.56.1','2012-03-14 10:40:17','2012-03-14 11:20:36','user'),(5,'test0314c@gmail.com','$2a$10$TbtJfx0CO9eH/tNhQmqE0enWnMQHYvMnTbb4/VQdKugV.1hjJ7yPi',NULL,NULL,NULL,2,'2012-03-14 11:19:17','2012-03-14 10:42:20','192.168.56.1','192.168.56.1','2012-03-14 10:42:20','2012-03-14 11:19:17','user'),(6,'test0315@gmail.com','$2a$10$2xCNe3Teb9MiPPyopEqLy./4ktVYXvITu6aopfuUvqJ.ceOCFEF3i',NULL,NULL,NULL,1,'2012-03-15 14:15:31','2012-03-15 14:15:31','192.168.56.1','192.168.56.1','2012-03-15 14:15:31','2012-03-15 14:15:31','user'),(7,'admin@bubu.com','$2a$10$mQZiOm8Wx3/TFc5c6olGteCzm9u4UvPRUYLjUVEraNn9bhnvJSD4O',NULL,NULL,NULL,3,'2012-03-23 23:11:46','2012-03-17 23:02:53','::1','127.0.0.1','2012-03-15 18:21:00','2012-03-23 23:11:46','admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vendors`
+--
+
+DROP TABLE IF EXISTS `vendors`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vendors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `service` text COLLATE utf8_unicode_ci,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vendors`
+--
+
+LOCK TABLES `vendors` WRITE;
+/*!40000 ALTER TABLE `vendors` DISABLE KEYS */;
+INSERT INTO `vendors` VALUES (1,'啦啦啦','啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦','2012-03-23 23:53:47','2012-03-23 23:53:47');
+/*!40000 ALTER TABLE `vendors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -269,4 +366,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-03-21  8:17:08
+-- Dump completed on 2012-03-24  7:57:58
