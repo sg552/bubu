@@ -7,7 +7,8 @@ class Image < ActiveRecord::Base
     :medium => "130x130", # in list page
     :thumb => "60x60"  # in details page
     }
-  def large_size_url
-    external_url.blank? ?  itself.url(:large) : external_url
+
+  def url(size_type)
+    external_url.blank? ?  itself.url(size_type) : external_url
   end
 end
