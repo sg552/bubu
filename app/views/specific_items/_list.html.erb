@@ -20,8 +20,8 @@
             <li class="jiage"><%= specific_item.price %></li>
             <li class="pinpai">
             <% if specific_item.vendor.service.blank? %>
-              "暂无"
-              <% if current_user.admin? %>
+              暂无
+              <% if current_user && current_user.admin? %>
                 <%= link_to_function "(编辑?)", "open_dialog('#{edit_vendor_path(specific_item.vendor)}')" %>
               <% end %>
             <% else %>
