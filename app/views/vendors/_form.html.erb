@@ -1,12 +1,8 @@
 <%= simple_form_for(@vendor) do |f| %>
-  <%= f.error_notification %>
-
   <div class="inputs">
-    <%= f.input :name %>
-    <%= f.input :service %>
+    <%= f.input :name, :label => "名称" %>
+    <%= f.input :service, :input_html => {:size => "40x4"}, :label => "提供的服务" %>
   </div>
 
-  <div class="actions">
-    <%= f.button :submit %>
-  </div>
+  <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>
