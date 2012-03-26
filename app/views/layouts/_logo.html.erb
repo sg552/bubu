@@ -21,8 +21,7 @@
         <%= link_to_function current_user.email, "open_dialog('#{edit_user_registration_path(current_user.id)
           }')"%> &nbsp;
         <% if can? :manage, Category %>
-        <%= link_to "管理产品分类", categories_path %> &nbsp;
-        <%= link_to "管理幻灯片", sliders_path %> &nbsp;
+        <%= link_to "进入后台管理", categories_path %> &nbsp;
         <% end %>
         <%= link_to "退出", destroy_user_session_path, :method => :delete, :confirm => "确定退出吗？" %>
       </li>

@@ -30,6 +30,12 @@
               <li><%= link_to "品牌管理（厂商）", vendors_path %></li>
               <li><%= link_to "幻灯片管理", sliders_path %></li>
             </ul>
+            <ul class="nav">
+              <li><%= link_to_function "编辑个人资料#{current_user.email}", "open_dialog('#{edit_user_registration_path(current_user.id)
+                  }')"%></li>
+              <li><%= link_to "退出", destroy_user_session_path, :method => :delete, :confirm => "确定退出吗？" %>
+              </li>
+            </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
