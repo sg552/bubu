@@ -56,7 +56,7 @@ class VendorsController < ApplicationController
 
     respond_to do |format|
       if @vendor.update_attributes(params[:vendor])
-        format.html { redirect_to vendors_path, :notice => 'Vendor was successfully updated.' }
+        format.html { redirect_to :back }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

@@ -99,11 +99,6 @@ describe VendorsController do
         assigns(:vendor).should eq(vendor)
       end
 
-      it "redirects to the vendor" do
-        vendor = Vendor.create! valid_attributes
-        put :update, {:id => vendor.to_param, :vendor => valid_attributes}, valid_session
-        response.should redirect_to(vendors_path)
-      end
     end
 
     describe "with invalid params" do
