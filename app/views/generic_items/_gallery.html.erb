@@ -10,7 +10,7 @@ $(function(){
 <div class="pp_show">
   <% if generic_item.images.size > 0 %>
   <a href="zoom/zbig01.jpg" class="MagicZoom" title="汽车模型" id="zoom1">
-    <%= image_tag generic_item.images.first.large_size_url, :size => "280x280" %>
+    <%= image_tag generic_item.images.first.url(:large), :size => "280x280" %>
   </a>
   <% else %>
     暂无图片。
