@@ -5,8 +5,6 @@ FactoryGirl.define do
     price "MyString"
     word_of_mouth "MyString"
     delivery_method "MyString"
-    generic_item_id 1
-    vendor "MyString"
     source_website_name "MyString"
     source_url "MyText"
   end

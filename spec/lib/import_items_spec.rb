@@ -7,5 +7,6 @@ describe ImportItems do
     GenericItem.all.size.should >= 3
     SpecificItem.all.size.should >= 6
     Image.all.size.should >= 3
+    Vendor.all.size.should >= 3
   end
 end

@@ -33,13 +33,14 @@ class ImportItems
         Image.create(:generic_item => generic_item, :external_url => image_node["Path"])
       end
       generic_item_node.css("SaleShops SaleShop").each do |specific_item_node|
+        vendor = Vendor.find_or_create_by_name( specific_item_node["SaleBrand"])
         SpecificItem.create(:generic_item => generic_item,
           :source_website_name => specific_item_node["ShopName"],
           :price => specific_item_node["SalePrice"],
           :source_url => specific_item_node["SaleLink"],
           :delivery_method => specific_item_node["SaleWuLiu"],
-          :word_of_mouth => specific_item_node["SaleReDu"]
-          )
+          :word_of_mouth => specific_item_node["SaleReDu"],
+          :vendor => vendor)
       end
       puts "importing: #{generic_item.name}, time: #{Time.now}"
     end

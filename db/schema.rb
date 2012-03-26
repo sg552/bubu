@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324074918) do
+ActiveRecord::Schema.define(:version => 20120326110846) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -102,11 +102,11 @@ ActiveRecord::Schema.define(:version => 20120324074918) do
     t.string   "word_of_mouth"
     t.string   "delivery_method"
     t.integer  "generic_item_id"
-    t.string   "vendor"
     t.string   "source_website_name"
     t.text     "source_url"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.integer  "vendor_id"
   end
 
   create_table "users", :force => true do |t|
