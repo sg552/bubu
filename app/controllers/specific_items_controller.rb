@@ -54,7 +54,8 @@ class SpecificItemsController < ApplicationController
 
     respond_to do |format|
       if @specific_item.update_attributes(params[:specific_item])
-        format.html { redirect_to @specific_item.generic_item, :notice => 'Specific item was successfully updated.' }
+        #format.html { redirect_to @specific_item.generic_item, :notice => 'Specific item was successfully updated.' }
+        format.html { redirect_to :back, :notice => 'Specific item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -70,7 +71,7 @@ class SpecificItemsController < ApplicationController
     @specific_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to generic_item}
+      format.html { redirect_to :back}
       format.json { head :no_content }
     end
   end

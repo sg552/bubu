@@ -10,7 +10,7 @@
   </div>
   <%= f.hidden_field :generic_item_id %>
   <div class="field">
-    品牌： <%= f.text_field :vendor %>
+    品牌： <%= collection_select :specific_item, :vendor_id, Vendor.all, :id, :name %>
   </div>
   <div class="field">
     商家： <%= f.text_field :source_website_name %>
