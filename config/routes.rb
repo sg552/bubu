@@ -1,7 +1,7 @@
 Bubu::Application.routes.draw do
   ActiveAdmin.routes(self)
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
 
   resources :vendors
 
@@ -19,13 +19,7 @@ Bubu::Application.routes.draw do
     end
   end
 
-  
-  devise_for :users
-
   resources :categories
 
   root :to => "generic_items#index"
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end
