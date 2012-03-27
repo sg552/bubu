@@ -42,7 +42,7 @@ ActiveAdmin::Dashboards.build do
   # section "Membership Summary", :if => Proc.new { current_admin_user.account.memberships.any? }
   section "未来的管理界面"  do
     div do
-      "目前只能查看生产商(vendor), 将来把各种泛指产品、特指产品都加上"
+      "点击最上面一行，选择你感兴趣的内容，然后点击编辑搜索删除啥啥的。。。"
     end
   end
 

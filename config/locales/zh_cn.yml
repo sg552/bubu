@@ -38,13 +38,14 @@ zh_cn:
   activerecord:
     models:
       user: 用户
-      categorie: 分类
+      category: 分类
       comment: 注释
       generic_item: 泛指的商品
       specific_item: 特指的商品
       image: 图片
       slider: 首页幻灯片
       vendor: 厂商（品牌）
+
     attributes:
       generic_item:
         name: 名字
@@ -77,6 +78,13 @@ zh_cn:
       user:
         email: Email
         role: 角色
+        created_at: 建立时间
+        updated_at: 更新时间
+
+      category:
+        name: 名称
+        tip: 布布小贴士
+        principle: 分类的依据
         created_at: 建立时间
         updated_at: 更新时间
 
