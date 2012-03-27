@@ -1,4 +1,4 @@
-cn:
+zh_cn:
   hello: "你好"
   welcome_to: "欢迎来到"
   title:
@@ -8,6 +8,12 @@ cn:
   # common items below
   more: 更多
   tips: 布布小贴示
+
+  # links
+  edit: 编辑
+  view: 查看
+  delete: 删除
+  confirm_delete: 确定删除吗？
 
   # landing page
   price_scope: 价格区间
@@ -50,9 +56,21 @@ cn:
         category_by_usage_id: 适宜年龄
         created_at: 建立时间
         updated_at: 更新时间
+      specific_item:
+        name: 名字
+        vendor_id: 厂商（品牌）
+        price: 价格
+        word_of_mouth: 口碑
+        delivery_method: 物流
+        generic_item_id: 所属的泛指产品
+        source_website_name: 来源网站
+        source_url: 原文地址
+        created_at: 建立时间
+        updated_at: 更新时间
+
 
       vendor:
-        name: 名字
+        name: 厂商名字
         service: 提供的服务
         created_at: 建立时间
         updated_at: 更新时间
@@ -61,6 +79,4 @@ cn:
         role: 角色
         created_at: 建立时间
         updated_at: 更新时间
-
-
 

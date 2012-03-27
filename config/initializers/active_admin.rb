@@ -1,7 +1,7 @@
 ActiveAdmin.setup do |config|
 
   # == Site Title
-  config.site_title = "Bubu"
+  config.site_title = WEBSITE_TITLE
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
