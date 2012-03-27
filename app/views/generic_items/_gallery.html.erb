@@ -13,7 +13,7 @@ $(function(){
     <%= image_tag generic_item.images.first.url(:large), :size => "280x280" %>
   </a>
   <% else %>
-    暂无图片。
+    <%= t 'image_missing' %>
   <% end %>
   <div class="zoom_box_border">
     <span class="slve_bar_left">

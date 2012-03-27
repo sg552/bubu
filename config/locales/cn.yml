@@ -1,0 +1,66 @@
+cn:
+  hello: "你好"
+  welcome_to: "欢迎来到"
+  title:
+    category_by_usage: 玩具应用分类
+    category_by_shape: 玩具模型分类
+
+  # common items below
+  more: 更多
+  tips: 布布小贴示
+
+  # landing page
+  price_scope: 价格区间
+  scores: 人气指数
+  share_to: 分享到
+
+  # generic_item#show page.
+  voted_successfully: 评价成功
+  image_missing: 暂无图片
+  like: 喜欢
+  edit: 编辑
+  vendor: 品牌
+  age_scope: 适宜年龄
+  customer_gender: 适宜性别
+  recommendation_for_same_category: 同类产品推荐
+
+  about_us: 关于我们
+  agreements: 服务条款
+  cooperation: 商务合作
+  copyright: 版权信息
+
+  activerecord:
+    models:
+      user: 用户
+      categorie: 分类
+      comment: 注释
+      generic_item: 泛指的商品
+      specific_item: 特指的商品
+      image: 图片
+      slider: 首页幻灯片
+      vendor: 厂商（品牌）
+    attributes:
+      generic_item:
+        name: 名字
+        description: 描述
+        uuid: UUID(唯一标识号)
+        scores: 人气指数
+        tips: 布布小贴示
+        customer_gender: 适宜性别
+        category_by_usage_id: 适宜年龄
+        created_at: 建立时间
+        updated_at: 更新时间
+
+      vendor:
+        name: 名字
+        service: 提供的服务
+        created_at: 建立时间
+        updated_at: 更新时间
+      user:
+        email: Email
+        role: 角色
+        created_at: 建立时间
+        updated_at: 更新时间
+
+
+

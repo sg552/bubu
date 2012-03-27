@@ -16,7 +16,7 @@
       </div>
       <div class="i-list-info">
         <div class="menu_title"><%= link_to_function category.name + " :", "#" %>
-          <span class="more_menu_nav"><%= link_to_function "更多 >> ", "#" %></span>
+          <span class="more_menu_nav"><%= link_to_function "#{t 'more' } >> ", "#" %></span>
         </div>
           <ul>
             <% level_2_category.each do |category_level2| %>
@@ -29,7 +29,7 @@
           <div class="clean">&nbsp;</div>
         <div class="menu_info">
           <%= image_tag asset_path("ts.jpg"), :size => "30x31" %>
-          布布小贴示: <%= category.tip %>
+          <%= t 'tips' %>: <%= category.tip %>
         </div>
       </div>
     </div>

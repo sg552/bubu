@@ -6,11 +6,11 @@
   <div id="sidebar">
     <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
       :level_1_category => Category.by_usage, :level_2_category => Category.by_age,
-      :level_1_title => "玩具应用分类"
+      :level_1_title => t('title.category_by_usage')
     }%>
     <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
       :level_1_category => Category.by_shape, :level_2_category => Category.by_age,
-      :level_1_title => "玩具模型分类"
+      :level_1_title => t('title.category_by_shape')
     }%>
   </div>
 </div>

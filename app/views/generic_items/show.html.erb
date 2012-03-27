@@ -6,7 +6,7 @@ function award_score(){
     url : "<%= award_score_generic_item_path( @generic_item)  %>",
     type: "PUT",
     success: function(){
-      $("#tip_for_scores").text("评价成功！")
+      $("#tip_for_scores").text("<%= t 'voted_successfully' %>! ")
       old_value = parseInt($("#scores").text())
       $("#scores").text(old_value + 1)
     }
@@ -51,45 +51,44 @@ function award_score(){
 
 <div id="info_show">
 <div class="xihuan">
-  <span><%= link_to_function "喜欢", "award_score()", :method => :put %></span>
+  <span><%= link_to_function t('like'), "award_score()", :method => :put %></span>
   <span style="margin-left:7px; font-size:14px;"> <span id ="scores"><%= @generic_item.scores %></span></span>
 </div>
     <ul>
     <p class="product_name">
     <% if can?(:manage, @generic_item) %>
-    <%= link_to_function "[编辑]", "open_dialog('#{edit_generic_item_path(@generic_item)}')" %>
+    <%= link_to_function "[#{t 'edit' }]", "open_dialog('#{edit_generic_item_path(@generic_item)}')" %>
     <% end %>
     <%= @generic_item.name %>
     </p>
-    <li>品牌： 迪斯尼</li>
-    <li>价格区间： <span style="font-size:16px; font-weight:bold; color:#F30; font-family:Arial, Helvetica, sans-serif;">
+    <li><%= t 'vendor' %>： 迪斯尼(待定)</li>
+    <li><%= t 'price_scope' %>： <span style="font-size:16px; font-weight:bold; color:#F30; font-family:Arial, Helvetica, sans-serif;">
       <%= @generic_item.price_scope %></span> 元</li>
-    <li>适宜年龄：<span style="font-size:12px; font-weight:bold; color:#090;">
+    <li><%= t 'age_scope' %>：<span style="font-size:12px; font-weight:bold; color:#090;">
       <%= @generic_item.category_by_age.name %> 岁</span></li>
-    <li>适宜性别：<span style="font-size:12px; font-weight:bold; color:#090;">
+    <li><%= t 'customer_gender' %>：<span style="font-size:12px; font-weight:bold; color:#090;">
       <%= @generic_item.customer_gender %></span></li>
 
     <p class="bubu_note"><span style="font-weight:bold;">
-      <img src="<%= asset_path "ts.png" %>" width="30" height="31" />布布小贴士：</span>
+      <img src="<%= asset_path "ts.png" %>" width="30" height="31" /><%= t 'tips' %>：</span>
       <%= @generic_item.tips %>
     </p>
 
     </ul>
     <div class="share_box">
-    <div style="margin:8px;"><strong>分享到:</strong>
-      <a href="#"><img src="<%= asset_path "icon/icon_msn.png" %>" width="16" height="16" alt="MSN" /></a>
-      <a href="#"><img src="<%= asset_path "icon/icon_qq_qq.png" %>" width="16" height="16" alt="QQ" /></a>
-      <a href="#"><img src="<%= asset_path "icon/icon_sina.png" %>" width="16" height="16" alt="SINA" /></a>
-      <a href="#"><img src="<%= asset_path "icon/icon_ren.png" %>" width="16" height="16" alt="REN" /></a>
+      <div style="margin:8px;"><strong><%= t 'share_to' %>:</strong>
+      <% ["msn", "qq", "sina", "renren"].each do |website| %>
+        <%= link_to_function image_tag( asset_path "icon/icon_#{website}.png", :size => "16x16"), "#" %>
+      <% end %>
       </div>
-      </div>
+    </div>
 </div>
 
 </div>
   <div class="clean">&nbsp;</div> <!-- 清除样式 -->
     <%= render :partial => "specific_items/list", :locals => { :generic_item => @generic_item } %>
     <%= render :partial => 'comments/list', :locals => { :generic_item => @generic_item } %>
-    <h3> 同类产品推荐 </h3>
+    <h3> <%= t 'recommendation_for_same_category' %></h3>
     <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
       :categories => Category.by_shape.last(2), :tab_index => 3} %>
 
