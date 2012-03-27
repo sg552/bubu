@@ -78,6 +78,11 @@ zh_cn:
       user:
         email: Email
         role: 角色
+        sign_in_count: 登陆次数
+        current_sign_in_at: 本次登陆时间
+        last_sign_in_at: 上次登陆时间
+        current_sign_in_ip: 本次登陆IP
+        last_sign_in_ip: 上次登陆IP
         created_at: 建立时间
         updated_at: 更新时间
 
@@ -87,4 +92,26 @@ zh_cn:
         principle: 分类的依据
         created_at: 建立时间
         updated_at: 更新时间
+
+      slider:
+        name: 标题
+        content: 比较长的文字介绍
+        target_url: 目标url地址
+        image_id: 图片
+        created_at: 建立时间
+        updated_at: 更新时间
+
+      image:
+        generic_item_id: 所属的泛指产品
+        external_url: 外部图片地址
+        created_at: 建立时间
+        updated_at: 更新时间
+      comment:
+        title: 标题
+        content: 正文
+        user_id: 发言人
+        generic_item_id: 所属的泛指产品
+        created_at: 建立时间
+        updated_at: 更新时间
+
 
