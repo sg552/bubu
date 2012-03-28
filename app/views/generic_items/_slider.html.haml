@@ -1,0 +1,26 @@
+#photo_show
+  #photo_box
+    .sub_box
+      #p-select.sub_nav
+        #bd1lfsj.sub_no
+          %ul
+            - (1..5).each do |i|
+              %li= i
+      #bd1lfimg
+        %div
+          %dl.show
+          - Slider.last(5).each do |slider|
+            %a{ :href => slider.target_url }
+              /<a href="<%= slider.target_url %>">
+              %dl.slider
+                %dt
+                  = image_tag(slider.image_url, :size => "600x200")
+                %dd
+                  %h2= slider.title
+                  %tt= slider.content
+:javascript
+  /* TODO : use coffeescript instead of raw js*/
+  $(function(){
+    $("#bd1lfsj li").first().attr("class","show")
+    movec();
+  })
