@@ -1,0 +1,21 @@
+#logo_box
+  .logo_welcom= link_to image_tag(asset_path("logo.png"), :size => "160x68", :alt => WEBSITE_TITLE ), root_path
+  #login_info
+    %ul
+      - if current_user.blank?
+        %li.welcom_login
+          = link_to_function image_tag( asset_path("login.png"), :size => "80x22", :alt=> t('login')), "open_dialog('#{new_user_session_path}')"
+          = link_to image_tag( asset_path("reg.png"), :size => "80x22", :alt=>t('login')),  new_user_registration_path
+        %li{ :style => "margin-top:3px; background:url(#{ asset_path "icon/icon_qq_qq.png" }) no-repeat;" }
+          = link_to_function "QQ登陆", "#"
+        %li{ :style => "margin-top:3px; background:url(#{ asset_path "icon/icon_sina.png" }) no-repeat;" }
+          = link_to_function "微博登陆", "#"
+        %li{ :style => "margin-top:3px; background:url(#{ asset_path "icon/tao.png" }) no-repeat;" }
+          = link_to_function "淘宝登陆", "#"
+      - else
+        .welcom_login
+          布布欢迎你，
+          = link_to_function current_user.email, "open_dialog('#{edit_user_registration_path(current_user.id) }')"
+          - if can? :manage, Category
+            = link_to "进入后台管理", categories_path
+          = link_to "退出", destroy_user_session_path, :method => :delete, :confirm => "确定退出吗？"

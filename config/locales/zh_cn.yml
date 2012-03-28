@@ -1,6 +1,7 @@
 zh_cn:
   hello: "你好"
   welcome_to: "欢迎来到"
+  login: 登陆
   title:
     category_by_usage: 玩具应用分类
     category_by_shape: 玩具模型分类
