@@ -12,8 +12,8 @@ role :app, "114.80.200.241"                          # This may be the same as y
 role :db,  "114.80.200.241", :primary => true # This is where Rails migrations will run
 
 set :deploy_to, "~/bubu"
-set :user, "root"
-set :password, "blueSKY$$88"
+set :user, "sg552"
+set :password, "sss333"
 #ssh_options[:keys] = %w{connectingbj.pem}
 
 namespace :deploy do
@@ -32,6 +32,8 @@ end
 # common shared directory and then copy them in to the application
 desc "Copy database.yml to release_path"
 task :cp_database_yml do
+  puts "executing my customized command: "
+  puts "cp -r #{shared_path}/config/* #{release_path}/config/"
   run "cp -r #{shared_path}/config/* #{release_path}/config/"
 end
 
