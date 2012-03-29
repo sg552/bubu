@@ -17,5 +17,5 @@
           布布欢迎你，
           = link_to_function current_user.email, "open_dialog('#{edit_user_registration_path(current_user.id) }')"
           - if can? :manage, Category
-            = link_to "进入后台管理", categories_path
+            = link_to "进入后台管理", admin_dashboard_path
           = link_to "退出", destroy_user_session_path, :method => :delete, :confirm => "确定退出吗？"

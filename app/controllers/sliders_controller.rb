@@ -57,7 +57,7 @@ class SlidersController < ApplicationController
 
     respond_to do |format|
       if @slider.update_attributes(params[:slider])
-        format.html { redirect_to sliders_path, :notice => 'Slider was successfully updated.' }
+        format.html { redirect_to :back, :notice => t('notice.successfully_updated') }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

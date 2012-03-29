@@ -16,6 +16,11 @@ zh_cn:
   delete: 删除
   confirm_delete: 确定删除吗？
 
+  notice:
+    successfully_deleted: 已经成功删除
+    successfully_updated: 已经成功编辑
+    successfully_created: 已经成功新建
+
   # landing page
   price_scope: 价格区间
   scores: 人气指数
@@ -95,8 +100,8 @@ zh_cn:
         updated_at: 更新时间
 
       slider:
-        name: 标题
-        content: 比较长的文字介绍
+        title: 标题（第一行文字）
+        content: 文字介绍（第二行）
         target_url: 目标url地址
         image_id: 图片
         created_at: 建立时间

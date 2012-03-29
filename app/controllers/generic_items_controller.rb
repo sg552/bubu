@@ -31,7 +31,7 @@ class GenericItemsController < ApplicationController
 
     respond_to do |format|
       if @generic_item.save
-        format.html { redirect_to @generic_item, :notice => 'Generic item was successfully created.' }
+        format.html { redirect_to @generic_item, :notice => t('successfully_created') }
         format.json { render :json => @generic_item, :status => :created, :location => @generic_item }
       else
         format.html { render :action => "new" }
@@ -46,7 +46,7 @@ class GenericItemsController < ApplicationController
 
     respond_to do |format|
       if @generic_item.update_attributes(params[:generic_item])
-        format.html { redirect_to @generic_item, :notice => 'Generic item was successfully updated.' }
+        format.html { redirect_to :back, :notice => t('notice.successfully_updated') }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -61,7 +61,7 @@ class GenericItemsController < ApplicationController
     @generic_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back, :notice => "删除成功"}
+      format.html { redirect_to :back, :notice => t('notice.successfully_deleted')}
       format.json { head :no_content }
     end
   end

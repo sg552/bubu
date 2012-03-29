@@ -13,6 +13,9 @@
   </div>
   <div class="field">
     图片(最好是 600 x 200)：<%= file_field_tag "image[itself]" %>
+    <% unless @slider.id.blank? %>
+    <br/>更新的时候，如果不想改变图片，就把这一项空着。
+    <% end %>
   </div>
   <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>

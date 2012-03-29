@@ -1,4 +1,5 @@
 ActiveAdmin.register SpecificItem  do
+  menu :priority => 2
 
   # TODO got error here..., see: https://github.com/gregbell/active_admin/pull/623
   #scope :joined, :default => true do |specific_items|
@@ -27,7 +28,6 @@ ActiveAdmin.register SpecificItem  do
     column :updated_at, :sortable => :updated_at do |specific_item|
       specific_item.updated_at.strftime('%Y-%m-%d %H:%M')
     end
-    #default_actions
     column do |specific_item|
       link_to_function t('edit'), "open_dialog('#{edit_specific_item_path(specific_item)}')"
     end
