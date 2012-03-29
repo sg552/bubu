@@ -39,7 +39,7 @@ class SpecificItemsController < ApplicationController
 
     respond_to do |format|
       if @specific_item.save
-        format.html { redirect_to @specific_item.generic_item, :notice => 'Specific item was successfully created.' }
+        format.html { redirect_to :back, :notice => t('notice.successfully_created') }
         format.json { render :json => @specific_item, :status => :created, :location => @specific_item }
       else
         format.html { render :action => "new" }
@@ -54,8 +54,7 @@ class SpecificItemsController < ApplicationController
 
     respond_to do |format|
       if @specific_item.update_attributes(params[:specific_item])
-        #format.html { redirect_to @specific_item.generic_item, :notice => 'Specific item was successfully updated.' }
-        format.html { redirect_to :back, :notice => 'Specific item was successfully updated.' }
+        format.html { redirect_to :back, :notice => t('notice.successfully_updated') }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -71,7 +70,7 @@ class SpecificItemsController < ApplicationController
     @specific_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back}
+      format.html { redirect_to :back, :notice => t('notice.successfully_deleted')}
       format.json { head :no_content }
     end
   end

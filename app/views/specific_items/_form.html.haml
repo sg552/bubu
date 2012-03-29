@@ -1,0 +1,22 @@
+= form_for(@specific_item) do |f|
+  .field
+    价格：
+    = f.text_field :price
+  .field
+    口碑：
+    = f.text_field :word_of_mouth
+  .field
+    物流：
+    = f.text_field :delivery_method
+  = f.hidden_field :generic_item_id
+  .field
+    品牌：
+    = collection_select :specific_item, :vendor_id, Vendor.all, :id, :name
+  .field
+    商家：
+    = f.text_field :source_website_name
+  .field
+    原始链接：
+    = f.text_area :source_url, :size => "60x3"
+
+  = render :partial => "layouts/submit_and_cancel"
