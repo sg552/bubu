@@ -1,0 +1,36 @@
+= form_for(@generic_item, :html => { :multipart => true }) do |f|
+  .field
+    名称:
+    = f.text_field :name
+  .field
+    一段描述文字：
+    %br
+    = f.text_area :description, :size => "40 x 4"
+  .field
+    所属分类：
+    %ul
+      %li
+        按用途：
+        = collection_select :generic_item, :category_id_by_usage, Category.by_usage , :id, :name
+      %li
+        按形状：
+        = collection_select :generic_item, :category_id_by_shape, Category.by_shape , :id, :name
+      %li
+        按年龄：
+        = collection_select :generic_item, :category_id_by_age, Category.by_age , :id, :name
+  .field
+    UUID(唯一性的标识)
+    = f.text_field :uuid
+  .field
+    初始化的分数（默认是0）:
+    = f.text_field :scores
+  .field
+    面向对象(男孩/女孩/均可)：
+    = f.select :customer_gender, ["均可", "男孩", "女孩" ]
+  .field
+    小贴士：
+    %br
+    = f.text_area :tips, :size => "40x4"
+  %br
+  %br
+  = render :partial => "layouts/submit_and_cancel"
