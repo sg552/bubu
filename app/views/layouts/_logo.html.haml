@@ -6,7 +6,7 @@
         %li.welcom_login
           = link_to_function image_tag( asset_path("login.png"), :size => "80x22", :alt=> t('login')), "open_dialog('#{new_user_session_path}')"
           = link_to image_tag( asset_path("reg.png"), :size => "80x22", :alt=>t('login')),  new_user_registration_path
-        %li{ :style => "margin-top:3px; background:url(#{ asset_path "icon/icon_qq_qq.png" }) no-repeat;" }
+        %li{ :style => "margin-top:3px; background:url(#{ asset_path "icon/icon_qq.png" }) no-repeat;" }
           = link_to_function "QQ登陆", "#"
         %li{ :style => "margin-top:3px; background:url(#{ asset_path "icon/icon_sina.png" }) no-repeat;" }
           = link_to_function "微博登陆", "#"
