@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CategoriesController do
   before do
+    request.env["HTTP_REFERER"] = root_path
     @category = create(:category)
   end
 
@@ -48,7 +49,6 @@ describe CategoriesController do
       expect {
         post :create, {:category => valid_attributes}, valid_session
       }.to change(Category, :count).by(1)
-      response.should redirect_to(categories_path)
     end
   end
 
@@ -56,7 +56,6 @@ describe CategoriesController do
     new_name = "lala"
     put :update, :id => @category.id, :category => { :name => new_name }
     assigns(:category).name.should == new_name
-    response.should redirect_to(categories_path)
   end
 
   describe "DELETE destroy" do
@@ -65,7 +64,6 @@ describe CategoriesController do
       expect {
         delete :destroy, {:id => category.to_param}, valid_session
       }.to change(Category, :count).by(-1)
-      response.should redirect_to(categories_url)
     end
 
   end
