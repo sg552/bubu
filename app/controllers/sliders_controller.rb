@@ -70,11 +70,7 @@ class SlidersController < ApplicationController
   # DELETE /sliders/1.json
   def destroy
     @slider.destroy
-
-    respond_to do |format|
-      format.html { redirect_to sliders_url }
-      format.json { head :no_content }
-    end
+    redirect_to :back, :notice => t('notice.successfully_deleted')
   end
   private
   def get_by_id

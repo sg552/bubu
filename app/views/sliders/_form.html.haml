@@ -1,0 +1,23 @@
+= form_for(@slider, :html => {:multipart => true}) do |f|
+  .field
+    标题:
+    %br
+    = f.text_field :title
+
+  .field
+    长文字：
+    %br
+    = f.text_area :content, :size => "60x3"
+
+  .field
+    目标链接:
+    %br
+    = f.text_area :target_url, :size => "60x3"
+
+  .field
+    图片(最好是 600 x 200)：
+    = file_field_tag "image[itself]"
+    - unless @slider.id.blank?
+      %br更新的时候，如果不想改变图片，就把这一项空着。
+
+  = render :partial => "layouts/submit_and_cancel"
