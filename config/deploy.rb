@@ -37,6 +37,6 @@ task :cp_database_yml do
   run "cp -r #{shared_path}/config/* #{release_path}/config/"
 end
 
-before "deploy:symlink", :cp_database_yml
+before "deploy:assets:symlink", :cp_database_yml
 
 #before "deploy", mongrel::stop
