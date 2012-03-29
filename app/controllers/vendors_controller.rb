@@ -41,7 +41,7 @@ class VendorsController < ApplicationController
 
     respond_to do |format|
       if @vendor.save
-        format.html { redirect_to vendors_path, :notice => 'Vendor was successfully created.' }
+        format.html { redirect_to :back, :notice => t('notice.successfully_created') }
         format.json { render :json => @vendor, :status => :created, :location => @vendor }
       else
         format.html { render :action => "new" }
@@ -56,7 +56,7 @@ class VendorsController < ApplicationController
 
     respond_to do |format|
       if @vendor.update_attributes(params[:vendor])
-        format.html { redirect_to :back }
+        format.html { redirect_to :back, :notice => t('notice.successfully_updated') }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -71,7 +71,7 @@ class VendorsController < ApplicationController
     @vendor.destroy
 
     respond_to do |format|
-      format.html { redirect_to vendors_url }
+      format.html { redirect_to :back, :notice => t('notice.successfully_deleted')}
       format.json { head :no_content }
     end
   end

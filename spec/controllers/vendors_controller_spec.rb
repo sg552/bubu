@@ -62,10 +62,6 @@ describe VendorsController do
         assigns(:vendor).should be_persisted
       end
 
-      it "redirects to the created vendor" do
-        post :create, {:vendor => valid_attributes}, valid_session
-        response.should redirect_to(vendors_path)
-      end
     end
 
     describe "with invalid params" do
@@ -132,11 +128,6 @@ describe VendorsController do
       }.to change(Vendor, :count).by(-1)
     end
 
-    it "redirects to the vendors list" do
-      vendor = Vendor.create! valid_attributes
-      delete :destroy, {:id => vendor.to_param}, valid_session
-      response.should redirect_to(vendors_url)
-    end
   end
 
 end

@@ -1,0 +1,6 @@
+= simple_form_for(@vendor) do |f|
+  .inputs
+    = f.input :name, :label => "名称"
+    = f.input :service, :input_html => {:size => "40x4"}, :label => "提供的服务"
+
+  = render :partial => "layouts/submit_and_cancel"
