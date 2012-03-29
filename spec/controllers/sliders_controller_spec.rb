@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe SlidersController do
+  before do
+    request.env["HTTP_REFERER"] = root_path
+  end
 
   def valid_attributes
     {}
@@ -47,7 +50,6 @@ describe SlidersController do
         expect {
           post :create, {:slider => valid_attributes}, valid_session
         }.to change(Slider, :count).by(1)
-        response.should redirect_to(sliders_path)
       end
 
       it "assigns a newly created slider as @slider" do
@@ -93,11 +95,6 @@ describe SlidersController do
         assigns(:slider).should eq(slider)
       end
 
-      it "redirects to the slider" do
-        slider = Slider.create! valid_attributes
-        put :update, {:id => slider.to_param, :slider => valid_attributes}, valid_session
-        response.should redirect_to(sliders_path)
-      end
     end
 
   end
@@ -108,12 +105,6 @@ describe SlidersController do
       expect {
         delete :destroy, {:id => slider.to_param}, valid_session
       }.to change(Slider, :count).by(-1)
-    end
-
-    it "redirects to the sliders list" do
-      slider = Slider.create! valid_attributes
-      delete :destroy, {:id => slider.to_param}, valid_session
-      response.should redirect_to(sliders_url)
     end
   end
 

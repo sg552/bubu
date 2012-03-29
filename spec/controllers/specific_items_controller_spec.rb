@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe SpecificItemsController do
   before do
+    request.env["HTTP_REFERER"] = root_path
     @generic_item = create(:generic_item)
     @specific_item = create(:specific_item, :generic_item_id => @generic_item.id)
   end
@@ -49,20 +50,17 @@ describe SpecificItemsController do
     expect {
       post :create, :specific_item => { :generic_item_id => @generic_item.id }
     }.to change(SpecificItem, :count).by(1)
-    response.should redirect_to @generic_item
   end
 
   it "should PUT update" do
     new_price = "555"
     put :update, :id => @specific_item.id, :specific_item => { :price => new_price }
     assigns(:specific_item).price.should == new_price
-    response.should redirect_to @specific_item.generic_item
   end
 
   it "should DELETE destroy" do
     id = @specific_item.id
     delete :destroy, :id => id
     SpecificItem.exists?(id).should == false
-    response.should redirect_to @generic_item
   end
 end

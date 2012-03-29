@@ -1,6 +1,12 @@
 ActiveAdmin.register Slider do
   menu :priority => 20
   index do
+
+    div ({:id => "title_bar",:style=>"width:150px"})  do
+      div :class => "action_items" do
+        link_to_function t('new'), "open_dialog('#{new_slider_path}')"
+      end
+    end
     column :title
     column :content
     column :target_url do |slider|

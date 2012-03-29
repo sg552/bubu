@@ -42,7 +42,7 @@ class SlidersController < ApplicationController
 
     respond_to do |format|
       if image.save && @slider.save
-        format.html { redirect_to sliders_path, :notice => 'Slider was successfully created.' }
+        format.html { redirect_to :back, :notice => t('notice.successfully_created') }
         format.json { render :json => @slider, :status => :created, :location => @slider }
       else
         format.html { render :action => "new" }

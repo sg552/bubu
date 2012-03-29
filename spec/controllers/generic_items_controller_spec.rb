@@ -56,10 +56,6 @@ describe GenericItemsController do
         assigns(:generic_item).should be_persisted
       end
 
-      it "redirects to the created generic_item" do
-        post :create, {:generic_item => valid_attributes}, valid_session
-        response.should redirect_to(GenericItem.last)
-      end
     end
 
     describe "with invalid params" do
@@ -97,11 +93,6 @@ describe GenericItemsController do
         assigns(:generic_item).should eq(generic_item)
       end
 
-      it "redirects to the generic_item" do
-        generic_item = GenericItem.create! valid_attributes
-        put :update, {:id => generic_item.to_param, :generic_item => valid_attributes}, valid_session
-        response.should redirect_to(generic_item)
-      end
     end
 
     describe "with invalid params" do

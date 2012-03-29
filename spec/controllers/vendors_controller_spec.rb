@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe VendorsController do
+  before do
+    request.env["HTTP_REFERER"] = root_path
+  end
+
 
   def valid_attributes
     { :name => "taobao"}
