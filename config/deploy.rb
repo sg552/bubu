@@ -17,14 +17,16 @@ set :password, "sss333"
 #ssh_options[:keys] = %w{connectingbj.pem}
 
 namespace :deploy do
+  set :use_sudo, true
   task :restart do
-    apache2ctl restart
+    run "apache2ctl restart"
+    #run "touch tmp/restart.txt"
   end
   task :start do
-    apache2ctl start
+    run "apache2ctl start"
   end
   task :stop do
-    apache2ctl stop
+    run "apache2ctl stop"
   end
 end
 
