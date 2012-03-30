@@ -13,8 +13,10 @@ ActiveAdmin.register Slider do
       link_to slider.target_url, slider.target_url
     end
     column :image_id do |slider|
-      link_to image_tag( asset_path slider.image.itself(:medium)),
-        asset_path(slider.image.itself(:large)), :target => "_blank"
+      unless slider.image.blank?
+        link_to image_tag( asset_path slider.image.itself(:medium)),
+          asset_path(slider.image.itself(:large)), :target => "_blank"
+      end
     end
 
     column :created_at, :sortable => :created_at do |entity|
