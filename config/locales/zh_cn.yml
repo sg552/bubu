@@ -2,7 +2,6 @@ zh_cn:
   hello: "你好"
   welcome_to: "欢迎来到"
   login: 登陆
-  register: 注册
   title:
     category_by_usage: 玩具应用分类
     category_by_shape: 玩具模型分类
@@ -22,6 +21,16 @@ zh_cn:
     successfully_deleted: 已经成功删除
     successfully_updated: 已经成功编辑
     successfully_created: 已经成功新建
+
+
+  # register page
+  register_center: 会员注册中心
+  subtitle_of_register: 成为布布会员，享受不一样的购物体验！
+  email: 电子信箱
+  password: 密码
+  confirm_password: 确认密码
+  agreement_of_register: 我已看过并同意《布布网络服务使用协议》
+  submit: 提交
 
   # landing page
   price_scope: 价格区间
