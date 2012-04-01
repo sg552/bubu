@@ -1,0 +1,7 @@
+<% if current_page.first? %>
+  <span class="csb" style="background-position:-96px 0;width:45px"></span>
+<% else %>
+  <%= link_to raw('Previous'), url,
+    :class => 'pn knavi',
+    :id => 'pnprev', :style => '', :remote => remote %>
+<% end %>

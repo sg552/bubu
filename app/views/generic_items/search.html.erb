@@ -1,5 +1,5 @@
 <!-- 中间内容开始 -->
-    <div id="select_nav">
+<div id="select_nav">
   <ul>
     <h1>关键字：变形金刚</h1>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "年龄"} do %>
@@ -37,22 +37,27 @@
       <div class="clean">&nbsp;</div>
     </div>
     <div class="search_list">
-      <div class="search_paixu"><span>排序：</span> <span><a href="#"><strong>价格</strong></a></span> <span><a href="#">推荐度</a></span > <span class="pn"> <a href="#">上一页</a> 1/12 <a href="#">下一页</a></span> </div>
+      <div class="search_paixu">
+        <span>排序：</span>
+        <span><a href="#"><strong>价格</strong></a></span>
+        <span><a href="#">推荐度</a></span >
+        <!-- page entries info -->
+        <span class="pn">
+        <%= raw page_entries_info @generic_items %>
+        </span>
+        <!--
+        <span class="pn"> <a href="#">上一页</a> 1/12 <a href="#">下一页</a> </span>
+        -->
+      </div>
       <div class="p_result">
         <ul>
           <% @generic_items.each do |generic_item| %>
             <%= render :partial =>"generic_items/details_of_one_generic_item", :locals => { :generic_item => generic_item } %>
           <% end %>
         </ul>
+        <!-- pagination information -->
         <div class="pn_box">
-           <ul class="pn_down">
-
-            <li> <span><a href="#">1</a></span></li>
-
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
+          <%= raw paginate @generic_items %>
         </div>
         <div class="clean">&nbsp;</div>
       </div>

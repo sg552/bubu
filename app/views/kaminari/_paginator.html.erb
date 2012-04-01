@@ -1,0 +1,14 @@
+<%= paginator.render do -%>
+<%# prev_page_tag -%>
+  <ul class="pn_down">
+  <% each_page.select(&:inside_window?).each do |page| %>
+    <li>
+      <% generated_html = page_tag(page).to_s %>
+      <% unless generated_html.include?("href") %><span><a><% end %>
+      <%= generated_html -%>
+      <% unless generated_html.include?("href") %></a></span><% end %>
+    </li>
+  <% end %>
+  </ul>
+<%# next_page_tag -%>
+<% end %>

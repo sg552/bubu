@@ -1,0 +1,5 @@
+<% if page.current? %>
+<%= page %>
+<% else %>
+<%= link_to raw(%Q[#{page}]), url, :class => 'fl', :remote => remote %>
+<% end %>
