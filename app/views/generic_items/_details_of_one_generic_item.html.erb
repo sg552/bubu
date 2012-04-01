@@ -1,0 +1,13 @@
+<%# var: generic_item %>
+<!-- 单个商品信息 -->
+<a href="<%= generic_item_path(generic_item.id) %>" target="_blank" tip="">
+  <ol>
+    <!-- bubu tui jian -->
+    <span class="bbtj">&nbsp;</span>
+    <%= image_tag( generic_item.logo_url || asset_path("demo4.jpg"), :size => "130x130") %>
+    <li><h4><%= truncate(generic_item.name, :length => 15)%></h4></li>
+    <li><%= t 'price_scope' %>：<span class="jiage">￥<%= generic_item.price_scope %></span></li>
+    <li><%= t 'scores' %>：<%= generic_item.scores %></li>
+  </ol>
+</a>
+<!-- 单个商品信息 end -->

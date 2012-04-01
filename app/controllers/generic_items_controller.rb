@@ -73,6 +73,7 @@ class GenericItemsController < ApplicationController
 
   # GET
   def search
+    @generic_items= GenericItem.first(15)
   end
   private
   def get_by_id
