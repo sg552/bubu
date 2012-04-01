@@ -131,4 +131,13 @@ zh_cn:
         created_at: 建立时间
         updated_at: 更新时间
 
-
+    errors:
+      messages:
+        not_saved: 操作失败
+      models:
+        user:
+          attributes:
+            email:
+              blank: 邮箱不能为空
+            password:
+              blank: 密码不能为空

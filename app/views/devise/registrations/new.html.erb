@@ -1,0 +1,41 @@
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+    <div class="reg_box">
+        <div class="reg_info">
+          <div class="reg_left">
+            <h7><%= t 'register_center' %></h7>
+            <p><%= t 'subtitle_of_register' %></p>
+            <ul>
+              <li class="reg_email">
+                <span><%= t 'email' %>：</span><span><input name="" class="reg_form" type="text" /></span></li>
+              <li class="reg_name"><span>昵称：</span><span><input name="" class="reg_form" type="text" /></span></li>
+              <li class="reg_sex"><span>性别：</span><span>男 <input name="" type="radio" value="" /> 女 <input name="" type="radio" value="" /></span></li>
+              <li class="reg_password"><span><%= t 'password' %>：</span><span><input name="" class="reg_form" type="text" /></span></li>
+              <li class="reg_re_input"><span><%= t 'confirm_password' %>：</span><span><input name="" class="reg_form" type="text" /></span></li>
+              <li class="reg_check_number"><span>验证码：</span><span><input name="" class="reg_check_number_form" type="text" /></span> <span style=" border:1px solid #666; padding:5px; background:#CF6;"> 1234 </span> <span> <a href="#"> 看不清，换一张</a></span></li>
+              <li class="reg_mind"><span>
+              <%= check_box_tag "", 1 %>
+              </span>
+              <span>
+                <%= link_to t('agreement_of_register'), "#" %>
+              </span></li>
+              <li class="reg_submit">
+                <span>
+                <%= submit_tag t('submit'), :class=> "reg_submit_form" %>
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="reg_right">
+            <p style="width:100%; margin-bottom:12px;">已有布布账号，请登录!</p>
+              <span>
+              <%= link_to_function image_tag (asset_path("login.png"), :size => "80x22"),
+                "open_dialog('#{new_user_session_path}')" %>
+              </span>
+          </div>
+        </div>
+    </div>
+
+  <div class="clean">&nbsp;</div>
+<% end %>
