@@ -1,0 +1,186 @@
+<!-- 中间内容开始 -->
+    <div id="select_nav">
+  <ul>
+    <h1>关键字：变形金刚</h1>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "年龄"} do %>
+        <% Category.by_age.all.each do |category| %>
+          <%= link_to category.name, "?a=#{category.id}" %>
+        <% end %>
+      <% end %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "价格"} do %>
+        <% ["0-49", "50-99", "100-199", "200-499", "500-699", "700以上"].each do |price| %>
+          <%= link_to price, "?&&c=2" %>
+        <% end %>
+      <% end %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "品牌"} do %>
+        <% Vendor.first(30).each do |vendor| %>
+          <%= link_to vendor.name, "?&&d=3" %>
+        <% end %>
+      <% end %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "适宜人群"} do %>
+        <% ["男孩", "女孩"].each do |sex| %>
+          <%= link_to sex, "?e=444" %>
+        <% end %>
+      <% end %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "功能"} do %>
+        <% Category.by_usage.all.each do |category| %>
+          <%= link_to category.name, "?u=#{category.id}" %>
+        <% end %>
+      <% end %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "模型"} do %>
+        <% Category.by_shape.all.each do |category| %>
+          <%= link_to category.name, "?u=#{category.id}" %>
+        <% end %>
+      <% end %>
+
+      </ul>
+      <div class="clean">&nbsp;</div>
+    </div>
+    <div class="search_list">
+      <div class="search_paixu"><span>排序：</span> <span><a href="#"><strong>价格</strong></a></span> <span><a href="#">推荐度</a></span > <span class="pn"> <a href="#">上一页</a> 1/12 <a href="#">下一页</a></span> </div>
+      <div class="p_result">
+        <ul>
+          <!-- 单个商品信息 -->
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <!-- 单个商品信息 end -->
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo2.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo3.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo4.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <!-- 单个商品信息 end -->
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo2.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo3.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo4.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <!-- 单个商品信息 -->
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <!-- 单个商品信息 end -->
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo2.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo3.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo4.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <!-- 单个商品信息 end -->
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo2.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+          <ol>
+            <span class="bbtj">&nbsp;</span> <a href="#"><img src="images/demo3.jpg" width="130" height="130" /></a>
+            <li>
+              <h4><a href="#">小猴子[毛绒类]</a></h4>
+            </li>
+            <li>价格区间：<span class="jiage">￥80-320</span></li>
+            <li>人气指数：18972</li>
+          </ol>
+
+        </ul>
+        <div class="pn_box">
+           <ul class="pn_down">
+
+            <li> <span><a href="#">1</a></span></li>
+
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+          </ul>
+        </div>
+        <div class="clean">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 中间内容结束 -->

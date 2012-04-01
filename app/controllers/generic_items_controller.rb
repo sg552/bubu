@@ -70,6 +70,10 @@ class GenericItemsController < ApplicationController
     @generic_item.save!
     render :text => "success"
   end
+
+  # GET
+  def search
+  end
   private
   def get_by_id
     @generic_item = GenericItem.find(params[:id])

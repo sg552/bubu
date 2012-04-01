@@ -128,5 +128,10 @@ describe GenericItemsController do
     assigns(:generic_item).scores.should == 2
     response.body.should == "success"
   end
+  it "should get search page" do
+    get :search
+    response.should be_success
+  end
+
 
 end
