@@ -128,9 +128,23 @@ describe GenericItemsController do
     assigns(:generic_item).scores.should == 2
     response.body.should == "success"
   end
-  it "should get search page" do
-    get :search
-    response.should be_success
+  describe "search" do
+    before do
+      @name = "some name for the product"
+      3.times do
+        create(:generic_item, :name => @name, :customer_gender => "男" )
+      end
+    end
+    it "should get by name" do
+      get :search, :generic_item_name => @name
+      assigns(:generic_items).size.should == 3
+      response.should be_success
+    end
+    it "should  get by customer_gender" do
+      get :search, :generic_item_name => @name , :customer_gender => "男"
+      assigns(:generic_items).size.should == 3
+      response.should be_success
+    end
   end
 
 

@@ -3,6 +3,8 @@
 * use cancan for authorization
 * anonymous users don't have right to comment
 * when editing the items, should validate input
+* extract js tool:  grey default value (see: search box)
+* use haml and coffeescript for those erb files with js snippets.
 
 == DONE
 * use coffee-script

@@ -3,13 +3,13 @@
     %li{ :style=> "margin-left:22px; margin-top:5px;" }
       = link_to image_tag(asset_path("icon.png"), :size => "22x27", :alt => "主页"), root_path
     %li
-      %form#form1{ :name => "form1", :method => "post", :action => ""}
+      %form#search_form{ :method => "get", :action => search_generic_items_path}
         %input{ :style => "height:27px; width:290px; margin-left:546px; font-size:14px;color:#999;",
           :onblur => "if(this.value==''){this.value='#{DEFAULT_SEARCH_TIP}';this.style.color='#aaa'}",
           :onfocus => "if(this.value=='#{DEFAULT_SEARCH_TIP}'){this.value='';this.style.color='#666'}",
           :value => "#{DEFAULT_SEARCH_TIP}",
-          :name => "keyword" }
+          :name => "generic_item_name" }
     %li{ :style => "margin-top:1px;"}
-      = link_to image_tag( asset_path "search_button.png" ), search_generic_items_path
+      = link_to_function image_tag( asset_path "search_button.png" ), "$('#search_form').submit()"
 
 
