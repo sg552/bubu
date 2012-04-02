@@ -1,35 +1,39 @@
 <!-- 中间内容开始 -->
 <div id="select_nav">
   <ul>
-    <h1>关键字：变形金刚</h1>
+    <h1>关键字：TODO 修改这里。</h1>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "年龄"} do %>
         <% Category.by_age.all.each do |category| %>
-          <%= link_to category.name, params.merge(:age_scope => category.name) %>
+          <%= link_to category.name, params.merge(:age_scope => category.name, :page => nil) %>
         <% end %>
       <% end %>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "价格"} do %>
         <% ["0-49", "50-99", "100-199", "200-499", "500-699", "700以上"].each do |price| %>
-          <%= link_to price, params.merge(:price => price) %>
+          <%= link_to price, params.merge(:price => price, :page => nil) %>
         <% end %>
       <% end %>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "品牌"} do %>
         <% Vendor.first(30).each do |vendor| %>
-          <%= link_to vendor.name, params.merge(:vendor_id => vendor.id) %>
+          <%= link_to vendor.name, params.merge(:vendor_id => vendor.id, :page => nil) %>
         <% end %>
       <% end %>
-      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "适宜人群"} do %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "适宜人群",
+        :param_name => :customer_gender} do %>
         <% ["男孩", "女孩"].each do |sex| %>
-          <%= link_to sex, params.merge(:sex => sex) %>
+          <% para = sex.gsub('孩', '') %>
+          <%= link_to sex, params.merge(:customer_gender => para, :page => nil) %>
         <% end %>
       <% end %>
-      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "功能"} do %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "功能",
+        :param_name => :category_id_by_usage} do %>
         <% Category.by_usage.all.each do |category| %>
-          <%= link_to category.name, params.merge(:category_id => category.id ) %>
+          <%= link_to category.name, params.merge(:category_id_by_usage => category.id , :page => nil) %>
         <% end %>
       <% end %>
-      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "模型"} do %>
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "模型",
+        :param_name => :category_id_by_shape } do %>
         <% Category.by_shape.all.each do |category| %>
-          <%= link_to category.name, params.merge(:category_id => category.id ) %>
+          <%= link_to category.name, params.merge(:category_id_by_shape => category.id , :page => nil) %>
         <% end %>
       <% end %>
 

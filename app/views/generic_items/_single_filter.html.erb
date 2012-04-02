@@ -1,7 +1,24 @@
-<li>
+<%# name  param_name %>
+<% param_name ||= :foo %>
+<% uuid = param_name %>
+<li id="<%= uuid %>">
   <div class="p_name"><%= name %>：</div>
   <div class="p_sub_name">
-    <span><a href="#">不限</a></span>
+    <%= link_to "不限", params.merge(param_name => nil, :page => nil ) %>
     <%= yield %>
   </div>
 </li>
+<script type="text/javascript">
+  // highlight the selected filters.
+  this_params = params("<%=param_name %>")
+  if(this_params == ""){
+    $($("#<%= uuid %> a")[0]).wrap("<span>")
+  }else{
+    $("#<%= uuid %> a").each(function(){
+      index =$(this).attr("href").indexOf("<%= param_name %>="+ this_params)
+      if(index > 0){
+        $(this).wrap("<span>")
+      }
+    })
+  }
+</script>

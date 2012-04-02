@@ -5,7 +5,8 @@
 this.params = (name) ->
   name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]")
   regex = new RegExp "[\\?&]#{ name }=([^&#]*)"
-  regex.exec( window.location.href ) == null ? "" : results[1]
+  results = regex.exec( window.location.href )
+  if results == null then "" else results[1]
 
 DIALOG_DIV_ID = "jquery_dialog"
 
