@@ -1,6 +1,16 @@
+== TODOs
+
+* use cancan for authorization
+* anonymous users don't have right to comment
+* when editing the items, should validate input
+
+== DONE
+* use coffee-script
+
+
 == Introduction
 
-This is a project for bubu521.com, based on Rails3.2, jQuery, MySQL,
+This is a project for http://www.bubu521.com, based on Rails3.2, jQuery, MySQL,
 and the latest gems/technologies.
 
 * v0.2  2012-03-18
@@ -8,15 +18,5 @@ added UI for: category/slider management.
 supported import from XML file.
 
 * v0.1, 2012-03-15
-* rebuilt a new app, 2012-03-12
-* folk and refactor Opal, faild, cost me 20+ days.
-(incluing: made the UT passed, rewrote code, modified database...)
-
-== TODOs
-
-* when editing the items, should validate input
-* when editing the items, use dropdown for some fields instead of text_fields.
-* use coffee-script
-
-# use HAML
+* rebuilt a new app, 2012-03-12 * folk and refactor Opal, faild, cost me 20+ days.  (incluing: made the UT passed, rewrote code, modified database...)
 
