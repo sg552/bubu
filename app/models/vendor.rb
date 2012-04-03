@@ -1,3 +1,3 @@
 class Vendor < ActiveRecord::Base
-  has_many :specific_items
+  has_many :generic_items
 end

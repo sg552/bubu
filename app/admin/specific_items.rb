@@ -10,11 +10,6 @@ ActiveAdmin.register SpecificItem  do
     column :name do |specific_item|
       link_to specific_item.generic_item.name, generic_item_path(specific_item.generic_item_id), :target => "_blank"
     end
-    #column "品牌", :vendor_id, :sortable => "vendors.name" do |specific_item|
-    column :vendor_id do |specific_item|
-      "无" if specific_item.blank?
-      specific_item.vendor.name if specific_item.vendor
-    end
     column :price
     column :word_of_mouth
     column :delivery_method

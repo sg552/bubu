@@ -6,6 +6,7 @@ class GenericItem < ActiveRecord::Base
   has_many :specific_items, :dependent => :destroy
   has_many :images, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  belongs_to :vendor
   NO_PRICE_SCOPE = "暂无定价"
 
   def price_scope

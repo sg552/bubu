@@ -9,6 +9,10 @@ ActiveAdmin.register GenericItem do
     column :scores
     column :tips
     column :customer_gender
+    column :vendor_id do, :sortable => "vendor.name" |generic_item|
+      "无" if generic_item.blank?
+      generic_item.vendor.name if generic_item.vendor
+    end
     # TODO
     #column :category_id_by_usage do |generic_item|
     #end

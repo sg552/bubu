@@ -36,6 +36,14 @@ class ImportItems
 
       category_by_age = Category.find_or_create_by_principle_and_name(
         Category::PRINCIPLE_BY_AGE, generic_item_node["AdaptAge"])
+      # TODO 这个策略对吗？, 取得第一个出现在saleShop中的vendor
+      vendor = nil
+      generic_item_node.css("SaleShops SaleShop").each do |specific_item_node|
+        unless specific_item_node["SaleBrand"].blank?
+          vendor = Vendor.find_or_create_by_name( specific_item_node["SaleBrand"])
+          break
+        end
+      end
 
       generic_item = GenericItem.new(
         :name => generic_item_node["DisplayName"],
@@ -45,7 +53,8 @@ class ImportItems
         :category_id_by_shape => category_by_shape.id,
         :category_id_by_age => category_by_age.id,
         :scores => generic_item_node["RecommendCounts"],
-        :uuid => generic_item_node["ID"]
+        :uuid => generic_item_node["ID"],
+        :vendor => vendor
       )
       generic_item.save!
       puts "after save,generic_item.ID: #{generic_item_node["ID"]}, item: #{generic_item.uuid}"
@@ -53,14 +62,13 @@ class ImportItems
         Image.create(:generic_item => generic_item, :external_url => image_node["Path"])
       end
       generic_item_node.css("SaleShops SaleShop").each do |specific_item_node|
-        vendor = Vendor.find_or_create_by_name( specific_item_node["SaleBrand"])
         SpecificItem.create(:generic_item => generic_item,
           :source_website_name => specific_item_node["ShopName"],
           :price => specific_item_node["SalePrice"],
           :source_url => specific_item_node["SaleLink"],
           :delivery_method => specific_item_node["SaleWuLiu"],
-          :word_of_mouth => specific_item_node["SaleReDu"],
-          :vendor => vendor)
+          :word_of_mouth => specific_item_node["SaleReDu"]
+        )
       end
       puts "importing: #{generic_item.name}, time: #{Time.now}"
     end

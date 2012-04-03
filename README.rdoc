@@ -2,9 +2,9 @@
 
 index page:
 * level2 links for the side bar. (once clicked, should redirect to the search page)
+* move vendor_id from specific_item to generic_items.
 
 search page:
-* i18n for the pagination info
 
 * use cancan for authorization
 * anonymous users don't have right to comment
@@ -13,6 +13,7 @@ search page:
 * use haml and coffeescript for those erb files with js snippets.
 
 == DONE
+* i18n for the pagination info
 * use coffee-script
 * implement the "order by" function on search page
 * level1 links for the side bar.

@@ -66,4 +66,10 @@ describe GenericItem do
     GenericItem.where("category_id_#{category.principle}= #{category.id}").
       limit(8).size.should == 8
   end
+
+  it "should belong to vendor" do
+    vendor = create(:vendor)
+    @generic_item = create(:generic_item, :vendor_id => vendor.id)
+    @generic_item.vendor.should == vendor
+  end
 end
