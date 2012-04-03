@@ -1,5 +1,10 @@
 ActiveAdmin.register GenericItem do
   menu :priority => 1
+
+  scope "all", :default => true do |generic_items|
+    generic_items.includes [:vendor]
+  end
+
   index do
     column :name ,:sortable => :name do |generic_item|
       link_to generic_item.name, generic_item, :target => "_blank"
@@ -9,7 +14,10 @@ ActiveAdmin.register GenericItem do
     column :scores
     column :tips
     column :customer_gender
-    column :vendor_id do, :sortable => "vendor.name" |generic_item|
+
+    # TODO once it's sortable, the filter will be down,
+    # see: https://github.com/gregbell/active_admin/pull/623
+    column :vendor_id do |generic_item|
       "无" if generic_item.blank?
       generic_item.vendor.name if generic_item.vendor
     end

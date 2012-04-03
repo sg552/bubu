@@ -10,9 +10,6 @@
     = f.text_field :delivery_method
   = f.hidden_field :generic_item_id
   .field
-    品牌：
-    = collection_select :specific_item, :vendor_id, Vendor.all, :id, :name
-  .field
     商家：
     = f.text_field :source_website_name
   .field

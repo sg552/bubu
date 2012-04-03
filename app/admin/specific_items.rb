@@ -1,11 +1,6 @@
 ActiveAdmin.register SpecificItem  do
   menu :priority => 2
 
-  # TODO got error here..., see: https://github.com/gregbell/active_admin/pull/623
-  #scope :joined, :default => true do |specific_items|
-  #  specific_items.includes[:vendor]
-  #end
-
   index do
     column :name do |specific_item|
       link_to specific_item.generic_item.name, generic_item_path(specific_item.generic_item_id), :target => "_blank"

@@ -76,13 +76,13 @@ zh_cn:
         uuid: UUID(唯一标识号)
         scores: 人气指数
         tips: 布布小贴示
+        vendor_id: 厂商（品牌）
         customer_gender: 适宜性别
         category_by_usage_id: 适宜年龄
         created_at: 建立时间
         updated_at: 更新时间
       specific_item:
         name: 名字
-        vendor_id: 厂商（品牌）
         price: 价格
         word_of_mouth: 口碑
         delivery_method: 物流

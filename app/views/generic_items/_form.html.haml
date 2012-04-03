@@ -22,6 +22,9 @@
     UUID(唯一性的标识)
     = f.text_field :uuid
   .field
+    品牌：
+    = collection_select :specific_item, :vendor_id, Vendor.all, :id, :name
+  .field
     初始化的分数（默认是0）:
     = f.text_field :scores
   .field
