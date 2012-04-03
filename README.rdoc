@@ -1,5 +1,8 @@
 == TODOs
 
+index page:
+* links for the side bar. (once clicked, should redirect to the search page)
+
 search page:
 * i18n for the pagination info
 
