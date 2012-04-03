@@ -3,6 +3,26 @@ class ImportItems
     @xml_file = File.new(file_path)
   end
 
+  def show_how_many_duplicates
+    nil_vendor = Vendor.find(5)
+    GenericItem.joins(:specific_items => :vendor).all.each do | generic_item|
+      vendor_count = Set.new
+
+      generic_item.specific_items.each do |specific_item|
+        vendor = specific_item.vendor
+        if vendor != nil_vendor
+          vendor_count << vendor
+        end
+      end
+
+      if vendor_count.size > 1
+        debug_info= "====GenericItem:#{generic_item.id} has vendors: #{vendor_count.size}"
+        Rails.logger.info  debug_info
+        #puts debug_info
+      end
+    end
+  end
+
   def import
     doc = Nokogiri::XML(@xml_file)
     start_at =  Time.now
