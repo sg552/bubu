@@ -45,7 +45,7 @@
       <div class="clean">&nbsp;</div>
     </div>
     <div class="search_list">
-      <div class="search_paixu">
+      <div class="search_paixu" style="height: 44px">
         <%
           previous_scores_order =  params[:scores_order] || "scores asc"
           scores_order = previous_scores_order == "scores asc" ? "scores desc" : "scores asc"
@@ -58,9 +58,9 @@
         <%= raw scores_order.include?("asc") ? "&darr;" : "&uarr;" %>
         </span >
         <!-- page entries info -->
-        <span class="pn">
-        <%= raw page_entries_info @generic_items %>
-        </span>
+        <div class="pn_box">
+          <%= raw paginate @generic_items %>
+        </div>
         <!--
         <span class="pn"> <a href="#">上一页</a> 1/12 <a href="#">下一页</a> </span>
         -->

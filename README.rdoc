@@ -1,7 +1,7 @@
 == TODOs
 
 index page:
-* links for the side bar. (once clicked, should redirect to the search page)
+* level2 links for the side bar. (once clicked, should redirect to the search page)
 
 search page:
 * i18n for the pagination info
@@ -15,6 +15,7 @@ search page:
 == DONE
 * use coffee-script
 * implement the "order by" function on search page
+* level1 links for the side bar.
 
 == Introduction
 

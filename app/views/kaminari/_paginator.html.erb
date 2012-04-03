@@ -1,14 +1,27 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    num_pages:     total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     the paginator that renders the pagination tags inside
+-%>
 <%= paginator.render do -%>
-<%# prev_page_tag -%>
-  <ul class="pn_down">
-  <% each_page.select(&:inside_window?).each do |page| %>
-    <li>
-      <% generated_html = page_tag(page).to_s %>
-      <% unless generated_html.include?("href") %><span><a><% end %>
-      <%= generated_html -%>
-      <% unless generated_html.include?("href") %></a></span><% end %>
-    </li>
-  <% end %>
-  </ul>
-<%# next_page_tag -%>
-<% end %>
+    <ul class="pn_down">
+    <%= first_page_tag unless current_page.first? %>
+    <%= prev_page_tag unless current_page.first? %>
+    <% each_page do |page| -%>
+      <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+        <li>
+          <% generated_html = page_tag(page).to_s %>
+          <%= generated_html -%>
+        </li>
+        <%# page_tag page %>
+      <% elsif !page.was_truncated? -%>
+        <%# gap_tag %>
+      <% end -%>
+    <% end -%>
+    <%= next_page_tag unless current_page.last? %>
+    <%= last_page_tag unless current_page.last? %>
+    </ul>
+<% end -%>
