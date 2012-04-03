@@ -47,6 +47,12 @@ zh_cn:
   customer_gender: 适宜性别
   recommendation_for_same_category: 同类产品推荐
 
+  # search page
+  keyword: 关键字
+  order: 排序
+  price: 价格
+
+  # page links
   about_us: 关于我们
   agreements: 服务条款
   cooperation: 商务合作

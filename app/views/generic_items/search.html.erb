@@ -1,7 +1,10 @@
 <!-- 中间内容开始 -->
 <div id="select_nav">
   <ul>
-    <h1>关键字：TODO 修改这里。</h1>
+    <% if @generic_item_name %>
+    <h1><%= t 'keyword' %>：<%= @generic_item_name %></h1>
+    <% end %>
+      <!-- TODO 等董凯回复完我的邮件之后再放开它
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "年龄"} do %>
         <% Category.by_age.all.each do |category| %>
           <%= link_to category.name, params.merge(:age_scope => category.name, :page => nil) %>
@@ -17,6 +20,7 @@
           <%= link_to vendor.name, params.merge(:vendor_id => vendor.id, :page => nil) %>
         <% end %>
       <% end %>
+      -->
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "适宜人群",
         :param_name => :customer_gender} do %>
         <% ["男孩", "女孩"].each do |sex| %>
@@ -42,9 +46,17 @@
     </div>
     <div class="search_list">
       <div class="search_paixu">
-        <span>排序：</span>
-        <span><a href="#"><strong>价格</strong></a></span>
-        <span><a href="#">推荐度</a></span >
+        <%
+          previous_scores_order =  params[:scores_order] || "scores asc"
+          scores_order = previous_scores_order == "scores asc" ? "scores desc" : "scores asc"
+        %>
+        <span><%= t 'order' %>：</span>
+        <!--
+        <span><strong><a href="#"><%= t 'price' %></a></strong></span>
+        -->
+        <span><%= link_to t('scores'), params.merge(:scores_order => scores_order) %>
+        <%= raw scores_order.include?("asc") ? "&darr;" : "&uarr;" %>
+        </span >
         <!-- page entries info -->
         <span class="pn">
         <%= raw page_entries_info @generic_items %>

@@ -74,7 +74,10 @@ class GenericItemsController < ApplicationController
   # GET
   def search
     @generic_items = GenericItem.where( 1 == 1)
-    @generic_items = @generic_items.where( "name like ?", "%#{params[:generic_item_name]}%") if params[:generic_item_name]
+    if params[:generic_item_name]
+      @generic_items = @generic_items.where( "name like ?", "%#{params[:generic_item_name]}%")
+      @generic_item_name = params[:generic_item_name]
+    end
 
     # evaluate code such as:
     # @generic_items = @generic_items.where(:customer_gender => params[:customer_gender]) if params[:customer_gender]
@@ -82,6 +85,10 @@ class GenericItemsController < ApplicationController
       @generic_items = @generic_items.where(column=> params[column]) if params[column]
     end
 
+    # TODO add price in future
+    [:scores_order].each do |column|
+      @generic_items = @generic_items.order(params[column]) if params[column]
+    end
     @generic_items= @generic_items.page(params[:page]).per(15)
   end
   private
