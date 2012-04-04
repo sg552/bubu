@@ -96,7 +96,6 @@ class GenericItemsController < ApplicationController
       @generic_items = @generic_items.where(column=> params[column]) if params[column]
     end
 
-    # TODO add price in future
     [:scores_order].each do |column|
       @generic_items = @generic_items.order(params[column]) if params[column]
     end

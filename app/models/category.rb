@@ -2,6 +2,7 @@ class Category < ActiveRecord::Base
   PRINCIPLE_BY_USAGE = "by_usage"
   PRINCIPLE_BY_SHAPE= "by_shape"
   PRINCIPLE_BY_AGE = "by_age"
+  AGE_SCOPES_FOR_SEARCH = ["0-3", "4-6", "7-9", "10-14"]
 
   # define scope
   # :by_usage

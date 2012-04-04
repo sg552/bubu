@@ -19,8 +19,9 @@
         </div>
         <ul>
           <% level_2_category.each do |category_level2| %>
-          <li><%= link_to_function image_tag(asset_path("icon/icon_star.png"), :size => "14x14") + " " +
-            category_level2.name , "#" %>
+          <li><%= link_to image_tag(asset_path("icon/icon_star.png"), :size => "14x14") + " " +
+            category_level2 , search_generic_items_path(:age_scope => category_level2),
+            :target => "_blank" %>
           </li>
           <% end %>
           <div class="clean">&nbsp;</div>
