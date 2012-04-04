@@ -12,8 +12,9 @@
       <% end %>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "价格",
         :param_name => :price_scope} do %>
-        <% ["0-49", "50-99", "100-199", "200-499", "500-699", "700以上"].each do |price_scope| %>
-          <%= link_to price_scope, params.merge(:price_scope => price_scope, :page => nil) %>
+        <% ["0-49", "50-99", "100-199", "200-499", "500-699", "700-999999"].each do |price_scope| %>
+          <% link_name = "700以上" if price_scope.include?("700-999999") %>
+          <%= link_to link_name || price_scope, params.merge(:price_scope => price_scope, :page => nil) %>
         <% end %>
       <% end %>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "品牌",

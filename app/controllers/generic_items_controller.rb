@@ -84,6 +84,12 @@ class GenericItemsController < ApplicationController
         Category.get_categories_by_scope(params[:age_scope], Category::PRINCIPLE_BY_AGE))
     end
 
+    price_scope = params[:price_scope]
+    if price_scope
+      @generic_items = @generic_items.joins(:specific_items).
+        where(:specific_items => { :price => Category.send(:to_range, price_scope) })
+    end
+
     # evaluate code such as:
     # @generic_items = @generic_items.where(:customer_gender => params[:customer_gender]) if params[:customer_gender]
     [:customer_gender, :category_id_by_usage, :category_id_by_shape, :vendor_id].each do |column|

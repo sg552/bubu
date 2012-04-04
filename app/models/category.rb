@@ -27,8 +27,11 @@ class Category < ActiveRecord::Base
   end
 
   private
-  def self.to_array(string_scope)
+  def self.to_range(string_scope)
     array = string_scope.split("-")
-    (array.first.to_i..array.last.to_i).to_a
+    (array.first.to_i..array.last.to_i)
+  end
+  def self.to_array(string_scope)
+    to_range(string_scope).to_a
   end
 end
