@@ -79,6 +79,11 @@ class GenericItemsController < ApplicationController
       @generic_item_name = params[:generic_item_name]
     end
 
+    if params[:age_scope]
+      @generic_items = @generic_items.where(:category_id_by_age =>
+        Category.get_categories_by_scope(params[:age_scope], Category::PRINCIPLE_BY_AGE))
+    end
+
     # evaluate code such as:
     # @generic_items = @generic_items.where(:customer_gender => params[:customer_gender]) if params[:customer_gender]
     [:customer_gender, :category_id_by_usage, :category_id_by_shape, :vendor_id].each do |column|

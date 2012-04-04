@@ -16,4 +16,19 @@ class Category < ActiveRecord::Base
     limit.blank? ?  generic_items.all : generic_items.limit(limit)
   end
 
+  def self.get_categories_by_scope( string_scope, principle)
+    result = []
+    self.send(principle).all.each do |category|
+      if (self.to_array(category.name) & self.to_array(string_scope)).size > 0
+        result << category
+      end
+    end
+    return result
+  end
+
+  private
+  def self.to_array(string_scope)
+    array = string_scope.split("-")
+    (array.first.to_i..array.last.to_i).to_a
+  end
 end
