@@ -15,12 +15,13 @@
           <%= link_to price, params.merge(:price => price, :page => nil) %>
         <% end %>
       <% end %>
-      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "品牌"} do %>
+      -->
+      <%= render :layout => 'generic_items/single_filter', :locals => {:name => "品牌",
+        :param_name => :vendor_id} do %>
         <% Vendor.first(30).each do |vendor| %>
           <%= link_to vendor.name, params.merge(:vendor_id => vendor.id, :page => nil) %>
         <% end %>
       <% end %>
-      -->
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "适宜人群",
         :param_name => :customer_gender} do %>
         <% ["男孩", "女孩"].each do |sex| %>

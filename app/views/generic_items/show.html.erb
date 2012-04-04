@@ -19,16 +19,19 @@ function award_score(){
 
     <div id="menu">
       <div id="sidebar">
-      <div class="title_name"><a href="#">模型玩具类</a></div>
+      <div class="title_name">
+        <%= link_to "模型玩具类", #search_generic_items_path(:category_id_by_shape
+          "#" %>
+      </div>
         <div id="ssfl">
         <ul>
-            <li><a href="#">汽车模型</a></li>
-            <li><a href="#">飞机模型</a></li>
-            <li><a href="#">舰艇模型</a></li>
-            <li><a href="#">武器模型</a></li>
-            <li><a href="#">建筑模型</a></li>
-            <li><a href="#">卡通模型</a></li>
-            <div class="clean">&nbsp;</div>
+          <% Category.by_shape.all.each do |category| %>
+          <li>
+            <%= link_to category.name, search_generic_items_path(:category_id_by_shape => category.id),
+              :target => "_blank" %>
+          </li>
+          <% end %>
+          <div class="clean">&nbsp;</div>
         </ul>
         </div>
         <div class="clean">&nbsp;</div> <!-- 清除样式 -->
@@ -61,7 +64,11 @@ function award_score(){
     <% end %>
     <%= @generic_item.name %>
     </p>
-    <li><%= t 'vendor' %>： 迪斯尼(待定)</li>
+    <% if @generic_item.vendor %>
+    <li><%= t 'vendor' %>：
+      <%= link_to @generic_item.vendor.name, search_generic_items_path(
+        :vendor_id => @generic_item.vendor_id), :target => "_blank" %> </li>
+    <% end %>
     <li><%= t 'price_scope' %>： <span style="font-size:16px; font-weight:bold; color:#F30; font-family:Arial, Helvetica, sans-serif;">
       <%= @generic_item.price_scope %></span> 元</li>
     <li><%= t 'age_scope' %>：<span style="font-size:12px; font-weight:bold; color:#090;">
@@ -89,8 +96,7 @@ function award_score(){
     <%= render :partial => "specific_items/list", :locals => { :generic_item => @generic_item } %>
     <%= render :partial => 'comments/list', :locals => { :generic_item => @generic_item } %>
     <h3> <%= t 'recommendation_for_same_category' %></h3>
-    <%= render :partial => 'product_box_grouped_by_tabs', :locals => {
-      :categories => Category.by_shape.last(2), :tab_index => 3} %>
+    <%= render :partial => 'recommended_product_box_grouped_by_tabs' %>
 
 </div>
   <!--//////////////////////////////右边栏结束/////////////////////////////-->

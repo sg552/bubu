@@ -1,0 +1,22 @@
+<div class="product_box">
+  <div id="tablist">
+    <div class="tablist block" style="border: 1px solid #D6D6D6">
+      <%
+        params_hash = {}
+        [:category_id_by_shape, :category_id_by_usage].each do |column|
+          params_hash[column] = @generic_item.send(column) if @generic_item.send(column)
+        end
+        recommended_products = GenericItem.where(params_hash).order("scores desc").last(8)
+      %>
+      <span class="more">
+        <%= link_to "#{t 'more' } >>" , search_generic_items_path(params_hash), :target => "_blank"%>
+      </span>
+      <ul>
+        <% recommended_products.each do |generic_item| %>
+        <%= render :partial => 'details_of_one_generic_item', :locals => {:generic_item => generic_item } %>
+        <% end %>
+      </ul>
+      <span class="clean">&nbsp;</span><!-- 清除样式 -->
+    </div>
+  </div>
+ </div>

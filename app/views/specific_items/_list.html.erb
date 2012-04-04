@@ -18,16 +18,18 @@
         <ol>
             <li class="shangjia"><%= specific_item.source_website_name %></li>
             <li class="jiage"><%= specific_item.price %></li>
+            <!--
             <li class="pinpai">
-            <% if specific_item.vendor.service.blank? %>
+            <%# if specific_item.vendor.service.blank? %>
               暂无
-              <% if current_user && current_user.admin? %>
-                <%= link_to_function "(编辑?)", "open_dialog('#{edit_vendor_path(specific_item.vendor)}')" %>
-              <% end %>
-            <% else %>
-              <%= specific_item.vendor.service %>
-            <% end %>
+              <%# if current_user && current_user.admin? %>
+                <%# link_to_function "(编辑?)", "open_dialog('#{edit_vendor_path(specific_item.vendor)}')" %>
+              <%# end %>
+            <%# else %>
+              <%# specific_item.vendor.service %>
+            <%# end %>
             </li>
+            -->
             <li class="pinpai"><%= specific_item.delivery_method %></li>
             <li class="tjd"><%= specific_item.word_of_mouth %> </li>
             <li>

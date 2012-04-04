@@ -81,7 +81,7 @@ class GenericItemsController < ApplicationController
 
     # evaluate code such as:
     # @generic_items = @generic_items.where(:customer_gender => params[:customer_gender]) if params[:customer_gender]
-    [:customer_gender, :category_id_by_usage, :category_id_by_shape].each do |column|
+    [:customer_gender, :category_id_by_usage, :category_id_by_shape, :vendor_id].each do |column|
       @generic_items = @generic_items.where(column=> params[column]) if params[column]
     end
 

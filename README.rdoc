@@ -2,7 +2,6 @@
 
 index page:
 * level2 links for the side bar. (once clicked, should redirect to the search page)
-* move vendor_id from specific_item to generic_items.
 
 search page:
 
@@ -13,6 +12,11 @@ search page:
 * use haml and coffeescript for those erb files with js snippets.
 
 == DONE
+show page:
+* leve1 links for the side bar.
+* same categories product ( category_id_by_usage, category_id_by_shape...)
+
+* move vendor_id from specific_item to generic_items.
 * i18n for the pagination info
 * use coffee-script
 * implement the "order by" function on search page
