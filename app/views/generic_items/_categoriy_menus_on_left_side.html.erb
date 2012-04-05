@@ -4,13 +4,26 @@
     <%= image_tag asset_path("BBDGY.png") , :size => "196x99"%>
   </div>
   <div id="sidebar">
+    <%
+      categories_by_age = []
+      ["0-3", "4-6", "7-9", "10-14"].each do |age_scope|
+        categories_by_age << Category.new(:name => age_scope, :principle => Category::PRINCIPLE_BY_AGE)
+      end
+    %>
+    <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
+      :level_1_category => categories_by_age, :level_2_category => Category.by_usage,
+      :level_1_title => t('title.category_by_age'),
+      :scope_parameter => :category_id_by_usage
+    }%>
     <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
       :level_1_category => Category.by_usage, :level_2_category => Category::AGE_SCOPES_FOR_SEARCH,
-      :level_1_title => t('title.category_by_usage')
+      :level_1_title => t('title.category_by_usage'),
+      :scope_parameter => :age_scope
     }%>
     <%= render :partial => 'categories_principle_group_on_left_side', :locals => {
       :level_1_category => Category.by_shape, :level_2_category => Category::AGE_SCOPES_FOR_SEARCH,
-      :level_1_title => t('title.category_by_shape')
+      :level_1_title => t('title.category_by_shape'),
+      :scope_parameter => :age_scope
     }%>
   </div>
 </div>

@@ -12,4 +12,11 @@
     %li{ :style => "margin-top:1px;"}
       = link_to_function image_tag( asset_path "search_button.png" ), "$('#search_form').submit()"
 
-
+:javascript
+  jQuery(function(){
+    $("#search_form").submit(function(){
+      search_value = $("#search_form input").val()
+      if(search_value == "#{DEFAULT_SEARCH_TIP}")
+        $("#search_form input").val("")
+    })
+  })
