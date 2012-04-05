@@ -2,11 +2,7 @@
 
 *use refinery CMS
 
-index page:
-* level2 links for the side bar. (once clicked, should redirect to the search page)
-
 search page:
-
 * use cancan for authorization
 * anonymous users don't have right to comment
 * when editing the items, should validate input
@@ -14,6 +10,8 @@ search page:
 * use haml and coffeescript for those erb files with js snippets.
 
 == DONE
+index page:
+* level2 links for the side bar. (once clicked, should redirect to the search page)
 show page:
 * leve1 links for the side bar.
 * same categories product ( category_id_by_usage, category_id_by_shape...)
