@@ -1,6 +1,5 @@
 require 'spec_helper'
 describe Devise::SessionsController do
-  it "should GET new " do
-    pending "implement me later "
+  it "no need to test this" do
   end
 end

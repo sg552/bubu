@@ -3,7 +3,8 @@
 <%# title %>
 <div class="title_name"><%= link_to_function level_1_title, "#" %></div>
   <% level_1_category.each do |category| %>
-    <% level_1_link_destination= search_generic_items_path("category_id_#{category.principle}".to_sym=> category.id) %>
+    <% age_scope = category.name %>
+    <% level_1_link_destination= search_generic_items_path("age_scope".to_sym => age_scope) %>
   <div class="sidelist">
     <span><h3>
       <%= link_to image_tag(asset_path("icon/icon_03.png"), :size => "14x14") +
@@ -20,7 +21,8 @@
         <ul>
           <% level_2_category.each do |category_level2| %>
           <li><%= link_to image_tag(asset_path("icon/icon_star.png"), :size => "14x14") + " " +
-            category_level2 , search_generic_items_path(:age_scope => category_level2),
+            category_level2.name , search_generic_items_path(:category_id_by_usage => category_level2.id,
+              :age_scope => age_scope),
             :target => "_blank" %>
           </li>
           <% end %>

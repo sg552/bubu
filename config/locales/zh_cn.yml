@@ -6,6 +6,7 @@ zh_cn:
     category_by_age: 宝宝年龄分类
     category_by_usage: 玩具应用分类
     category_by_shape: 玩具模型分类
+    category_by_vendor: 品牌分类
 
   # common items below
   more: 更多
