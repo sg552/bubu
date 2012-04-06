@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to main_app.root_path, :alert => exception.message
   end
+  def check_user_role
+    redirect_to root_path unless current_user.role == "admin"
+  end
 end
