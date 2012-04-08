@@ -73,6 +73,7 @@ class GenericItemsController < ApplicationController
 
   # GET
   def search
+    @generic_item_name = params[:generic_item_name]
     @generic_items = perform_search(params)
   end
 
@@ -86,7 +87,6 @@ class GenericItemsController < ApplicationController
     generic_items = GenericItem.where( 1 == 1)
     if params[:generic_item_name]
       generic_items = generic_items.where( "name like ?", "%#{params[:generic_item_name]}%")
-      generic_item_name = params[:generic_item_name]
     end
 
     if params[:age_scope]

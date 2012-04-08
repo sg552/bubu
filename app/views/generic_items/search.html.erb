@@ -19,7 +19,7 @@
       <% end %>
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "品牌",
         :param_name => :vendor_id} do %>
-        <% Vendor.first(30).each do |vendor| %>
+        <% Vendor.find_those_having_items(30, params).each do |vendor| %>
           <%= link_to vendor.name, params.merge(:vendor_id => vendor.id, :page => nil) %>
         <% end %>
       <% end %>

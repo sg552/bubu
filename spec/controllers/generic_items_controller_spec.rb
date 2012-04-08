@@ -138,12 +138,14 @@ describe GenericItemsController do
     it "should get by name" do
       get :search, :generic_item_name => @name
       assigns(:generic_items).size.should == 3
+      assigns(:generic_item_name).should == @name
       response.should be_success
     end
 
     it "should  get by customer_gender" do
       get :search, :generic_item_name => @name , :customer_gender => "男"
       assigns(:generic_items).size.should == 3
+      assigns(:generic_item_name).should == @name
       response.should be_success
     end
   end

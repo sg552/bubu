@@ -22,4 +22,5 @@ class GenericItem < ActiveRecord::Base
       images.first.itself.url(:medium) :
       images.first.external_url
   end
+
 end
