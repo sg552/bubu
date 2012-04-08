@@ -73,35 +73,44 @@ class GenericItemsController < ApplicationController
 
   # GET
   def search
-    @generic_items = GenericItem.where( 1 == 1)
+    @generic_items = perform_search(params)
+  end
+
+  # GET
+  def search_by_categories_from_side_bar
+    @age_scope = params[:age_scope]
+    @generic_items = perform_search(params)
+  end
+  private
+  def perform_search(params)
+    generic_items = GenericItem.where( 1 == 1)
     if params[:generic_item_name]
-      @generic_items = @generic_items.where( "name like ?", "%#{params[:generic_item_name]}%")
-      @generic_item_name = params[:generic_item_name]
+      generic_items = generic_items.where( "name like ?", "%#{params[:generic_item_name]}%")
+      generic_item_name = params[:generic_item_name]
     end
 
     if params[:age_scope]
-      @generic_items = @generic_items.where(:category_id_by_age =>
+      generic_items = generic_items.where(:category_id_by_age =>
         Category.get_categories_by_scope(params[:age_scope], Category::PRINCIPLE_BY_AGE))
     end
 
     price_scope = params[:price_scope]
     if price_scope
-      @generic_items = @generic_items.joins(:specific_items).
+      generic_items = generic_items.joins(:specific_items).
         where(:specific_items => { :price => Category.send(:to_range, price_scope) })
     end
 
     # evaluate code such as:
-    # @generic_items = @generic_items.where(:customer_gender => params[:customer_gender]) if params[:customer_gender]
+    # generic_items = generic_items.where(:customer_gender => params[:customer_gender]) if params[:customer_gender]
     [:customer_gender, :category_id_by_usage, :category_id_by_shape, :vendor_id].each do |column|
-      @generic_items = @generic_items.where(column=> params[column]) if params[column]
+      generic_items = generic_items.where(column=> params[column]) if params[column]
     end
 
     [:scores_order].each do |column|
-      @generic_items = @generic_items.order(params[column]) if params[column]
+      generic_items = generic_items.order(params[column]) if params[column]
     end
-    @generic_items= @generic_items.page(params[:page]).per(15)
+    return generic_items.page(params[:page]).per(15)
   end
-  private
   def get_by_id
     @generic_item = GenericItem.find(params[:id])
   end

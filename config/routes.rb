@@ -17,6 +17,7 @@ Bubu::Application.routes.draw do
   resources :generic_items do
     collection do
       get :search
+      get :search_by_categories_from_side_bar
     end
     member do
       put :award_score

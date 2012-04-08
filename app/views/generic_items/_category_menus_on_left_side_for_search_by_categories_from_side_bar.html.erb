@@ -1,0 +1,25 @@
+<!-----------------------------------------------------产品菜单开始----------------------------------------->
+  <div id="menu">
+  <div style=" width:196px; height:99px;border:1px solid #6bb22e; border-bottom:none;">
+    <%= image_tag asset_path("BBDGY.png") , :size => "196x99"%>
+  </div>
+  <div id="sidebar">
+    <%= render :partial => 'categories_principle_group_on_left_side_without_level2_menu', :locals => {
+      :level_1_title => t('title.category_by_usage'),
+      :entities => Category.by_usage,
+      :search_path => "search_by_categories_from_side_bar_generic_items_path",
+      :search_params => :category_id_by_usage}
+    %>
+    <%= render :partial => 'categories_principle_group_on_left_side_without_level2_menu', :locals => {
+      :level_1_title => t('title.category_by_shape'),
+      :entities => Category.by_shape,
+      :search_path => "search_by_categories_from_side_bar_generic_items_path",
+      :search_params => :category_id_by_shape}
+    %>
+  </div>
+</div>
+<script>
+  //don't pop up the new window for the links in left side bar.
+  $("#sidebar #p_list a").each(function(){ $(this).attr("target", null) })
+</script>
+<!-----------------------------------------------------产品菜单结束----------------------------------------->

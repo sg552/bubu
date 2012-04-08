@@ -140,6 +140,7 @@ describe GenericItemsController do
       assigns(:generic_items).size.should == 3
       response.should be_success
     end
+
     it "should  get by customer_gender" do
       get :search, :generic_item_name => @name , :customer_gender => "男"
       assigns(:generic_items).size.should == 3
@@ -147,5 +148,24 @@ describe GenericItemsController do
     end
   end
 
+  describe "search_by_categories_from_side_bar" do
+    before do
+      @name = "some name for the product"
+      3.times do
+        create(:generic_item, :name => @name, :customer_gender => "男" )
+      end
+    end
+    it "should get by name" do
+      get :search_by_categories_from_side_bar, :generic_item_name => @name
+      assigns(:generic_items).size.should == 3
+      response.should be_success
+    end
+
+    it "should  get by customer_gender" do
+      get :search_by_categories_from_side_bar, :generic_item_name => @name , :customer_gender => "男"
+      assigns(:generic_items).size.should == 3
+      response.should be_success
+    end
+  end
 
 end
