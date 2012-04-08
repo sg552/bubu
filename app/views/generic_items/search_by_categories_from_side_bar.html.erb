@@ -9,7 +9,9 @@
   <div class="info_category">&nbsp;</div>
   <div id="select_nav">
     <ul>
+      <% if @age_scope %>
       <h1><%= @age_scope %>岁：</h1>
+      <% end %>
 
       <%= render :layout => 'generic_items/single_filter', :locals => {:name => "价格",
         :param_name => :price_scope} do %>
