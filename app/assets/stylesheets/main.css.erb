@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-body { margin:0; background-color:#FDFFFB; color:#000; font:12px "宋体";  background-image:url(<%= asset_path "background2.png" %>); overflow-x: hidden;}
+body { margin:0; background-color:#FDFFFB; color:#000; font:12px "宋体";  background-image:url(<%= asset_path "bg.jpg" %>); }
 .clean { clear:both; height:0;}
 #main_box { width:980px; height:auto; margin:0 auto;}
 #logo_box { width:100%; height:70px;}
@@ -331,6 +331,9 @@ border-bottom-right-radius: 5; behavior: url(styles/ie-css3.htc);
 /* .pn_down span a{background:#060; color:#FFF; padding:3px 6px;} */
 .pn_down li {margin-right:10px; float:left; margin-top:10px; height:20px; padding:0 6px; background:#FFF;}
 
+.pn_down_user { margin-top:10px; float:right;}
+.pn_down_user span a{background:#060; color:#FFF; padding:3px 6px;}
+.pn_down_user li {margin-right:10px; float:left; margin-top:20px; height:20px; padding:0 6px; background:#FFF;}
 
 .result_list { width:777px; margin-top:0;}
 .search_list { width:977px; margin-top:0;}
@@ -433,3 +436,70 @@ line-height: 30px;
 
 
 .reg_right {width:35%; float:right;}
+
+
+
+
+.touxiang {width:196px; height:193px;}
+.userinfo {width:100%; height:auto; margin:12px 12px;}
+.userinfo a:hover { color:#F60;}
+.userinfo h7 { font:bold 12px "宋体"; color:#060; margin-top:30px; height:30px; line-height:30px;}
+.userinfo h7 a { font:bold 12px "宋体"; color:#060; margin-top:30px; margin-bottom:10px; height:24px; line-height:30px;}
+.userinfo p { font:12px "宋体"; margin-left:20px; margin-bottom:12px; color:#060; height:16px; line-height:16px;}
+.userinfo ul { margin:0; margin-bottom:30px;}
+.userinfo ul li { height:30px; margin-bottom:28px; line-height:30px; width:100%;}
+.userinfo ul a { font-weight:bold; color:#060; font-size:12px;}
+
+
+.userinfo_showbox {width:776px; height:735px; background:#FFF; border:1px #d6d6d6 solid;}
+.userinfo_title {width:100%;height:30px; line-height:30px; font:bold 12px '宋体';border-bottom:0;background: url(<%= asset_path "barbg.jpg" %>) repeat-x;}
+.userinfo_showbox p { font:bold 12px "宋体"; color:#090;margin-left:10px; padding-top:8px; padding-bottom:-8px;}
+.userinfo_contentbox {height:auto; width:100%;}
+.userinfo_contentbox h8 {font:bold 12px "宋体"; color:#F47724; margin-top:30px; height:24px; line-height:24px;}
+.userinfo_contentbox01 {width:90%; color:#060; float:left; margin:10px;}
+.userinfo_contentbox ul {  margin-left:50px; height:auto; font:12px "宋体"; margin-bottom:10px;}
+.userinfo_contentbox ul li { margin:10px; height:30px; line-height:30px;}
+
+.userinfo_contentbox01 span { color:#999;}
+
+
+.userinfo_contentbox ul ol { margin:2px; width:100%; float:none;}
+.user_form {border: 1px solid #82C85B;width:320px;height:20px;line-height:20px;color:#666; padding:5px;}
+.user_title_name {width:10%; float:left; text-align:right;}
+
+.user_input_box {width:82%; float:left;}
+.user_textarea_box {width:82%; height:260px; float:left;}
+.user_textarea_form {border: 1px solid #82C85B; color:#999; font:12px "宋体"; overflow:auto;width:320px;height:50px; color:#666; padding:5px;}
+
+.user_select_box {float:left; width:80%;}
+
+
+.user_image {width:90px;}
+.user_txt {width:530px;}
+.user_view {width:70px; padding-top:10px; padding-left:15px; padding-right:-15px; padding-bottom:-10px; height:90px; text-align:center; float:right; border-left:1px solid #ECECFF;}
+.button_style { padding:3px; width:60px; height:24px;}
+
+
+
+
+
+.xihuan_contentbox {height:auto; width:100%;}
+.xihuan_contentbox ul {width:97%; height:160px; margin-top:0; margin:8px;}
+.xihuan_contentbox ul ol {width:98%; padding:10px;height:auto; display:block; background:#FFF; margin-top:10px;border:1px solid #ECECFF;}
+
+.xihuan_contentbox ul ol li { margin:0; float:left;}
+.xihuan_contentbox ul ol li h4 { font-size:12px; height:auto; margin-top:12px; margin-bottom:6px; margin-left:10px;}
+
+
+.xihuan_contentbox dl { border:1px solid #d6d6d6; width:96%; padding:10px; background:#ECFFD9;}
+.xihuan_contentbox dl dd { height:18px; line-height:18px; margin-bottom:5px; margin-left:20px;}
+
+/*.xihuan_contentbox ul ol p { margin-top:10px; height:14px;}*/
+
+
+
+/*弹出框*/
+.black_overlay {display: none;position: absolute;top: 0%;left: 0%;width: 100%;height:100%;background-color:#E3FFC8;z-index:1001;-moz-opacity: 0.8;opacity:0.5;filter: alpha(opacity=10);}
+.white_content {display: none;position:absolute;top: 22%;left: 45%;width: 40%; width:260px;height:380px;padding:10px;border: 5px solid #090;margin:-32px;background-color:#FBFFFD;z-index:1002;overflow: hidden;}
+.old_info { width:198px; border: 2px dashed #CF3; height:193px; padding:5px; background:#FFF; margin:10px 20px;}
+.new_info { width:60%; height:20px; margin:10px 20px;}
