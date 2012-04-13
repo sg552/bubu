@@ -1,0 +1,45 @@
+    <!--//////////////////////////////左边栏开始//////////////////////////////-->
+    <div id="left_box">
+      <!-----------------------------------------------------产品菜单开始----------------------------------------->
+      <div id="menu">
+        <div id="sidebar">
+          <div class="title_name">个人中心</div>
+          <div class="touxiang">
+            <img src="images/user01.jpg" width="196" height="193">
+          </div>
+          <div class="userinfo">
+            <h7>
+              <%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>
+              <a href="user_01.html" target="show"> 基本信息：</a>
+            </h7>
+            <h7><a href="#" onclick="dakai()">[编辑头像]</a></h7>
+            <p>昵称：小机器猫 </p>
+            <p>宝宝年龄：1岁</p>
+            <p>宝宝性别：男</p>
+          </div>
+        </div>
+        <div id="sidebar">
+          <div class="title_name">应用统计</div>
+          <div class="userinfo">
+            <ul>
+              <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %><a href="user_01.html" target="show">用户资料编辑</a></li>
+              <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %><a href="user_02.html" target="show">喜欢的产品 [20] </a></li>
+              <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %><a href="user_03.html" target="show">分享过的产品 [18]</a></li>
+              <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %><a href="user_04.html" target="show">评论过的产品 [40]</a></li>
+              <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %><a href="user_05.html" target="show">您的宝宝还可能喜欢</a></li>
+              <!--<li><img src="images/icon/icon_03.png" width="14" height="14" /> <a href="user_06.html" target="show">好友的推荐</a></li>-->
+            </ul>
+          </div>
+          <div class="clean">&nbsp;</div>
+          <!-- 清除样式 -->
+        </div>
+      </div>
+    </div>
+    <!--//////////////////////////////左边栏结束////////////////////////////-->
+
+    <!--//////////////////////////////右边栏栏始/////////////////////////////-->
+    <div id="right_box">
+      <iframe name="show" scrolling="auto" src="user_01.html" style="width:100%; overflow:scroll;height:740px; border:none;overflow-x: hidden; overflow-y: auto;"></iframe>
+    </div>
+    <!--//////////////////////////////右边栏结束/////////////////////////////-->
+
