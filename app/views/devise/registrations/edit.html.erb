@@ -1,12 +1,14 @@
-<h2>编辑用户资料</h2>
+<h2>修改密码</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),
   :html => { :method => :put }) do |f| %>
 
+  <!--
   <div>电子信箱（登陆名）:<br/> <%= f.email_field :email %></div>
   <br/>
   <%= link_to_function "修改密码？", "$('#change_password').fadeToggle()" %>
-  <div id="change_password" style="display:none"%>
+  -->
+  <div id="change_password" style="display:"%>
     <div>新密码： <br />
     <%= f.password_field :password, :autocomplete => "off" %></div>
 

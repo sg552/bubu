@@ -11,7 +11,7 @@
       <div class="userinfo">
         <h7>
           <%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>
-          <a href="user_01.html" target="show"> 基本信息：</a>
+          <%= link_to "基本信息", @user %>
         </h7>
         <h7><%= link_to_function "[编辑头像]", "open_dialog('ooxx')" %></h7>
         <p>昵称：<%= user.login %> </p>
@@ -24,7 +24,8 @@
       <div class="userinfo">
         <ul>
           <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>
-<a href="user_01.html" target="show">用户资料编辑</a></li>
+          <%= link_to "用户资料编辑", edit_user_path(:id => user.id) %>
+</li>
           <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>
 <a href="user_02.html" target="show">喜欢的产品 [20] </a></li>
           <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>

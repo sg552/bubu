@@ -1,3 +1,50 @@
 <%= render :layout => "/layouts/users_layout", :locals => { :user => @user } do %>
-  hihihi
+<div class="userinfo_showbox">
+  <div class="userinfo_title">
+    <p> 用户资料 </p>
+  </div>
+  <div class="userinfo_contentbox">
+    <div class="userinfo_contentbox01">
+      <h8>基本信息：</h8>
+      <ul>
+        <ol>
+          <li class="user_title_name">昵称：</li>
+          <li class="user_input_box">
+            <%= @user.login %>
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">邮箱：</li>
+          <li class="user_input_box">
+            <%= @user.email %>
+          </li>
+        </ol>
+
+        <ol>
+          <li class="user_title_name">描述自己：</li>
+          <li class="user_textarea_box">
+            <%= @user.introduction %>
+          </li>
+        </ol>
+      </ul>
+      <div class="clean">&nbsp;</div>
+    </div>
+    <div class="userinfo_contentbox01">
+
+      <h8>宝宝资料：</h8>
+      <ul>
+        <ol>
+          <li class="user_title_name">宝宝年龄：</li>
+          <li class="user_select_box"> <%= @user.baby_age %> 岁
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">性别：</li>
+          <li class="user_input_box"> <%= @user.baby_gender %>
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+</div>
 <% end %>

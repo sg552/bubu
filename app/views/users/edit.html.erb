@@ -1,0 +1,91 @@
+<%= render :layout => "/layouts/users_layout", :locals => { :user => @user } do %>
+<%= form_for @user do |f| %>
+<div class="userinfo_showbox">
+  <div class="userinfo_title">
+    <p> 用户资料 </p>
+  </div>
+  <div class="userinfo_contentbox">
+    <div class="userinfo_contentbox01">
+      <h8>基本信息：</h8>
+      <ul>
+        <ol>
+          <li class="user_title_name">昵称：</li>
+          <li class="user_input_box">
+            <%= f.text_field :login, :class => "user_form", :size => "16", :maxlength =>"16", :onclick => "select()"%>
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">邮箱：</li>
+          <li class="user_input_box">
+            <%= f.text_field :email, :class => "user_form", :size => "16", :maxlength =>"16", :onclick => "select()"%>
+            <span> * 用于找回密码</span>
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">密码：</li>
+          <li class="user_input_box">
+            <%= link_to_function "[点击这里修改]", "open_dialog('#{edit_user_registration_path(@user.id) }')" %>
+          </li>
+        </ol>
+        <!--
+        <ol>
+          <li class="user_title_name">密码：</li>
+          <li class="user_input_box">
+            <input class="user_form" name="" type="password" onclick="select();" value="123456" size="16" maxlength="16""/>
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">确认密码：</li>
+          <li class="user_input_box">
+            <input class="user_form" name="" type="password" onclick="select();" value="123456" size="16" maxlength="16""/>
+          </li>
+        </ol>
+        -->
+
+        <ol>
+          <li class="user_title_name">描述自己：</li>
+          <li class="user_textarea_box">
+            <%= f.text_area :introduction, :rows => 3, :class => "user_textarea_form", :onclick => "select()" %>
+          </li>
+        </ol>
+      </ul>
+      <div class="clean">&nbsp;</div>
+    </div>
+    <div class="userinfo_contentbox01">
+
+      <h8>宝宝资料：</h8>
+      <ul>
+        <ol>
+          <li class="user_title_name">宝宝年龄：</li>
+          <li class="user_select_box">
+            <%= f.select :baby_age, options_for_select( User::OPTIONS_FOR_AGE),
+              {}, {:style=>"border: 1px solid #82C85B; height:20px; line-height:20px; width:120px;", :size => 1} %>
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">性别：</li>
+          <li class="user_input_box">
+            <%= f.radio_button :baby_gender, "女" %>
+            <label for="user_baby_gender_女">女&nbsp;&nbsp;</label>
+            &nbsp;&nbsp;&nbsp;
+            <%= f.radio_button :baby_gender, "男" %>
+            <label for="user_baby_gender_男">男&nbsp;&nbsp;</label>
+          </li>
+        </ol>
+        <ol>
+          <li class="user_title_name">&nbsp;</li>
+          <li class="user_input_box">
+            <%= f.submit "保存", :class => "button_style" %>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to "取消", user_path(@user) %>
+          </li>
+        </ol>
+      </ul>
+    </div>
+
+
+
+  </div>
+</div>
+<% end %> <!-- form ends -->
+<% end %> <!-- layout ends -->
