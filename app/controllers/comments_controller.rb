@@ -72,7 +72,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to generic_item}
+      format.html { redirect_to :back, :notice => t('successfully_deleted')}
       format.json { head :no_content }
     end
   end

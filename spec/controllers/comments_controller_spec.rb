@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CommentsController do
   before do
+    request.env["HTTP_REFERER"] = root_path
     @generic_item = create(:generic_item)
   end
   it "should get new " do
@@ -36,6 +37,5 @@ describe CommentsController do
     comment = create(:comment, :generic_item_id => @generic_item.id)
     delete :destroy, :id => comment.id
     Comment.exists?(comment.id).should == false
-    response.should redirect_to @generic_item
   end
 end

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :get_by_id, :only => [:show, :edit, :update]
+  before_filter :get_by_id #, :only => [:show, :edit, :update]
   # GET
   def show
   end
@@ -12,6 +12,10 @@ class UsersController < ApplicationController
   def update
     @user.update_attributes(params[:user])
     redirect_to @user, :notice => t('notice.successfully_updated')
+  end
+
+  def comments
+    @comments = @user.comments
   end
 
   private

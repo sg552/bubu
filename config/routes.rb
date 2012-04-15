@@ -3,7 +3,11 @@ Bubu::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      get :comments
+    end
+  end
 
   resources :vendors
 
