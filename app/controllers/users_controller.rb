@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :get_by_id, :only => [:profile]
+  before_filter :get_by_id, :only => [:show]
   # GET
-  def profile
+  def show
   end
   private
   def get_by_id

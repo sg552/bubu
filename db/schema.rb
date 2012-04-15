@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120403221940) do
+ActiveRecord::Schema.define(:version => 20120415020119) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -89,6 +89,19 @@ ActiveRecord::Schema.define(:version => 20120403221940) do
     t.string   "external_url"
   end
 
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
   create_table "sliders", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -123,6 +136,9 @@ ActiveRecord::Schema.define(:version => 20120403221940) do
     t.datetime "created_at",                                                :null => false
     t.datetime "updated_at",                                                :null => false
     t.string   "role",                                  :default => "user"
+    t.string   "login"
+    t.string   "baby_gender"
+    t.string   "baby_age"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,0 +1,12 @@
+    <% # locals: user %>
+    <%= render :partial => 'left_menu', :locals => { :user => user } %>
+
+    <!--//////////////////////////////右边栏栏始/////////////////////////////-->
+    <div id="right_box">
+      <%= yield %>
+      <!--
+      <iframe name="show" scrolling="auto" src="user_01.html" style="width:100%; overflow:scroll;height:740px; border:none;overflow-x: hidden; overflow-y: auto;"></iframe>
+      -->
+    </div>
+    <!--//////////////////////////////右边栏结束/////////////////////////////-->
+
