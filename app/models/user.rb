@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role,
     :baby_age, :baby_gender, :introduction, :login
 
+  has_many :comments
+
   def admin?
     role == ROLE_ADMIN
   end

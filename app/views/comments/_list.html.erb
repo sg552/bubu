@@ -8,12 +8,20 @@
   <div id="tablist1">
     <div class="tablist block" style="min-height: 40px">
       <dl id="dis_box">
+        <% if current_user %>
         <%= link_to_function " + 添加评论", "open_dialog('#{new_comment_path(:generic_item_id => generic_item.id)}')" %> <br/>
+        <% else %>
+        <%= link_to_function "登录后才能发表评论", "open_dialog('#{new_user_session_path}')" %> <br/>
+        <% end %>
         <% generic_item.comments.each do  |comment| %>
         <dd>
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-              <td width="10%"><img src="<%= asset_path "icon/blogsina.gif" %>" width="50" height="50" /></td>
+              <td width="10%">
+                <!-- TODO added logo here -->
+                <%= link_to image_tag(asset_path("icon/blogsina.gif"), :size => "50x50") +
+                  comment.user.login, comment.user, :target => "_blank" %>
+              </td>
               <td width="90%"><h4>标题：<%= comment.title %>, 时间：<%= comment.created_at.to_date%></h4>
                 <p><%= comment.content %></p>
                 <% if can? :manage, comment %>

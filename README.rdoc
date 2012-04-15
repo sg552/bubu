@@ -1,6 +1,10 @@
 == TODOs
 
-*use refinery CMS
+USER module:
+* comments
+* favourates
+
+* use refinery CMS
 
 search page:
 * use cancan for authorization
@@ -10,6 +14,9 @@ search page:
 * use haml and coffeescript for those erb files with js snippets.
 
 == DONE
+USER module:
+* edit, update, show page
+
 index page:
 * level2 links for the side bar. (once clicked, should redirect to the search page)
 show page:

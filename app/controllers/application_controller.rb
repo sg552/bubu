@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def check_user_role
     redirect_to root_path unless current_user.role == "admin"
   end
+
+  #def after_sign_in_path_for(resource)
+  #  return stored_location_for(resource) || root_path
+  #end
 end
