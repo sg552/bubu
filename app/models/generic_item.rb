@@ -8,12 +8,17 @@ class GenericItem < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   belongs_to :vendor
   NO_PRICE_SCOPE = "暂无定价"
+  BASE_SCORE = 100
 
   def price_scope
     return NO_PRICE_SCOPE if specific_items.blank?
     prices = specific_items.collect { | item| item.price.to_i }.sort - [0]
     return "#{prices.first}" if prices.size == 1
     return "#{prices.first}-#{prices.last}"
+  end
+
+  def scores
+    BASE_SCORE + favorites.all.size
   end
 
   def logo_url

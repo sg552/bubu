@@ -3,7 +3,6 @@ FactoryGirl.define do
     name "MyString"
     description "MyText"
     uuid "MyString"
-    scores "MyString"
     tips "MyText"
     customer_gender "boys"
   end
