@@ -17,8 +17,12 @@ class User < ActiveRecord::Base
     :baby_age, :baby_gender, :introduction, :login
 
   has_many :comments
+  has_many :favorites
 
   def admin?
     role == ROLE_ADMIN
+  end
+  def normal_user?
+    role == ROLE_USER
   end
 end

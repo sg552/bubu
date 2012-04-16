@@ -74,9 +74,10 @@ ActiveRecord::Schema.define(:version => 20120415225117) do
     t.string   "name"
     t.text     "description"
     t.string   "uuid"
+    t.string   "scores",               :default => "0"
     t.text     "tips"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "customer_gender"
     t.integer  "category_id_by_usage"
     t.integer  "category_id_by_shape"
@@ -94,19 +95,6 @@ ActiveRecord::Schema.define(:version => 20120415225117) do
     t.datetime "updated_at",          :null => false
     t.string   "external_url"
   end
-
-  create_table "rails_admin_histories", :force => true do |t|
-    t.text     "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "sliders", :force => true do |t|
     t.string   "title"

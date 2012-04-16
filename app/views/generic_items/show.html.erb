@@ -1,14 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <script type="text/javascript">
-function award_score(){
+function award_score(user_id, generic_item_id){
+  // TODO rewrite this using coffeescript.
+  // TODO: use jquery alert plugin instead of alert
   $.ajax( {
-    url : "<%= award_score_generic_item_path( @generic_item)  %>",
-    type: "PUT",
+    url : "<%= favorites_path %>",
+    data: { favorite:  { "user_id" : user_id, "generic_item_id" : generic_item_id  }},
+    type: "POST",
     success: function(){
       $("#tip_for_scores").text("<%= t 'voted_successfully' %>! ")
       old_value = parseInt($("#scores").text())
       $("#scores").text(old_value + 1)
+      alert("投票成功！～")
+    },
+    error: function(){
+      alert("您已经投过票了")
     }
   })
 }
@@ -54,7 +61,14 @@ function award_score(){
 
 <div id="info_show">
 <div class="xihuan">
-  <span><%= link_to_function t('like'), "award_score()", :method => :put %></span>
+  <span>
+  <% if current_user && can?(:create, Favorite) %>
+  <%= link_to_function t('like'), "award_score(#{current_user.id}, #{@generic_item.id})", :method => :put %>
+  <% else %>
+  <%= link_to_function t('like'), "open_dialog('#{new_user_session_path}')" %>
+  <% end %>
+  </span>
+
   <span style="margin-left:7px; font-size:14px;"> <span id ="scores"><%= @generic_item.scores %></span></span>
 </div>
     <ul>

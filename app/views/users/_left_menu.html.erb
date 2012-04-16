@@ -27,7 +27,8 @@
           <%= link_to "用户资料编辑", edit_user_path(:id => user.id) %>
 </li>
           <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>
-<a href="user_02.html" target="show">喜欢的产品 [20] </a></li>
+          <%= link_to "喜欢的产品 [#{user.favorites.size}] ", favorites_user_path(:id => user.id) %>
+</li>
           <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>
 <a href="user_03.html" target="show">分享过的产品 [18]</a></li>
           <li><%= image_tag asset_path("icon/icon_03.png"), :size => "14x14" %>

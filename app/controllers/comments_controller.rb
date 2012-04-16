@@ -68,7 +68,6 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    generic_item = @comment.generic_item
     @comment.destroy
 
     respond_to do |format|

@@ -14,8 +14,13 @@ class UsersController < ApplicationController
     redirect_to @user, :notice => t('notice.successfully_updated')
   end
 
+  # GET
   def comments
     @comments = @user.comments
+  end
+  # GET
+  def favorites
+    @favorites = @user.favorites
   end
 
   private

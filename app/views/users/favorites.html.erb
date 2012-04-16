@@ -1,0 +1,32 @@
+<%= render :partial => 'users/left_menu', :locals => { :user => @user } %>
+<!--//////////////////////////////右边栏栏始/////////////////////////////-->
+<div id="right_box">
+<div class="userinfo_showbox">
+  <div class="userinfo_title">
+    <p> 喜欢的产品 [<%= @user.favorites.size %>] </p>
+  </div>
+  <div class="xihuan_contentbox">
+    <ul>
+      <% @user.favorites.each do |favorite| %>
+      <ol>
+        <%= render :partial => 'generic_items/horizontal_entity', :locals => {
+          :generic_item => favorite.generic_item, :entity_to_be_removed => favorite} %>
+      </ol>
+      <% end %>
+    </ul>
+    <div class="clean">&nbsp;</div>
+  </div>
+  <div>
+  <!--
+    <ul class="pn_down_user">
+      <li><a href="#">上一页</a></li>
+      <li> <span><a href="#">1</a></span></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">下一页</a></li>
+    </ul>
+    -->
+  </div>
+</div>
+</div>

@@ -4,6 +4,7 @@ describe UsersController do
   login_user
   before do
     @user = User.first
+    @generic_item = create(:generic_item)
   end
 
   it "should get show page" do
@@ -23,8 +24,14 @@ describe UsersController do
   end
 
   it "should get comments" do
-    create(:comment, :user => @user, :generic_item => GenericItem.first )
+    create(:comment, :user => @user, :generic_item => @generic_item )
     get :comments, :id => @user.id
     assigns(:comments).size.should > 0
+  end
+
+  it "should get favorites" do
+    create(:favorite, :user => @user, :generic_item => @generic_item)
+    get :favorites, :id => @user.id
+    assigns(:favorites).size.should > 0
   end
 end

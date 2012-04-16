@@ -1,8 +1,7 @@
 == TODOs
 
-USER module:
-* comments
-* favourates
+  // TODO rewrite this using coffeescript.
+  // TODO: use jquery alert plugin instead of alert
 
 * use refinery CMS
 
@@ -15,6 +14,8 @@ search page:
 
 == DONE
 USER module:
+* comments
+* favourates
 * edit, update, show page
 
 index page:

@@ -149,3 +149,7 @@ zh_cn:
               blank: 邮箱不能为空
             password:
               blank: 密码不能为空
+        favorite:
+          attributes:
+            user_id:
+              taken: 您对一款产品只能投票一次

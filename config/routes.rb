@@ -6,6 +6,7 @@ Bubu::Application.routes.draw do
   resources :users do
     member do
       get :comments
+      get :favorites
     end
   end
   resources :favorites

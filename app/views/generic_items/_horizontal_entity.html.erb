@@ -1,0 +1,23 @@
+<% # generic_item, entity_to_be_removed ( comment , favorite) %>
+<li class="user_image">
+  <%= link_to image_tag(generic_item.logo_url, :size => "90x90"), generic_item , :target => "_blank" %>
+</li>
+<li class="user_txt">
+  <h4> <%= link_to  "#{generic_item.name}[#{generic_item.category_by_shape.try(:name)}]", generic_item, :target => "_blank" %>
+  </h4>
+  <p>价格区间：￥<%= generic_item.price_scope %> |
+    人气指数：<%= generic_item.scores %> |
+    评论数：<%= link_to "#{generic_item.comments.size}条", generic_item %> |
+    在售商家： <%= link_to "（#{generic_item.specific_items.size} 个）", generic_item %> </p>
+  <p><strong>分享到:</strong>
+    <a href="#"><img src="images/icon/icon_msn.png" width="16" height="16" alt="MSN" /></a>
+    <a href="#"><img src="images/icon/icon_qq_qq.png" width="16" height="16" alt="QQ" /></a>
+    <a href="#"><img src="images/icon/icon_sina.png" width="16" height="16" alt="SINA" /></a>
+    <a href="#"><img src="images/icon/icon_ren.png" width="16" height="16" alt="REN" /></a>
+  </p>
+</li>
+<li class="user_view">
+  <h4> <%= link_to "去看看", generic_item, :target => "_blank" %> </h4>
+  <p> <%= link_to "删除", entity_to_be_removed, :method => :delete, :confirm => "确定删除吗？" %> </p>
+</li>
+<div class="clean">&nbsp;</div>
