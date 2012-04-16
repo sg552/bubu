@@ -1,3 +1,4 @@
+# TODO remove index action.
 class CommentsController < ApplicationController
   before_filter :get_by_id, :only => [:show, :edit, :update, :destroy]
 

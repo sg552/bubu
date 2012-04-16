@@ -1,0 +1,28 @@
+-# generic_item, entity_to_be_removed ( comment , favorite)
+%li.user_image
+  = link_to image_tag(generic_item.logo_url, :size => "90x90"), generic_item , :target => "_blank"
+%li.user_txt
+  %h4
+    = link_to  "#{generic_item.name}[#{generic_item.category_by_shape.try(:name)}]", generic_item, :target => "_blank"
+  %p
+    价格区间：￥
+    = generic_item.price_scope
+    | 人气指数：
+    = generic_item.scores
+    | 评论数：
+    = link_to "#{generic_item.comments.size}条", generic_item
+    | 在售商家：
+    = link_to "（#{generic_item.specific_items.size} 个）", generic_item
+  %p
+    %strong 分享到:
+    = link_to image_tag(asset_path("icon/icon_msn.png"), :size => "16x16", :alt=>'MSN')
+    = link_to image_tag(asset_path("icon/icon_qq.png"), :size => "16x16", :alt=>"QQ")
+    = link_to image_tag(asset_path("icon/icon_sina.png"), :size => "16x16", :alt=>"SINA")
+    = link_to image_tag(asset_path("icon/icon_renren.png"), :size => "16x16", :alt => "RENREN")
+%li.user_view
+  %h4
+    = link_to "去看看", generic_item, :target => "_blank"
+  %p
+    = link_to "删除", entity_to_be_removed, :method => :delete, :confirm => "确定删除吗？"
+.clean
+  &nbsp;
