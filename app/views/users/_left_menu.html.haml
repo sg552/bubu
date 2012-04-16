@@ -1,0 +1,42 @@
+-# var: user
+-# <!--//////////////////////////////左边栏开始//////////////////////////////-->
+#left_box
+  -# <!-----------------------------------------------------产品菜单开始----------------------------------------->
+  #menu
+    #sidebar
+      .title_name 个人中心
+      .touxiang
+        = image_tag asset_path("user01.jpg"), :size => "196x193"
+      .userinfo
+        %h7
+          = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+          = link_to "基本信息", @user
+        %h7
+          = link_to_function "[编辑头像]", "open_dialog('ooxx')"
+        %p
+          = "昵称：#{user.login}"
+        %p
+          = "宝宝年龄： #{user.baby_age}"
+        %p
+          = "宝宝性别：#{user.baby_gender}"
+    #sidebar
+      .title_name 应用统计
+      .userinfo
+        %ul
+          %li
+            = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+            = link_to "用户资料编辑", edit_user_path(:id => user.id)
+          %li
+            = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+            = link_to "喜欢的产品 [#{user.favorites.size}] ", favorites_user_path(:id => user.id)
+          %li
+            = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+            = link_to "分享过的产品 [18](未作好) ", favorites_user_path(:id => user.id)
+          %li
+            = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+            = link_to "评论过的产品[#{user.comments.size}]", comments_user_path(:id => user.id)
+          %li
+            = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+            = link_to "您的宝宝还可能喜欢(未作好)", comments_user_path(:id => user.id)
+      .clean &nbsp;
+-#<!--//////////////////////////////左边栏结束////////////////////////////-->
