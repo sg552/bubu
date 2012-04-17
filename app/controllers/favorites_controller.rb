@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  load_and_authorize_resource
   def create
     @favorite = Favorite.new(params[:favorite])
     if @favorite.save

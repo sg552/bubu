@@ -22,7 +22,7 @@
 %li.user_view
   %h4
     = link_to "去看看", generic_item, :target => "_blank"
-  %p
-    = link_to "删除", entity_to_be_removed, :method => :delete, :confirm => "确定删除吗？"
-.clean
-  &nbsp;
+  - if can?(:manage, entity_to_be_removed)
+    %p
+      = link_to "删除", entity_to_be_removed, :method => :delete, :confirm => "确定删除吗？"
+.clean &nbsp;

@@ -15,7 +15,8 @@
           = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
           = link_to "基本信息", @user
         %h7
-          = link_to_function "[编辑头像]", "open_dialog('#{edit_logo_user_path(user)}')"
+          - if can?(:edit, @user)
+            = link_to_function "[编辑头像]", "open_dialog('#{edit_logo_user_path(user)}')"
         %p
           = "昵称：#{user.login}"
         %p
@@ -26,9 +27,10 @@
       .title_name 应用统计
       .userinfo
         %ul
-          %li
-            = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
-            = link_to "用户资料编辑", edit_user_path(:id => user.id)
+          - if can?(:edit, @user)
+            %li
+              = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
+              = link_to "用户资料编辑", edit_user_path(:id => user.id)
           %li
             = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
             = link_to "喜欢的产品 [#{user.favorites.size}] ", favorites_user_path(:id => user.id)

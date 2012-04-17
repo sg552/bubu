@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_filter :get_by_id #, :only => [:show, :edit, :update]
   # GET
   def show

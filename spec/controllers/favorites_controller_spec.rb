@@ -1,9 +1,10 @@
 require 'spec_helper'
 
 describe FavoritesController do
+  login_user
   before do
     request.env["HTTP_REFERER"] = root_path
-    @user = create(:user)
+    @user = User.first
     @generic_item = create(:generic_item)
   end
 
