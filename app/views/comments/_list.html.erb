@@ -19,10 +19,11 @@
             <tr>
               <td width="10%">
                 <!-- TODO added logo here -->
-                <%= link_to image_tag(comment.user.logo.itself.url, :size => "50x50") +
+                <%= link_to image_tag(comment.user.logo.itself.url, :size => "50x50") + raw("<br/>") +
                   comment.user.login, comment.user, :target => "_blank" %>
               </td>
-              <td width="90%"><h4>标题：<%= comment.title %>, 时间：<%= comment.created_at.to_date%></h4>
+              <td width="90%">
+                <h4> 标题：<%= comment.title %>, 时间：<%= comment.created_at.to_date%></h4>
                 <p><%= comment.content %></p>
                 <% if can? :manage, comment %>
                 <%= link_to_function "编辑", "open_dialog('#{edit_comment_path(comment)}')" %> ,
