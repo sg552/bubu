@@ -1,5 +1,8 @@
-<%= form_for(@image) do |f| %>
+<% original_type = @image.type %>
+<%= form_for(@image.becomes(Image)) do |f| %>
   <%= f.hidden_field :generic_item_id %>
+  <%= f.hidden_field :user_id %>
+  <%= hidden_field_tag "type", original_type %>
   <p> 有两种方式编辑图片, （显示优先级：外部链接 &gt; 上传的图片） </p>
   <ul>
   <li>

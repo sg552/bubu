@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe GenericItemsController do
+  render_views
   before do
     request.env["HTTP_REFERER"] = root_path
     @generic_item = create(:generic_item)

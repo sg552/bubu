@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe ImagesController do
+  render_views
   before do
+    request.env["HTTP_REFERER"] = root_path
     @generic_item = create(:generic_item)
   end
   def valid_session
@@ -18,14 +20,6 @@ describe ImagesController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested image as @image" do
-      image = Image.create! valid_attributes
-      get :show, {:id => image.to_param}, valid_session
-      assigns(:image).should eq(image)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new image as @image" do
       get :new, {}, valid_session
@@ -33,71 +27,42 @@ describe ImagesController do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested image as @image" do
-      image = Image.create! valid_attributes
-      get :edit, {:id => image.to_param}, valid_session
+  [:item, :user].each do |entity|
+    it "should get edit for #{entity}_image" do
+      image = create(:"#{entity}_image")
+      get :edit, :id => image.id
       assigns(:image).should eq(image)
     end
   end
 
   describe "POST create" do
-    describe "with valid params" do
-      it "creates a new Image" do
-        expect {
-          post :create, {:image => valid_attributes}, valid_session
-        }.to change(Image, :count).by(1)
-      end
-
-      it "assigns a newly created image as @image" do
+    it "creates a new Image" do
+      expect {
         post :create, {:image => valid_attributes}, valid_session
-        assigns(:image).should be_a(Image)
-        assigns(:image).should be_persisted
-      end
-
-      it "redirects to the generic_item" do
-        post :create, {:image => valid_attributes}, valid_session
-        response.should redirect_to(@generic_item)
-      end
+      }.to change(Image, :count).by(1)
     end
-
   end
 
   describe "PUT update" do
-    describe "with valid params" do
-      it "updates the requested image" do
-        image = Image.create! valid_attributes
-        Image.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => image.to_param, :image => {'these' => 'params'}}, valid_session
-      end
-
-      it "assigns the requested image as @image" do
-        image = Image.create! valid_attributes
-        put :update, {:id => image.to_param, :image => valid_attributes}, valid_session
-        assigns(:image).should eq(image)
-      end
-
-      it "redirects to the generic_item" do
-        image = Image.create! valid_attributes
-        put :update, {:id => image.to_param, :image => valid_attributes}, valid_session
-        response.should redirect_to(@generic_item)
-      end
+    it "updates the requested image" do
+      image = Image.create! valid_attributes
+      Image.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
+      put :update, {:id => image.to_param, :image => {'these' => 'params'}}, valid_session
     end
 
+    it "assigns the requested image as @image" do
+      image = Image.create! valid_attributes
+      put :update, {:id => image.to_param, :image => valid_attributes}, valid_session
+      assigns(:image).should eq(image)
+    end
   end
 
   describe "DELETE destroy" do
     it "destroys the requested image" do
-      image = Image.create! valid_attributes
+      image = create(:image)
       expect {
         delete :destroy, {:id => image.to_param}, valid_session
       }.to change(Image, :count).by(-1)
-    end
-
-    it "redirects to the images list" do
-      image = Image.create! valid_attributes
-      delete :destroy, {:id => image.to_param}, valid_session
-      response.should redirect_to(@generic_item)
     end
   end
 

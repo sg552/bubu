@@ -17,7 +17,13 @@ Bubu::Application.routes.draw do
 
   resources :comments
 
-  resources :images
+  resources :images do
+    member do
+      [:item, :user].each do |entity|
+        put "update_#{entity}_image"
+      end
+    end
+  end
 
   resources :specific_items
 

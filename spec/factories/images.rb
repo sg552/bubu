@@ -2,6 +2,11 @@
 
 FactoryGirl.define do
   factory :image do
+  end
+  factory :item_image do
     generic_item_id 1
+  end
+  factory :user_image do
+    user_id 1
   end
 end

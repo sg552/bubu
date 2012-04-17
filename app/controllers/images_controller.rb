@@ -11,19 +11,12 @@ class ImagesController < ApplicationController
     end
   end
 
-  # GET /images/1
-  # GET /images/1.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @image }
-    end
-  end
-
   # GET /images/new
   # GET /images/new.json
   def new
-    @image = Image.new(:generic_item_id => params[:generic_item_id])
+    @image = params[:generic_item_id].blank? ?
+      UserImage.new(:user_id => params[:user_id]) :
+      ItemImage.new(:generic_item_id => params[:generic_item_id])
     render :layout => false
   end
 
@@ -35,43 +28,24 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new(params[:image])
-
-    respond_to do |format|
-      if @image.save
-        format.html { redirect_to @image.generic_item, :notice => 'Image was successfully created.' }
-        format.json { render :json => @image, :status => :created, :location => @image }
-      else
-        format.html { render :action => "new" }
-        format.json { render :json => @image.errors, :status => :unprocessable_entity }
-      end
-    end
+    model = params[:type].constantize
+    @image = model.new(params[:image])
+    @image.save!
+    redirect_to :back, :notice => t("notice.successfully_created")
   end
 
   # PUT /images/1
   # PUT /images/1.json
   def update
-    respond_to do |format|
-      if @image.update_attributes(params[:image])
-        format.html { redirect_to @image.generic_item, :notice => 'Image was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @image.errors, :status => :unprocessable_entity }
-      end
-    end
+    @image.update_attributes(params[:image])
+    redirect_to :back, :notice => t('notice.successfully_updated')
   end
 
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
-    generic_item = @image.generic_item
     @image.destroy
-
-    respond_to do |format|
-      format.html { redirect_to generic_item}
-      format.json { head :no_content }
-    end
+    redirect_to :back, :notice => t('notice.successfully_deleted')
   end
   private
   def get_by_id

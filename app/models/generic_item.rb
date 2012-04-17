@@ -4,7 +4,8 @@ class GenericItem < ActiveRecord::Base
   belongs_to :category_by_age, :class_name => "Category", :foreign_key => "category_id_by_age"
 
   has_many :specific_items, :dependent => :destroy
-  has_many :images, :dependent => :destroy
+  has_many :item_images, :dependent => :destroy
+  alias :images :item_images
   has_many :comments, :dependent => :destroy
   belongs_to :vendor
   NO_PRICE_SCOPE = "暂无定价"
@@ -17,10 +18,10 @@ class GenericItem < ActiveRecord::Base
   end
 
   def logo_url
-    return nil if images.blank?
-    images.first.external_url.blank? ?
-      images.first.itself.url(:medium) :
-      images.first.external_url
+    return nil if item_images.blank?
+    item_images.first.external_url.blank? ?
+      item_images.first.itself.url(:medium) :
+      item_images.first.external_url
   end
 
 end

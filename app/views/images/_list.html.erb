@@ -1,7 +1,8 @@
-<%= link_to_function "添加图片", "open_dialog('#{new_image_path(:generic_item_id => generic_item.id)}')" %> <br/>
+<%= link_to_function "添加图片", "open_dialog('#{new_image_path(
+  :generic_item_id => generic_item.id)}')" %> <br/>
 <% generic_item.images.each do |image| %>
   <%= image_tag image.external_url,:size => "60x60" unless image.external_url.blank? %>(外部图片） ,
   <%= image_tag image.itself.url(:thumb) %>( 本地图片） ,
-  <%= link_to_function "更改", "open_dialog('#{edit_image_path(image)}')" %> ,
-  <%= link_to "删除", image, :method => :delete, :confirm => "确定删除吗？" %> <br/>
+  <%= link_to_function "更改", "open_dialog('#{edit_image_path(image.becomes(Image))}')" %> ,
+  <%= link_to "删除", image.becomes(Image), :method => :delete, :confirm => "确定删除吗？" %> <br/>
 <% end %>

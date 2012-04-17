@@ -6,12 +6,12 @@ describe GenericItem do
     @id = @generic_item.id
   end
 
-  it "should have many images" do
-    create(:image, :generic_item_id => @id)
-    create(:image, :generic_item_id => @id)
-    @generic_item.images.size.should == 2
+  it "should have many item_images" do
+    create(:item_image, :generic_item_id => @id)
+    create(:item_image, :generic_item_id => @id)
+    @generic_item.item_images.size.should == 2
     @generic_item.destroy
-    Image.where(:generic_item_id => @id).size.should == 0
+    ItemImage.where(:generic_item_id => @id).size.should == 0
   end
 
   it "should have many comments " do
@@ -53,7 +53,7 @@ describe GenericItem do
 
     url = "hihihi"
     generic_item = create(:generic_item)
-    image = create(:image, :generic_item_id => generic_item.id)
+    image = create(:item_image, :generic_item_id => generic_item.id)
     generic_item.logo_url.should == image.itself.url(:medium)
   end
 
