@@ -22,3 +22,9 @@ class UserImage < Image
     :thumb => "50x50" # in comments list
   }
 end
+
+class SliderImage < Image
+  belongs_to :slider
+  has_attached_file :itself, :styles => { :large => "" }
+end
+

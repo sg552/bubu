@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :favorites
+  has_many :user_images
 
   def admin?
     role == ROLE_ADMIN

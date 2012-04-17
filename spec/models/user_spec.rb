@@ -23,5 +23,11 @@ describe User do
       create(:favorite, :user_id => @user.id, :generic_item_id => generic_item2.id)
       @user.favorites.size.should == 2
     end
+
+    it "should have many user_images" do
+      create(:user_image, :user => @user)
+      create(:user_image, :user => @user)
+      @user.user_images.size.should == 2
+    end
   end
 end

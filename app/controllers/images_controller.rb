@@ -1,15 +1,5 @@
 class ImagesController < ApplicationController
   before_filter :get_by_id, :only => [:show, :edit, :update, :destroy]
-  # GET /images
-  # GET /images.json
-  def index
-    @images = Image.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render :json => @images }
-    end
-  end
 
   # GET /images/new
   # GET /images/new.json
