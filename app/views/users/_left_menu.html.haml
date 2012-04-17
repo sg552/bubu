@@ -6,13 +6,16 @@
     #sidebar
       .title_name 个人中心
       .touxiang
-        = image_tag asset_path("user01.jpg"), :size => "196x193"
+        - if @user.logo
+          = image_tag @user.logo.itself.url, :size => "196x193"
+        - else
+          = image_tag asset_path("user_logo.jpg"), :size => "196x193"
       .userinfo
         %h7
           = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
           = link_to "基本信息", @user
         %h7
-          = link_to_function "[编辑头像]", "open_dialog('ooxx')"
+          = link_to_function "[编辑头像]", "open_dialog('#{edit_logo_user_path(user)}')"
         %p
           = "昵称：#{user.login}"
         %p

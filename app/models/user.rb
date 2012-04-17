@@ -26,4 +26,7 @@ class User < ActiveRecord::Base
   def normal_user?
     role == ROLE_USER
   end
+  def logo
+    user_images.first
+  end
 end

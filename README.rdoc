@@ -17,6 +17,7 @@ USER module:
 * comments
 * favourates
 * edit, update, show page
+* user_logo
 
 index page:
 * level2 links for the side bar. (once clicked, should redirect to the search page)

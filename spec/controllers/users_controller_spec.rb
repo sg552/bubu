@@ -34,4 +34,10 @@ describe UsersController do
     get :favorites, :id => @user.id
     assigns(:favorites).size.should > 0
   end
+
+  it "should get edit_logo " do
+    get :edit_logo, :id => @user.id
+    assigns(:image).user.should == @user
+    response.should be_success
+  end
 end

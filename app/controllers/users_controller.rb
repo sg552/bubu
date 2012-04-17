@@ -23,6 +23,12 @@ class UsersController < ApplicationController
     @favorites = @user.favorites
   end
 
+  # GET
+  def edit_logo
+    @image = !@user.logo.blank? ? @user.logo : UserImage.new(:user => @user)
+    render :layout => false
+  end
+
   private
   def get_by_id
     @user = User.find(params[:id])

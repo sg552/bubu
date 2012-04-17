@@ -1,0 +1,7 @@
+<h1>编辑头像</h1>
+<% if @user.user_images.size > 0 %>
+原来的图片是： <%= image_tag @user.logo.itself.url, :size => "196x193" %> <br/>
+<% end %>
+请选择新的图片：
+<%= render 'images/form' %>
+
