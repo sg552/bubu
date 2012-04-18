@@ -7,7 +7,7 @@
       .title_name 个人中心
       .touxiang
         - if @user.logo
-          = image_tag @user.logo.itself.url, :size => "196x193"
+          = image_tag @user.logo.itself.url(:large), :size => "196x193"
         - else
           = image_tag asset_path("user_logo.jpg"), :size => "196x193"
       .userinfo

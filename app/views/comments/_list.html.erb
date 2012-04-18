@@ -19,7 +19,7 @@
             <tr>
               <td width="10%">
                 <!-- TODO added logo here -->
-                <%= link_to image_tag(comment.user.logo.itself.url, :size => "50x50") + raw("<br/>") +
+                <%= link_to image_tag(comment.user.logo.itself.url(:thumb)) + raw("<br/>") +
                   comment.user.login, comment.user, :target => "_blank" if comment.user.logo %>
               </td>
               <td width="90%">

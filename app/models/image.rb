@@ -17,7 +17,7 @@ end
 
 class UserImage < Image
   belongs_to :user
-  has_attached_file :itself, :style => {
+  has_attached_file :itself, :styles => {
     :large => "196x193", # in landing page
     :thumb => "50x50" # in comments list
   }
