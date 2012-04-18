@@ -13,7 +13,7 @@
             %a{ :href => slider.target_url }
               %dl.slider
                 %dt
-                  =# slider.image.blank? ? "no image..." : image_tag(slider.image_url, :size => "600x200")
+                  = slider.slider_image.blank? ? "no image..." : image_tag(slider.image_url, :size => "600x200")
                 %dd
                   %h2= slider.title
                   %tt= slider.content

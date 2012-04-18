@@ -36,12 +36,12 @@ class SlidersController < ApplicationController
   # POST /sliders
   # POST /sliders.json
   def create
-    image = Image.new(params[:image])
+    slider_image = SliderImage.new(params[:image])
     @slider = Slider.new(params[:slider])
-    @slider.image = image
+    slider_image.slider = @slider
 
     respond_to do |format|
-      if image.save && @slider.save
+      if @slider.save && slider_image.save
         format.html { redirect_to :back, :notice => t('notice.successfully_created') }
         format.json { render :json => @slider, :status => :created, :location => @slider }
       else

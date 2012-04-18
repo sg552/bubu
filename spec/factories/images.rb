@@ -9,4 +9,7 @@ FactoryGirl.define do
   factory :user_image do
     user_id 1
   end
+  factory :slider_image do
+    slider_id 1
+  end
 end

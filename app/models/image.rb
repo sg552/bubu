@@ -25,6 +25,6 @@ end
 
 class SliderImage < Image
   belongs_to :slider
-  has_attached_file :itself, :styles => { :large => "" }
+  has_attached_file :itself, :styles => { :large => "600x200" }
 end
 
