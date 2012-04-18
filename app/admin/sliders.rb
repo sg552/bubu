@@ -13,9 +13,9 @@ ActiveAdmin.register Slider do
       link_to slider.target_url, slider.target_url
     end
     column :image_id do |slider|
-      unless slider.image.blank?
-        link_to image_tag( asset_path slider.image.itself(:medium)),
-          asset_path(slider.image.itself(:large)), :target => "_blank"
+      unless slider.slider_image.blank?
+        link_to image_tag( asset_path slider.slider_image.itself(:medium)),
+          asset_path(slider.slider_image.itself(:large)), :target => "_blank"
       end
     end
 

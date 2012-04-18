@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20120418030552) do
     t.string   "external_url"
     t.integer  "user_id"
     t.string   "type"
+    t.integer  "slider_id"
   end
 
   create_table "sliders", :force => true do |t|
