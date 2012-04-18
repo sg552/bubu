@@ -8,6 +8,7 @@ Bubu::Application.routes.draw do
       get :comments
       get :favorites
       get :edit_logo
+      get :recommends
     end
   end
   resources :favorites

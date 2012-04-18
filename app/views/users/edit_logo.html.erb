@@ -4,4 +4,11 @@
 <% end %>
 请选择新的图片：
 <%= render 'images/form' %>
+<script>
+$(function(){
+  $("form p").hide()
+  $($("form ol li")[0]).hide()
+})
+</script>
+
 

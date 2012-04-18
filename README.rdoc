@@ -1,13 +1,13 @@
 == TODOs
+  // rewrite this using coffeescript.
+  // use jquery alert plugin instead of alert/notice
 
-  // TODO rewrite this using coffeescript.
-  // TODO: use jquery alert plugin instead of alert
+* user: pagination(kaminari) for recommends
+* the "share" module
 
 * use refinery CMS
 
 search page:
-* use cancan for authorization
-* anonymous users don't have right to comment
 * when editing the items, should validate input
 * extract js tool:  grey default value (see: search box)
 * use haml and coffeescript for those erb files with js snippets.
@@ -18,6 +18,8 @@ USER module:
 * favourates
 * edit, update, show page
 * user_logo
+* use cancan for authorization
+* anonymous users don't have right to comment
 
 index page:
 * level2 links for the side bar. (once clicked, should redirect to the search page)

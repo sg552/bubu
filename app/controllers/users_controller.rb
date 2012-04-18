@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
-  before_filter :get_by_id #, :only => [:show, :edit, :update]
+  before_filter :get_by_id
   # GET
   def show
   end
@@ -28,6 +28,14 @@ class UsersController < ApplicationController
   def edit_logo
     @image = !@user.logo.blank? ? @user.logo : UserImage.new(:user => @user)
     render :layout => false
+  end
+
+  # GET
+  def recommends
+    baby_age = @user.baby_age || "0-9"
+    @generic_items = GenericItem.where(:category_id_by_age =>
+      Category.get_categories_by_scope(baby_age, Category::PRINCIPLE_BY_AGE)).
+      order("scores desc")
   end
 
   private

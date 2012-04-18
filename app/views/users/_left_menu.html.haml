@@ -42,6 +42,6 @@
             = link_to "评论过的产品[#{user.comments.size}]", comments_user_path(:id => user.id)
           %li
             = image_tag asset_path("icon/icon_03.png"), :size => "14x14"
-            = link_to "您的宝宝还可能喜欢(未作好)", comments_user_path(:id => user.id)
+            = link_to "您的宝宝还可能喜欢", recommends_user_path(:id => user.id)
       .clean &nbsp;
 -#<!--//////////////////////////////左边栏结束////////////////////////////-->

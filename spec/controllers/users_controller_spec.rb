@@ -40,4 +40,12 @@ describe UsersController do
     assigns(:image).user.should == @user
     response.should be_success
   end
+
+  it "should get recommends by user's baby's age." do
+    age_category = create(:category, :principle => Category::PRINCIPLE_BY_AGE, :name => "4-5")
+    @generic_item.update_attribute(:category_id_by_age, age_category.id)
+    @user.update_attribute(:baby_age, "5")
+    get :recommends, :id => @user.id
+    assigns(:generic_items).size.should > 0
+  end
 end
