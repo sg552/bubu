@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     baby_age = @user.baby_age || "0-9"
     @generic_items = GenericItem.where(:category_id_by_age =>
       Category.get_categories_by_scope(baby_age, Category::PRINCIPLE_BY_AGE)).
-      order("scores desc")
+      order("scores desc").page(params[:page]).per(5)
   end
 
   private
