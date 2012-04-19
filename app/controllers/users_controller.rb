@@ -17,11 +17,11 @@ class UsersController < ApplicationController
 
   # GET
   def comments
-    @comments = @user.comments
+    @comments = Kaminari.paginate_array(@user.comments).page(params[:page]).per(5)
   end
   # GET
   def favorites
-    @favorites = @user.favorites
+    @favorites = Kaminari.paginate_array(@user.favorites).page(params[:page]).per(5)
   end
 
   # GET

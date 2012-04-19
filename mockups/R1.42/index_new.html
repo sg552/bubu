@@ -1,0 +1,626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>欢迎光临布布德智用品导购信息网</title>
+<link href="styles/Main_new.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/menu.js"></script>
+<script  type="text/javascript" src="js/new.js"></script>
+<script  type="text/javascript" src="js/photoshow.js"></script>
+<script  type="text/javascript" src="js/tab_mod.js"></script>
+
+<script>
+<!--
+/*第一种形式 第二种形式 更换显示样式*/
+function setTabfun(m,n){
+ var tli=document.getElementById("menu"+m).getElementsByTagName("li");
+ var mli=document.getElementById("main"+m).getElementsByTagName("ul");
+ for(i=0;i<tli.length;i++){
+  tli[i].className=i==n?"hover":"";
+  mli[i].style.display=i==n?"block":"none";
+ }
+}
+/*第三种形式 利用一个背景层定位*/
+var m3={0:"",1:"评论内容",2:"技术内容",3:"点评内容"}
+function nowtab(m,n){
+ if(n!=0&&m3[0]=="")m3[0]=document.getElementById("main2").innerHTML;
+ document.getElementById("tip"+m).style.left=n*100+'px';
+ document.getElementById("main2").innerHTML=m3[n];
+}
+//-->
+</script>
+
+
+</head>
+
+<body>
+<div style="background:#84b652; width:100%; height:6px; overflow:hidden;">&nbsp;</div>
+
+<div style="width:100%; height:auto; overflow:hidden;">
+<div class="topside_Logo">
+    <div class="logo"><img src="images/logo.png" width="160" height="75" alt="WWW.BUBU521.COM" /></div>
+    <div class="login">
+      <ul>
+        <li class="welcom_login"><a href="#"><img src="images/login.png" width="80" height="22" alt="登陆" /></a><a href="#"><img src="images/reg.png" width="80" height="22" alt="登陆" /></a> </li>
+        <li><a href="#"><img src="images/icon/icon_qq_qq.png" width="16" height="16" alt="QQ" /> QQ登陆 </a></li>
+        <li><a href="#"><img src="images/icon/icon_sina.png" width="16" height="16" alt="sina" /> 微博登陆</a></li>
+        <li><a href="#"><img src="images/icon/tao.png" width="16" height="16" alt="taobao" /> 淘宝登陆</a> | <a href="#">更多>> </a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clean">&nbsp;</div>
+  <div id="search_box">
+    <ul>
+      <li class="home_icon"><a href="#"><img src="images/icon.png" width="22" height="27" alt="Home" title="回首页"/></a></li>
+      <li>
+        <form id="form1" name="form1" method="post" action="">
+          <INPUT style="height:27px; margin-top:-4px; width:290px; margin-left:535px; font-size:14px;color:#999;" 
+				onblur="if(this.value==''){this.value='请输入玩具名称或品牌';this.style.color='#aaa'}" 
+				onfocus="if(this.value=='请输入玩具名称或品牌'){this.value='';this.style.color='#666'}" 
+				value=请输入玩具名称或品牌 name=keyword>
+        </form>
+      </li>
+      <li style="margin-top:7px;"><a href="#"><img src="images/ad06.png" /></a></li>
+    </ul>
+  </div>
+  <div class="clean">&nbsp;</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="main_box">
+  
+  
+  
+  
+  
+  
+  <div id="menu">
+    <div id="menu_list">
+      <ul>
+        <h9>宝宝年龄分类</h9>
+        <li><a href="#" target="_blank"><img src="images/icon/icon_03.png" width="14" height="14" /> 0-3岁</a></li>
+        <li><a href="#" target="_blank"><img src="images/icon/icon_03.png" width="14" height="14" /> 4-6岁</a></li>
+        <li><a href="#" target="_blank"><img src="images/icon/icon_03.png" width="14" height="14" /> 7-9岁</a></li>
+        <li><a href="#" target="_blank"><img src="images/icon/icon_03.png" width="14" height="14" /> 10-14岁</a></li>
+      </ul>
+    </div>
+    
+    
+    
+    
+    
+    <div id="pics_play"> 
+      
+      <!--幻灯播放部分开始-->
+      <div id="photo_show">
+        <div id="photo_box">
+          <div class="sub_box">
+            <div id="p-select" class="sub_nav">
+              <div class="sub_no" id="bd1lfsj">
+                <ul>
+                  <li class="show">1</li>
+                  <li class="">2</li>
+                  <li class="">3</li>
+                  <li class="">4</li>
+                  <li class="">5</li>
+                </ul>
+              </div>
+            </div>
+            <div id="bd1lfimg">
+              <div>
+                <dl class="show">
+                </dl>
+                <dl class="">
+                  <dt><a href="#" title="" target="_blank"><img src="images/w1.jpg" alt="2011城市主题公园亲子游"></a></dt>
+                </dl>
+                <dl class="">
+                  <dt><a href="#" title="" target="_blank"><img src="images/w2.jpg" alt="潜入城市周边清幽之地"></a></dt>
+                </dl>
+                <dl class="">
+                  <dt><a href="#" title="" target="_blank"><img src="images/w3.jpg" alt="盘点中国最美雪山"></a></dt>
+                </dl>
+                <dl class="">
+                  <dt><a href="#" title="" target="_blank"><img src="images/w4.jpg" alt="2011西安世园会攻略"></a></dt>
+                </dl>
+                <dl class="">
+                  <dt><a href="#" title="" target="_blank"><img src="images/w5.jpg" alt="五月乐享懒人天堂塞班岛"></a></dt>
+                </dl>
+              </div>
+            </div>
+          </div>
+          <script type="text/javascript">movec();</script> 
+        </div>
+      </div>
+      
+      <!--幻灯播放部分结束--> 
+    </div>
+    
+    
+    
+   
+   <!----------------------------------------------功能扩展区开始------------------------------------------->
+    <div id="fun_box">
+    
+    <div id="tabs1">
+  <div class="menu1box">
+    <ul id="menu1">
+      <li class="hover" onmouseover="setTabfun(1,0)"><a href="#">成长话题</a></li>
+      <li onmouseover="setTabfun(1,1)"><a href="#">团购活动</a></li>
+    </ul>
+  </div>
+  <div class="main1box">
+    <div class="main" id="main1">
+      <ul class="block">
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 优秀玩具的要素有哪些？</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 不同宝宝需要什么玩具？</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 影响宝宝一生的玩具！</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 如何选购高质量的玩具？</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 奇妙的玩具世界！</a></li>
+      </ul>
+      <ul>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 奇妙的玩具世界！</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 不同宝宝需要什么玩具？</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 影响宝宝一生的玩具！</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 如何选购高质量的玩具？</a></li>
+        <li><a href="#"><img src="images/icon/icon_foot.png" width="18" height="18" /> 奇妙的玩具世界！</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+    <!----------------------------------------------功能扩展区结束------------------------------------------->
+   
+   
+   
+   
+    
+
+  </div>
+  
+  <div class="clean">&nbsp;</div>
+  
+  
+  <div class="zuituijian_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们<h7>最最推荐</h7>的玩具</p>
+      <!--<p class="box_name_more">更多 >></p>--> 
+    </div>
+    <div class="box_product">
+      <ul>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h10><a href="#" title="点击访问"><img src="images/icon/icon_03.png" width="14" height="14" /> 机器猫</a></h10>
+            <span>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</span>
+
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h10><a href="#" title="点击访问"><img src="images/icon/icon_03.png" width="14" height="14" /> 机器猫</a></h10>
+            <span>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</span>
+
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h10><a href="#" title="点击访问"><img src="images/icon/icon_03.png" width="14" height="14" /> 机器猫</a></h10>
+            <span>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</span>
+
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h10><a href="#" title="点击访问"><img src="images/icon/icon_03.png" width="14" height="14" /> 机器猫</a></h10>
+            <span>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</span>
+
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+         <li>
+            <h10><a href="#" title="点击访问"><img src="images/icon/icon_03.png" width="14" height="14" /> 机器猫</a></h10>
+            <span>幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</span>
+
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+  <div class="pinpai_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们喜欢的<h7>品牌</h7></p>
+    </div>
+    <div class="box_pinpai">
+      <div class="suolue">
+        <ul>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+        </ul>
+      </div>
+      <div class="vip">
+        <ul>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/vip.jpg" width="174" height="260" /></a></li>
+          </ol>
+        </ul>
+      </div>
+      <div class="suolue">
+        <ul>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+        </ul>
+      </div>
+      <div class="vip">
+        <ul>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/vip.jpg" width="174" height="260" /></a></li>
+          </ol>
+        </ul>
+      </div>
+      <div class="suolue">
+        <ul>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+          <ol>
+            <li><a href="#" target="_blank"><img src="images/pinpai.jpg" width="179" height="80" /></a></li>
+          </ol>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="tuijian_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们喜欢的<h7>益智玩具</h7></p>
+      <p class="box_name_more"><a href="#">更多 >></a></p>
+    </div>
+    <div class="box_note">
+      <div class="box_note_01box">
+        <p class="icon"><img src="images/icon/icon01.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+      <div class="box_note_02box">
+        <p class="icon"><img src="images/icon/icon02.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+    </div>
+    <div class="clean">&nbsp;</div>
+    <div class="box_product">
+      <ul>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+  <div class="tuijian_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们喜欢的<h7>毛绒玩具</h7></p>
+      <p class="box_name_more"><a href="#">更多 >></a></p>
+    </div>
+    <div class="box_note">
+      <div class="box_note_01box">
+        <p class="icon"><img src="images/icon/icon01.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+      <div class="box_note_02box">
+        <p class="icon"><img src="images/icon/icon02.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+    </div>
+    <div class="clean">&nbsp;</div>
+    <div class="box_product">
+      <ul>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木趣味积木趣味积木趣味积木趣味积木趣味积木趣味积木趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+  <div class="tuijian_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们喜欢的<h7>DIY玩具</h7></p>
+      <p class="box_name_more"><a href="#">更多 >></a></p>
+    </div>
+    <div class="box_note">
+      <div class="box_note_01box">
+        <p class="icon"><img src="images/icon/icon01.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+      <div class="box_note_02box">
+        <p class="icon"><img src="images/icon/icon02.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+    </div>
+    <div class="clean">&nbsp;</div>
+    <div class="box_product">
+      <ul>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+  <div class="tuijian_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们喜欢的<h7>模型玩具</h7></p>
+      <p class="box_name_more"><a href="#">更多 >></a></p>
+    </div>
+    <div class="box_note">
+      <div class="box_note_01box">
+        <p class="icon"><img src="images/icon/icon01.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+      <div class="box_note_02box">
+        <p class="icon"><img src="images/icon/icon02.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+    </div>
+    <div class="clean">&nbsp;</div>
+    <div class="box_product">
+      <ul>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+  <div class="tuijian_box">
+    <div class="box_name">
+      <p class="box_name_txt">布友们喜欢的<h7>遥控玩具</h7></p>
+      <p class="box_name_more"><a href="#">更多 >></a></p>
+    </div>
+    <div class="box_note">
+      <div class="box_note_01box">
+        <p class="icon"><img src="images/icon/icon01.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+      <div class="box_note_02box">
+        <p class="icon"><img src="images/icon/icon02.png" width="40" height="40" /></p>
+        <p class="note">幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。幼儿年龄小，安全意识很差，并且缺乏生活经验，见了新鲜事物敢于冒险，所以我们一定要提高警惕心。</p>
+      </div>
+    </div>
+    <div class="clean">&nbsp;</div>
+    <div class="box_product">
+      <ul>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+        <ol>
+          <li><a href="#" target="_blank"><img src="images/demo3.jpg" width="169" height="180" /></a></li>
+          <li>
+            <h8> <a href="#" target="_blank">趣味积木</a></h8>
+            <p>价格区间：￥50-300</p>
+            <p><img src="../R1.0/images/icon/icon_03.png" width="14" height="14" />喜欢：2300</p>
+          </li>
+        </ol>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Footer 开始 -->
+<div id="footer">
+<div class="foot_menu">
+    <p><a href="#">关于布布</a></p>
+    <p><a href="#">联系我们</a></p>
+    <p><a href="#">服务条款</a></p>
+    <p><a href="#">商物合作</a></p>
+    <p><a href="#">版权信息</a></p>
+</div>
+ 
+    <div class="copyright"><a href="#">Copyright © 2012 bubu521.com </a><br /><a href="#"> 备案号: 沪ICP备 12010160</a>
+  
+  </div>
+
+</div>
+<!-- Footer 结束 -->
+
+</body>
+</html>

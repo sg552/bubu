@@ -1,0 +1,26 @@
+.MagicZoomBigImageCont {
+	border:			1px solid #91b817;
+}
+
+.MagicZoomHeader {
+	font:			10px Tahoma, Verdana, Arial, sans-serif;
+	color:			#fff;
+	background:		#91b817;
+	text-align:     center !important;
+}
+.MagicZoomPup {
+	border: 		1px solid #aaa;
+	background: 	#ffffff;
+}
+.MagicZoomLoading {
+	text-align:		center;
+	background: 	#ffffff;
+	color:			#444;
+	border: 		1px solid #ccc;
+	opacity:		0.7;
+	padding:		3px 3px 3px 3px !important;
+	display: 		none;
+}
+.MagicZoomLoading img {
+	padding-top:	3px !important;
+}

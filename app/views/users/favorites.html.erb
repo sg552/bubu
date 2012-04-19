@@ -3,16 +3,19 @@
 <div id="right_box">
 <div class="userinfo_showbox">
   <div class="userinfo_title">
-    <p> 喜欢的产品 [<%= @user.favorites.size %>] </p>
+    <p> 喜欢的产品 [<%= @favorites.total_count %>] </p>
   </div>
   <div class="xihuan_contentbox">
     <ul>
-      <% @user.favorites.each do |favorite| %>
+      <% @favorites.each do |favorite| %>
       <ol>
         <%= render :partial => 'generic_items/horizontal_entity', :locals => {
           :generic_item => favorite.generic_item, :entity_to_be_removed => favorite} %>
       </ol>
       <% end %>
+      <div class="pn_box">
+        <%= raw paginate @favorites%>
+      </div>
     </ul>
     <div class="clean">&nbsp;</div>
   </div>
