@@ -8,25 +8,46 @@
             <p><%= t 'subtitle_of_register' %></p>
             <ul>
               <li class="reg_email">
-                <span><%= t 'email' %><%= required %>：</span><span><input name="" class="reg_form" type="text" /></span></li>
-<!--
-              <li class="reg_name"><span>昵称：</span><span><input name="" class="reg_form" type="text" /></span></li>
-              <li class="reg_sex"><span>性别：</span><span>男 <input name="" type="radio" value="" /> 女 <input name="" type="radio" value="" /></span></li>
--->
-              <li class="reg_password"><span><%= t 'password' %><%= required %>：</span><span><input name="" class="reg_form" type="text" /></span></li>
-              <li class="reg_re_input"><span><%= t 'confirm_password' %><%= required %>：</span><span><input name="" class="reg_form" type="text" /></span></li>
+                <span><%= t 'email' %><%= required %>：</span>
+                <span><%= f.email_field :email, :class => "reg_form" %></span>
+              </li>
+              <li class="reg_name"><span>昵称<%= required %>：</span>
+                <span><%= f.text_field :login, :class => "reg_form" %></span>
+              </li>
+              <li class="reg_password">
+                <span><%= t 'password' %><%= required %>：</span>
+                <span><%= f.password_field :password, :class => "reg_form" %></span>
+              </li>
+              <li class="reg_re_input">
+                <span><%= t 'confirm_password' %><%= required %>：</span>
+                <span><%= f.password_field :password_confirmation, :class => "reg_form" %></span>
+              </li>
+              <li class="reg_email">
+                <span>宝宝年龄&nbsp;&nbsp;：</span>
+                <span><%= f.select :baby_age, options_for_select( User::OPTIONS_FOR_AGE),
+                  {}, {:size => 1, :class => "reg_form"} %></span>
+              </li>
+              <li class="reg_sex"><span>性别&nbsp;&nbsp;：</span>
+                <span>
+                <%= f.radio_button :baby_gender, "女" %>
+                <label for="user_baby_gender_女">女&nbsp;&nbsp;</label>
+                &nbsp;&nbsp;&nbsp;
+                <%= f.radio_button :baby_gender, "男" %>
+                <label for="user_baby_gender_男">男&nbsp;&nbsp;</label>
+                </span>
+              </li>
 <!--
               <li class="reg_check_number"><span>验证码：</span><span><input name="" class="reg_check_number_form" type="text" /></span> <span style=" border:1px solid #666; padding:5px; background:#CF6;"> 1234 </span> <span> <a href="#"> 看不清，换一张</a></span></li>
 -->
               <li class="reg_mind"><span>
-              <%= check_box_tag "", 1 %>
+              <%= check_box_tag "checked_agreements", 1 %>
               </span>
               <span>
-                <%= link_to t('agreement_of_register'), "#" %>
+                <%= link_to t('agreement_of_register'), "#{root_path}bubu_agreements.html", :target => "_blank" %>
               </span></li>
               <li class="reg_submit">
                 <span>
-                <%= submit_tag t('submit'), :class=> "reg_submit_form" %>
+                <%= submit_tag "请看协议", :class=> "reg_submit_form",  :disabled => true  %>
                 </span>
               </li>
             </ul>
@@ -44,3 +65,12 @@
 
   <div class="clean">&nbsp;</div>
 <% end %>
+<script>
+$(function(){
+  $("#checked_agreements").click(function(){
+    not_agreed = !($(this).attr("checked"))
+    $("input[type='submit']").attr("disabled", not_agreed)
+    $("input[type='submit']").attr("value", not_agreed ? "请看协议" : "提交")
+  })
+})
+</script>
