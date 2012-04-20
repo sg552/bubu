@@ -142,14 +142,21 @@ zh_cn:
     errors:
       messages:
         not_saved: 操作失败
+        not_found: 未找到对应的用户
       models:
         user:
           attributes:
             email:
               blank: 邮箱不能为空
+              not_found: 您的邮箱不匹配任何一个用户
             password:
               blank: 密码不能为空
         favorite:
           attributes:
             user_id:
               taken: 您对一款产品只能投票一次
+
+  errors:
+    messages:
+      not_saved: 操作失败
+      not_found: 未找到对应的用户

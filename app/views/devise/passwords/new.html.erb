@@ -1,0 +1,13 @@
+<h2>忘记密码？</h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <p>请输入您的电子邮箱, 点击按钮后，我们将会发送重置后的密码给您（还需要您登录邮箱并且确认信息，
+  才会最终完成密码的重新设置。）。</p>
+  <div>
+  <%= f.email_field :email %></div>
+
+  <div><%= f.submit "确定" %></div>
+<% end %>
+

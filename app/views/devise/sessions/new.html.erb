@@ -6,8 +6,13 @@
   <div>密码：<br/> <%= f.password_field :password %></div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> 下次自动登陆</div>
+    <div><%= f.check_box :remember_me %> <label for="user_remember_me">下次自动登陆</label></div>
   <% end -%>
+  <div style="margin-top: 20px">
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+      <%= link_to "忘记密码？", new_password_path(resource_name), :target => "_blank" %>
+    <% end %>
+  </div>
 
   <%= render :partial => "layouts/submit_and_cancel" %>
 <% end %>
