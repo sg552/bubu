@@ -11,7 +11,7 @@ class Devise::PasswordsController < DeviseController
     self.resource = resource_class.send_reset_password_instructions(params[resource_name])
 
     if successfully_sent?(resource)
-      respond_with({}, :location => after_sending_reset_password_instructions_path_for(resource_name))
+      redirect_to root_path, :notice => "邮件发送成功"
     else
       respond_with(resource)
     end
