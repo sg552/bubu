@@ -1,7 +1,8 @@
 <h2>登陆</h2>
-
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div>邮箱地址：<br/> <%= f.email_field :email %></div>
+<% form_id = "login_form" %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),
+  :html => {:id => form_id }) do |f| %>
+  <div>邮箱地址：<br/> <%= f.text_field :email %></div>
 
   <div>密码：<br/> <%= f.password_field :password %></div>
 
@@ -18,6 +19,7 @@
 <% end %>
 <script>
 $(function(){
-  $("#user_email").focus()
+  $("#<%= form_id%> #user_email").focus()
+  new_rsv("<%= form_id %>", rules_of_login)
 })
 </script>

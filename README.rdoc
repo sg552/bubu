@@ -1,10 +1,7 @@
 == TODOs
-  // rewrite this using coffeescript.
-  // use jquery alert plugin instead of alert/notice
-
-* user: pagination(kaminari) for recommends
+* rewrite this using coffeescript.
+* use jquery alert plugin instead of alert/notice
 * the "share" module
-
 * use refinery CMS
 
 search page:
@@ -14,6 +11,7 @@ search page:
 
 == DONE
 USER module:
+* user: pagination(kaminari) for recommends
 * comments
 * favourates
 * edit, update, show page

@@ -9,6 +9,12 @@ class Devise::SessionsController < DeviseController
     respond_with(resource, serialize_options(resource), :layout => false)
   end
 
+  def login_page
+    resource = build_resource
+    clean_up_passwords(resource)
+    render :file => "app/views/devise/sessions/new.html.erb", :notice => "用户名和密码不匹配"
+  end
+
   # POST /resource/sign_in
   def create
     resource = warden.authenticate!(auth_options)
@@ -45,7 +51,7 @@ class Devise::SessionsController < DeviseController
   end
 
   def auth_options
-    { :scope => resource_name, :recall => "#{controller_path}#new" }
+    { :scope => resource_name, :recall => "#{controller_path}#login_page" }
   end
 end
 

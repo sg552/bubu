@@ -1,4 +1,23 @@
 ###
+  Usage:
+    rules = ["required,device_group[name], Please input name"]
+    new_rsv("form_id", rules, { on_complete : "function_name()"})
+    or:
+    new_rsv("form_id", rules )
+###
+this.new_rsv = (form_id, rules, options = {}) ->
+  jQuery("#"+form_id).RSV({
+    displayType: "display-html",
+    errorFieldClass: "fieldWithErrors",
+    errorHTMLItemBullet: "&#8212; ",
+    formID: form_id,
+    onCompleteHandler: options.on_complete || true,
+    errorTextIntro: "有些小问题。。。"
+    rules: rules
+  })
+
+
+###
  * Usage:  given :  http://some.site.com?para1=hi
  * para1 = params("para1")     => para1 = "hi"
 ###

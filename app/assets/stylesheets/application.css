@@ -24,3 +24,22 @@
 .pn_down .current {background:#060; color:#FFF; padding:3px 6px;}
 
 .xihuan_contentbox .pn_box ul { height: auto}
+
+/* RSV validation */
+.fieldWithErrors, .label input.fieldWithErrors {
+border: 1px solid red !important;
+}
+
+#rsvErrors{
+border: 1px solid red;
+background-color: #FCC;
+display: none;
+padding: 8px;
+}
+.rsv_error{
+border: 1px solid red;
+background-color: #FCC;
+padding: 8px;
+/*    width: 80%;*/
+}
+
