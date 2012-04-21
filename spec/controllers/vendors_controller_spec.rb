@@ -25,14 +25,6 @@ describe VendorsController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested vendor as @vendor" do
-      vendor = Vendor.create! valid_attributes
-      get :show, {:id => vendor.to_param}, valid_session
-      assigns(:vendor).should eq(vendor)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new vendor as @vendor" do
       get :new, {}, valid_session

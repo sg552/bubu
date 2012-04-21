@@ -12,15 +12,6 @@ class VendorsController < ApplicationController
     end
   end
 
-  # GET /vendors/1
-  # GET /vendors/1.json
-  def show
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @vendor }
-    end
-  end
 
   # GET /vendors/new
   # GET /vendors/new.json
