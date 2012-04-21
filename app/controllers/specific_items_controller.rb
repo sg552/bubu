@@ -11,14 +11,6 @@ class SpecificItemsController < ApplicationController
     end
   end
 
-  # GET /specific_items/1
-  # GET /specific_items/1.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @specific_item }
-    end
-  end
 
   # GET /specific_items/new
   # GET /specific_items/new.json

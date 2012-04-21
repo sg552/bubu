@@ -25,13 +25,6 @@ describe SpecificItemsController do
     assigns(:specific_items).should == [@specific_item]
   end
 
-  describe "GET show" do
-    it "assigns the requested specific_item as @specific_item" do
-      specific_item = SpecificItem.create! valid_attributes
-      get :show, {:id => specific_item.to_param}, valid_session
-      assigns(:specific_item).should eq(specific_item)
-    end
-  end
 
   it "should get new " do
     get :new, :generic_item_id => @generic_item_id
