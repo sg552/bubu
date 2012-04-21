@@ -21,14 +21,6 @@ describe SlidersController do
     end
   end
 
-  describe "GET show" do
-    it "assigns the requested slider as @slider" do
-      slider = Slider.create! valid_attributes
-      get :show, {:id => slider.to_param}, valid_session
-      assigns(:slider).should eq(slider)
-    end
-  end
-
   describe "GET new" do
     it "assigns a new slider as @slider" do
       get :new, {}, valid_session

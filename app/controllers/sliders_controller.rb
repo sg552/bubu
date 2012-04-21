@@ -11,16 +11,6 @@ class SlidersController < ApplicationController
     end
   end
 
-  # GET /sliders/1
-  # GET /sliders/1.json
-  def show
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @slider }
-    end
-  end
-
   # GET /sliders/new
   # GET /sliders/new.json
   def new
