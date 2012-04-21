@@ -20,13 +20,6 @@ describe CategoriesController do
     response.should be_success
   end
 
-  describe "GET show" do
-    it "assigns the requested category as @category" do
-      category = Category.create! valid_attributes
-      get :show, {:id => category.to_param}, valid_session
-      assigns(:category).should eq(category)
-    end
-  end
 
   describe "GET new" do
     it "assigns a new category as @category" do
